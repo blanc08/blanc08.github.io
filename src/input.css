@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap");
+
+* {
+  font-family: "Fira Code", monospace;
+}
+
+.blob {
+  width: 220px;
+  height: 220px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
