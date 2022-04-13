@@ -9,7 +9,5 @@
 }
 
 .blob {
-  width: 220px;
-  height: 220px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }

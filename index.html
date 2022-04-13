@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio</title>
+    <title>Bagus Oktaviadi</title>
 
     <!-- css -->
     <link href="/dist/output.css" rel="stylesheet" />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/0952a2e6cc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body class="bg-gray-100 text-gray-700">
+  <body class="bg-gray-100 px-6 text-gray-700 lg:px-32">
     <!-- Halo -->
-    <section class="flex h-screen flex-col justify-center lg:px-32">
+    <section class="flex h-screen flex-col justify-center">
       <div class="flex flex-row">
         <div class="name-and-job flex-grow">
           <h1 class="text-5xl font-bold first-letter:uppercase">
@@ -20,7 +25,7 @@
           <span class="text-2xl">a programmer</span>
         </div>
         <div
-          class="blob overflow-hidden bg-[url('/src/images/background.jpg')] bg-cover bg-center"
+          class="blob h-[100px] w-[220px] overflow-hidden bg-[url('/src/images/background.jpg')] bg-cover bg-center md:block md:h-[220px]"
         ></div>
       </div>
       <div class="relative max-w-md">
@@ -28,9 +33,11 @@
       </div>
     </section>
     <!-- Skills -->
-    <section class="lg:px-32">
+    <section>
       <h2 class="text-2xl font-semibold">What am I good at?</h2>
-      <div class="my-24 flex flex-row flex-wrap justify-center gap-4 lg:px-64">
+      <div
+        class="my-6 flex flex-row flex-wrap justify-center gap-4 md:my-24 lg:px-64"
+      >
         <div class="rounded-3xl border-2 border-gray-900 px-6 py-1">PHP</div>
         <div class="rounded-3xl border-2 border-green-600 px-6 py-1">
           Node.js
@@ -50,7 +57,7 @@
       </div>
     </section>
     <!-- Jorney -->
-    <section class="my-12 lg:px-32">
+    <section class="my-12">
       <h2 class="text-2xl font-semibold">My jorney</h2>
       <ol class="relative border-l border-gray-200 dark:border-gray-700">
         <li class="mb-10 ml-4">
@@ -126,12 +133,32 @@
       </ol>
     </section>
     <!-- What i've worked on (projects) -->
-    <section class="my-12 lg:px-32">
+    <section class="my-12">
       <h2 class="text-2xl font-semibold">What i've worked on</h2>
+      <div class="my-6 grid grid-cols-2 gap-4 md:mx-12">
+        <a
+          href="skd.tryoutindonesia.com"
+          class="overflow-hidden rounded-md border bg-white shadow md:m-12"
+        >
+          <img src="/src/images/projects/skd.jpeg" alt="skd" />
+          <div class="m-2">
+            <h4 class="font-semibold leading-tight">Full-stack Developer</h4>
+            <h5 class="text-xs text-gray-500">Smart Center Indonesia</h5>
+          </div>
+        </a>
+      </div>
     </section>
     <!-- How to reach me -->
-    <section class="my-12 lg:px-32">
+    <section class="my-12">
       <h2 class="text-2xl font-semibold">How to reach me</h2>
+      <div class="flex flex-row flex-wrap gap-4">
+        <a href="http://github.com/blanc08" target="_blank">
+          <i class="fa-brands fa-github mr-2"></i>blanc08
+        </a>
+        <a href="mailto:bagusoktaviadi1@gmail.com" target="_blank">
+          <i class="fa-solid fa-envelope mr-2"></i>bagusoktaviadi1@gmail.com
+        </a>
+      </div>
     </section>
 
     <!-- scripts -->
