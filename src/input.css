@@ -65,6 +65,55 @@
   --md-sys-shape-corner-full: 50%;
 }
 
+/* Large screen enhancements */
+@media (min-width: 1400px) {
+  .hero-content,
+  .hero-divider,
+  .skills-section,
+  .journey-section,
+  .projects-section,
+  .contact-section {
+    max-width: 1400px;
+  }
+
+  .hero-section {
+    padding: var(--md-sys-spacing-16) var(--md-sys-spacing-8);
+  }
+
+  .skills-section,
+  .journey-section,
+  .projects-section,
+  .contact-section {
+    padding: var(--md-sys-spacing-20) var(--md-sys-spacing-8);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--md-sys-spacing-10);
+  }
+
+  .profile-blob {
+    width: 300px;
+    height: 300px;
+  }
+
+  .timeline-marker {
+    width: 56px;
+    height: 56px;
+    left: calc(var(--md-sys-spacing-32) * -1);
+  }
+
+  .timeline-marker md-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .timeline-card {
+    margin-left: var(--md-sys-spacing-20);
+  }
+}
+
 /* Base Typography */
 * {
   font-family: "Roboto", sans-serif;
@@ -278,6 +327,17 @@
 }
 
 /* Responsive Design with Material 3 Spacing */
+@media (max-width: 1200px) {
+  .hero-content,
+  .hero-divider,
+  .skills-section,
+  .journey-section,
+  .projects-section,
+  .contact-section {
+    max-width: 960px;
+  }
+}
+
 @media (max-width: 1024px) {
   .skills-section,
   .journey-section,
@@ -293,9 +353,39 @@
   .hero-content {
     gap: var(--md-sys-spacing-8);
   }
+
+  /* Improve grid for tablets */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--md-sys-spacing-6);
+  }
+
+  /* Better button layout on tablets */
+  .contact-links {
+    gap: var(--md-sys-spacing-3);
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Typography scaling for mobile */
+  .md-typescale-display-large {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .md-typescale-headline-large {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .md-typescale-headline-medium {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Layout improvements */
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -304,6 +394,7 @@
   
   .hero-image {
     flex: none;
+    order: -1; /* Show image first on mobile */
   }
   
   .profile-blob {
@@ -312,6 +403,7 @@
     margin: 0 auto;
   }
   
+  /* Timeline improvements for mobile */
   .timeline::before {
     left: var(--md-sys-spacing-4);
   }
@@ -333,6 +425,7 @@
     height: 18px;
   }
   
+  /* Section spacing for mobile */
   .skills-section,
   .journey-section,
   .projects-section,
@@ -342,38 +435,219 @@
 
   .hero-section {
     padding: var(--md-sys-spacing-4);
+    min-height: auto;
+    padding-top: var(--md-sys-spacing-8);
+    padding-bottom: var(--md-sys-spacing-8);
   }
 
+  /* Grid improvements */
   .projects-grid {
     grid-template-columns: 1fr;
     gap: var(--md-sys-spacing-6);
   }
 
+  /* Skills container mobile layout */
+  .skills-container {
+    justify-content: flex-start;
+    gap: var(--md-sys-spacing-3);
+  }
+
+  /* Contact links mobile layout */
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--md-sys-spacing-3);
+  }
+
+  .contact-links md-outlined-button {
+    width: 100%;
+    max-width: 280px;
+    justify-content: flex-start;
+    padding-left: var(--md-sys-spacing-4);
+  }
+
+  /* FAB positioning for mobile */
   .contact-fab {
     bottom: var(--md-sys-spacing-4);
     right: var(--md-sys-spacing-4);
+    --md-fab-container-width: 56px;
+    --md-fab-container-height: 56px;
   }
 }
 
 @media (max-width: 480px) {
-  .skills-container {
-    gap: var(--md-sys-spacing-3);
+  /* Extra small mobile devices */
+  .md-typescale-display-large {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
   }
 
+  .md-typescale-headline-large {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .md-typescale-title-large {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Ultra-compact spacing */
+  .skills-section,
+  .journey-section,
+  .projects-section,
+  .contact-section {
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-3);
+  }
+
+  .hero-section {
+    padding: var(--md-sys-spacing-3);
+    padding-top: var(--md-sys-spacing-6);
+    padding-bottom: var(--md-sys-spacing-6);
+  }
+
+  /* Smaller profile blob */
+  .profile-blob {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Compact skills container */
+  .skills-container {
+    gap: var(--md-sys-spacing-2);
+  }
+
+  .skills-container md-filter-chip {
+    font-size: 0.875rem;
+    min-height: 36px;
+    margin: var(--md-sys-spacing-1);
+  }
+
+  /* Timeline adjustments */
   .timeline {
-    gap: var(--md-sys-spacing-6);
+    gap: var(--md-sys-spacing-5);
   }
 
   .timeline-content {
     padding: var(--md-sys-spacing-4);
   }
 
+  .timeline-marker {
+    width: 36px;
+    height: 36px;
+    left: calc(var(--md-sys-spacing-7) * -1);
+  }
+
+  .timeline-marker md-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .timeline-card {
+    margin-left: var(--md-sys-spacing-8);
+  }
+
+  /* Project cards */
   .project-content {
     padding: var(--md-sys-spacing-4);
   }
 
+  .project-image {
+    height: 160px;
+  }
+
+  /* Section titles */
   .section-title {
-    margin-bottom: var(--md-sys-spacing-6);
+    margin-bottom: var(--md-sys-spacing-5);
+    text-align: center;
+  }
+
+  /* Contact buttons */
+  .contact-links md-outlined-button {
+    font-size: 0.875rem;
+    min-height: 44px; /* Minimum touch target */
+    width: 100%;
+    max-width: none;
+  }
+
+  /* FAB for very small screens */
+  .contact-fab {
+    bottom: var(--md-sys-spacing-3);
+    right: var(--md-sys-spacing-3);
+    --md-fab-container-width: 48px;
+    --md-fab-container-height: 48px;
+    --md-fab-icon-size: 20px;
+  }
+
+  /* Improve text readability */
+  .timeline-content p,
+  .project-content p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 896px) and (orientation: landscape) and (max-height: 480px) {
+  .hero-section {
+    min-height: auto;
+    padding: var(--md-sys-spacing-4) var(--md-sys-spacing-6);
+  }
+
+  .hero-content {
+    flex-direction: row;
+    gap: var(--md-sys-spacing-10);
+    text-align: left;
+  }
+
+  .hero-image {
+    flex: 0 0 200px;
+    order: 0;
+  }
+
+  .profile-blob {
+    width: 120px;
+    height: 120px;
+  }
+
+  .md-typescale-display-large {
+    font-size: 2rem !important;
+  }
+
+  .md-typescale-headline-medium {
+    font-size: 1.125rem !important;
+  }
+
+  .contact-fab {
+    bottom: var(--md-sys-spacing-2);
+    right: var(--md-sys-spacing-2);
+    --md-fab-container-width: 48px;
+    --md-fab-container-height: 48px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .contact-fab,
+  md-fab {
+    display: none;
+  }
+
+  .hero-section {
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+
+  .timeline-card,
+  .project-card {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  .skills-container {
+    page-break-inside: avoid;
   }
 }
 
@@ -392,6 +666,10 @@ md-filter-chip {
   --md-filter-chip-trailing-space: 16px;
   --md-filter-chip-with-leading-icon-leading-space: 12px;
   margin: var(--md-sys-spacing-1);
+  /* Ensure proper touch targets on mobile */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 md-outlined-button,
@@ -404,6 +682,10 @@ md-text-button {
   --md-outlined-button-with-leading-icon-trailing-space: 24px;
   cursor: pointer;
   margin: var(--md-sys-spacing-1);
+  /* Ensure proper touch targets */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 md-fab {
@@ -531,6 +813,126 @@ md-fab {
 
 .project-content p {
   margin-bottom: var(--md-sys-spacing-3);
+}
+
+/* Responsive interaction states */
+@media (hover: hover) and (pointer: fine) {
+  /* Desktop hover states */
+  .timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.16);
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+
+  md-filter-chip:hover {
+    transform: translateY(-1px);
+  }
+
+  md-outlined-button:hover,
+  md-text-button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device states */
+  .timeline-card,
+  .project-card {
+    transform: none;
+  }
+
+  .timeline-card:active {
+    transform: scale(0.98);
+  }
+
+  .project-card:active {
+    transform: scale(0.98);
+  }
+
+  md-filter-chip:active,
+  md-outlined-button:active,
+  md-text-button:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Focus management for accessibility */
+md-filter-chip:focus-visible,
+md-outlined-button:focus-visible,
+md-text-button:focus-visible,
+md-fab:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive utility classes */
+.container-responsive {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--md-sys-spacing-4);
+  padding-right: var(--md-sys-spacing-4);
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    max-width: 640px;
+    padding-left: var(--md-sys-spacing-5);
+    padding-right: var(--md-sys-spacing-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    max-width: 768px;
+    padding-left: var(--md-sys-spacing-6);
+    padding-right: var(--md-sys-spacing-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: 1024px;
+    padding-left: var(--md-sys-spacing-8);
+    padding-right: var(--md-sys-spacing-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-responsive {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-responsive {
+    max-width: 1400px;
+  }
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .timeline-card:hover,
+  .project-card:hover {
+    transform: none;
+  }
 }
 
 /* Fallback styles for when Material Web components don't load */
