@@ -63,6 +63,22 @@
   --md-sys-shape-corner-large: 16px;
   --md-sys-shape-corner-extra-large: 28px;
   --md-sys-shape-corner-full: 50%;
+
+  /* Material 3 Shape Scale for Expressive Design */
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
+  --md-sys-shape-corner-small-top: 8px 8px 0px 0px;
+  --md-sys-shape-corner-medium-top: 12px 12px 0px 0px;
+  --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
+  
+  /* Expressive shape variations */
+  --md-sys-shape-expressive-small: 8px 20px 8px 20px;
+  --md-sys-shape-expressive-medium: 12px 28px 12px 28px;
+  --md-sys-shape-expressive-large: 16px 36px 16px 36px;
+  
+  /* Asymmetric shapes for visual interest */
+  --md-sys-shape-asymmetric-1: 4px 16px 4px 16px;
+  --md-sys-shape-asymmetric-2: 8px 24px 8px 24px;
+  --md-sys-shape-asymmetric-3: 12px 32px 12px 32px;
 }
 
 /* Large screen enhancements */
@@ -128,7 +144,7 @@
   min-height: 100vh;
 }
 
-/* Hero Section */
+/* Hero Section with Expressive Shapes */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -137,6 +153,8 @@
   justify-content: center;
   padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
   background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-surface) 100%);
+  /* Add subtle shape to the background */
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }
 
 .hero-content {
@@ -164,18 +182,26 @@
 .profile-blob {
   width: 240px;
   height: 240px;
-  border-radius: var(--md-sys-shape-corner-full);
+  /* Expressive asymmetric shape for personality */
+  border-radius: var(--md-sys-shape-expressive-large);
   overflow: hidden;
   position: relative;
   background: linear-gradient(45deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
   padding: var(--md-sys-spacing-1);
+  /* Add subtle rotation for more expressive feel */
+  transform: rotate(-2deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.profile-blob:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .profile-blob img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: var(--md-sys-shape-expressive-large);
 }
 
 .hero-divider {
@@ -186,7 +212,7 @@
   width: 100%;
 }
 
-/* Section Styling with Material 3 Spacing */
+/* Section Styling with Material 3 Spacing and Expressive Shapes */
 .skills-section,
 .journey-section,
 .projects-section,
@@ -194,11 +220,70 @@
   padding: var(--md-sys-spacing-16) var(--md-sys-spacing-6);
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Add subtle shape variations to sections */
+.skills-section {
+  /* Subtle clip-path for skills section */
+  background: linear-gradient(180deg, var(--md-sys-color-surface) 0%, var(--md-sys-color-surface-variant) 1%, var(--md-sys-color-surface) 2%);
+}
+
+.journey-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, var(--md-sys-color-primary-container) 0.5%, transparent 1%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.journey-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-section {
+  /* Subtle shape with rounded background */
+  background: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large) 0 0;
+  margin-top: var(--md-sys-spacing-8);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+}
+
+.contact-section {
+  background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-surface) 100%);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  margin-top: var(--md-sys-spacing-8);
+  margin-bottom: var(--md-sys-spacing-8);
 }
 
 .section-title {
   margin-bottom: var(--md-sys-spacing-8);
   color: var(--md-sys-color-on-surface);
+  position: relative;
+}
+
+/* Add expressive underline to section titles */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-corner-small);
+  /* Asymmetric shape */
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
 }
 
 /* Skills Section */
@@ -232,9 +317,24 @@
   position: relative;
   margin-left: var(--md-sys-spacing-16);
   background: var(--md-sys-color-surface);
-  border-radius: var(--md-sys-shape-corner-medium);
+  /* Expressive shape for visual interest - alternating cards get different shapes */
+  border-radius: var(--md-sys-shape-expressive-medium);
   overflow: visible;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  /* Add subtle shape variation */
+  transform: skewY(-0.5deg);
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.timeline-card:nth-child(even) {
+  /* Alternate shape for even cards */
+  border-radius: var(--md-sys-shape-asymmetric-2);
+  transform: skewY(0.5deg);
+}
+
+.timeline-card:hover {
+  transform: skewY(0deg) translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.16);
 }
 
 .timeline-marker {
@@ -244,13 +344,21 @@
   width: 48px;
   height: 48px;
   background: var(--md-sys-color-primary-container);
-  border-radius: var(--md-sys-shape-corner-full);
+  /* Expressive shape for markers */
+  border-radius: var(--md-sys-shape-expressive-small);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
   border: 4px solid var(--md-sys-color-surface);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* Add rotation for personality */
+  transform: rotate(3deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.timeline-marker:hover {
+  transform: rotate(0deg) scale(1.1);
 }
 
 .timeline-marker md-icon {
@@ -282,20 +390,26 @@
 
 .project-card {
   background: var(--md-sys-color-surface);
-  border-radius: var(--md-sys-shape-corner-medium);
+  /* Large expressive shape for prominent elements */
+  border-radius: var(--md-sys-shape-expressive-large);
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  /* Add subtle 3D perspective */
+  transform: perspective(1000px) rotateX(2deg);
 }
 
 .project-card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.24);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.24);
+  transform: perspective(1000px) rotateX(0deg) translateY(-8px);
 }
 
 .project-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  /* Top corners only for image */
+  border-radius: var(--md-sys-shape-corner-large-top);
 }
 
 .project-content {
@@ -401,6 +515,12 @@
     width: 180px;
     height: 180px;
     margin: 0 auto;
+    /* Reduce rotation on mobile for better touch interaction */
+    transform: rotate(-1deg);
+  }
+
+  .profile-blob:hover {
+    transform: rotate(0deg) scale(1.02);
   }
   
   /* Timeline improvements for mobile */
@@ -410,6 +530,16 @@
   
   .timeline-card {
     margin-left: var(--md-sys-spacing-10);
+    /* Reduce skew on mobile */
+    transform: skewY(-0.2deg);
+  }
+
+  .timeline-card:nth-child(even) {
+    transform: skewY(0.2deg);
+  }
+
+  .timeline-card:hover {
+    transform: skewY(0deg) translateY(-1px);
   }
   
   .timeline-marker {
@@ -417,6 +547,12 @@
     width: 40px;
     height: 40px;
     border-width: 3px;
+    /* Reduce rotation on mobile */
+    transform: rotate(1deg);
+  }
+
+  .timeline-marker:hover {
+    transform: rotate(0deg) scale(1.05);
   }
 
   .timeline-marker md-icon {
@@ -431,6 +567,15 @@
   .projects-section,
   .contact-section {
     padding: var(--md-sys-spacing-8) var(--md-sys-spacing-4);
+  }
+
+  /* Reduce section shape effects on mobile */
+  .projects-section {
+    border-radius: var(--md-sys-shape-corner-large) var(--md-sys-shape-corner-large) 0 0;
+  }
+
+  .contact-section {
+    border-radius: var(--md-sys-shape-corner-large);
   }
 
   .hero-section {
@@ -510,6 +655,12 @@
   .profile-blob {
     width: 140px;
     height: 140px;
+    /* Minimal rotation on very small screens */
+    transform: rotate(0deg);
+  }
+
+  .profile-blob:hover {
+    transform: scale(1.02);
   }
 
   /* Compact skills container */
@@ -521,6 +672,12 @@
     font-size: 0.875rem;
     min-height: 36px;
     margin: var(--md-sys-spacing-1);
+    /* Minimal rotation on small screens */
+    transform: rotate(0deg);
+  }
+
+  .skills-container md-filter-chip:hover {
+    transform: scale(1.02);
   }
 
   /* Timeline adjustments */
@@ -536,6 +693,12 @@
     width: 36px;
     height: 36px;
     left: calc(var(--md-sys-spacing-7) * -1);
+    /* No rotation on very small screens */
+    transform: rotate(0deg);
+  }
+
+  .timeline-marker:hover {
+    transform: scale(1.05);
   }
 
   .timeline-marker md-icon {
@@ -546,6 +709,16 @@
 
   .timeline-card {
     margin-left: var(--md-sys-spacing-8);
+    /* Remove skew on very small screens */
+    transform: skewY(0deg);
+  }
+
+  .timeline-card:nth-child(even) {
+    transform: skewY(0deg);
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-1px);
   }
 
   /* Project cards */
@@ -555,6 +728,18 @@
 
   .project-image {
     height: 160px;
+    /* Simpler border radius for small screens */
+    border-radius: var(--md-sys-shape-corner-medium-top);
+  }
+
+  .project-card {
+    /* Simplified shape on small screens */
+    border-radius: var(--md-sys-shape-corner-large);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
   }
 
   /* Section titles */
@@ -651,17 +836,19 @@
   }
 }
 
-/* Material 3 Component Customizations */
+/* Material 3 Component Customizations with Expressive Shapes */
 md-card {
   --md-card-container-color: var(--md-sys-color-surface);
   --md-card-container-elevation: 1;
-  --md-card-container-shape: var(--md-sys-shape-corner-medium);
+  /* Use expressive shape for cards */
+  --md-card-container-shape: var(--md-sys-shape-expressive-medium);
 }
 
 md-filter-chip {
   --md-filter-chip-container-height: 40px;
   --md-filter-chip-selected-container-color: var(--md-sys-color-secondary-container);
-  --md-filter-chip-container-shape: var(--md-sys-shape-corner-small);
+  /* Expressive asymmetric shape for filter chips */
+  --md-filter-chip-container-shape: var(--md-sys-shape-asymmetric-1);
   --md-filter-chip-leading-space: 16px;
   --md-filter-chip-trailing-space: 16px;
   --md-filter-chip-with-leading-icon-leading-space: 12px;
@@ -670,12 +857,24 @@ md-filter-chip {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  /* Add subtle transform for personality */
+  transform: rotate(-0.5deg);
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+md-filter-chip:nth-child(even) {
+  transform: rotate(0.5deg);
+}
+
+md-filter-chip:hover {
+  transform: rotate(0deg) scale(1.05);
 }
 
 md-outlined-button,
 md-text-button {
   --md-outlined-button-container-height: 40px;
-  --md-outlined-button-container-shape: var(--md-sys-shape-corner-small);
+  /* Asymmetric shape for buttons */
+  --md-outlined-button-container-shape: var(--md-sys-shape-asymmetric-1);
   --md-outlined-button-leading-space: 24px;
   --md-outlined-button-trailing-space: 24px;
   --md-outlined-button-with-leading-icon-leading-space: 16px;
@@ -686,16 +885,31 @@ md-text-button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  /* Add hover transform */
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+md-outlined-button:hover,
+md-text-button:hover {
+  transform: translateY(-1px);
 }
 
 md-fab {
   --md-fab-container-color: var(--md-sys-color-primary-container);
   --md-fab-icon-color: var(--md-sys-color-on-primary-container);
-  --md-fab-container-shape: var(--md-sys-shape-corner-large);
+  /* Expressive shape for FAB */
+  --md-fab-container-shape: var(--md-sys-shape-expressive-small);
   --md-fab-container-width: 56px;
   --md-fab-container-height: 56px;
   --md-fab-icon-size: 24px;
   cursor: pointer;
+  /* Add floating animation */
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
 md-elevation {
@@ -929,9 +1143,62 @@ html {
     scroll-behavior: auto !important;
   }
 
+  /* Remove all transforms and rotations for reduced motion */
+  .profile-blob,
+  .timeline-card,
+  .timeline-card:nth-child(even),
+  .timeline-marker,
+  .project-card,
+  md-filter-chip,
+  md-filter-chip:nth-child(even),
+  md-outlined-button,
+  md-text-button {
+    transform: none !important;
+  }
+
   .timeline-card:hover,
-  .project-card:hover {
-    transform: none;
+  .project-card:hover,
+  .profile-blob:hover,
+  .timeline-marker:hover,
+  md-filter-chip:hover,
+  md-outlined-button:hover,
+  md-text-button:hover {
+    transform: none !important;
+  }
+
+  /* Remove floating animation from FAB */
+  md-fab {
+    animation: none !important;
+  }
+
+  /* Use simpler shapes for reduced motion */
+  .profile-blob {
+    border-radius: var(--md-sys-shape-corner-full) !important;
+  }
+
+  .timeline-card {
+    border-radius: var(--md-sys-shape-corner-medium) !important;
+  }
+
+  .timeline-marker {
+    border-radius: var(--md-sys-shape-corner-full) !important;
+  }
+
+  .project-card {
+    border-radius: var(--md-sys-shape-corner-medium) !important;
+  }
+
+  md-filter-chip {
+    --md-filter-chip-container-shape: var(--md-sys-shape-corner-small) !important;
+  }
+
+  md-outlined-button,
+  md-text-button {
+    --md-outlined-button-container-shape: var(--md-sys-shape-corner-small) !important;
+  }
+
+  md-fab {
+    --md-fab-container-shape: var(--md-sys-shape-corner-large) !important;
   }
 }
 
