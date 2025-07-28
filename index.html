@@ -1,167 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bagus Oktaviadi</title>
 
-    <!-- css -->
-    <link href="/dist/output.css" rel="stylesheet" />
-    <!-- font awesome -->
-    <script
-      src="https://kit.fontawesome.com/0952a2e6cc.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body class="bg-gray-100 px-6 text-gray-700 lg:px-32">
-    <!-- Halo -->
-    <section class="flex h-screen flex-col justify-center">
-      <div class="flex flex-row">
-        <div class="name-and-job flex-grow">
-          <h1 class="text-5xl font-bold first-letter:uppercase">
-            Hi, I'm Bagus Oktaviadi
-          </h1>
-          <span class="text-2xl">Tech Enthusiast - Software Developer</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bagus Oktaviadi</title>
+
+  <!-- Material 3 Design System -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    // Import Material Web Components
+    import '@material/web/all.js';
+    import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+
+    // Apply typography styles
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    console.log('Material Web components loaded successfully');
+  </script>
+
+  <!-- Custom CSS -->
+  <link href="/dist/output.css" rel="stylesheet" />
+</head>
+
+<body class="m3-surface">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <md-elevation></md-elevation>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="md-typescale-display-large">
+          Hi, I'm Bagus Oktaviadi
+        </h1>
+        <p class="md-typescale-headline-medium hero-subtitle">Tech Enthusiast - Software Developer</p>
+      </div>
+      <div class="hero-image">
+        <div class="profile-blob">
+          <img src="/src/images/background.jpg" alt="Bagus Oktaviadi" />
         </div>
-        <div
-          class="blob h-[100px] w-[220px] overflow-hidden bg-[url('/src/images/background.jpg')] bg-cover bg-center md:block md:h-[220px]"
-        ></div>
       </div>
-      <div class="relative max-w-md">
-        <img src="/src/images/line.svg" alt="sda" />
-      </div>
-    </section>
-    <section>
-      <h2 class="text-2xl font-semibold">What am I good at?</h2>
-      <div
-        class="my-6 flex flex-row flex-wrap justify-center gap-4 md:my-24 lg:px-64"
-      >
-        <div class="rounded-3xl border-2 border-gray-900 px-6 py-1">Web Development</div>
-        <div class="rounded-3xl border-2 border-green-600 px-6 py-1">
-          Automation & Integration
+    </div>
+    <div class="hero-divider">
+      <md-divider></md-divider>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <h2 class="md-typescale-headline-large section-title">What am I good at?</h2>
+    <div class="skills-container">
+      <md-filter-chip label="Web Development" selected>
+        <md-icon slot="icon">language</md-icon>
+      </md-filter-chip>
+      <md-filter-chip label="Automation & Integration" selected>
+        <md-icon slot="icon">settings</md-icon>
+      </md-filter-chip>
+      <md-filter-chip label="Mobile Development">
+        <md-icon slot="icon">phone_android</md-icon>
+      </md-filter-chip>
+      <md-filter-chip label="Data Engineering">
+        <md-icon slot="icon">storage</md-icon>
+      </md-filter-chip>
+    </div>
+    <md-divider></md-divider>
+  </section>
+  <!-- Journey Section -->
+  <section class="journey-section">
+    <h2 class="md-typescale-headline-large section-title">My Journey</h2>
+    <div class="timeline">
+      <!-- Timeline Item 1 -->
+      <md-card class="timeline-card">
+        <div class="timeline-marker">
+          <md-icon>school</md-icon>
         </div>
-        <div class="rounded-3xl border-2 border-red-700 px-6 py-1">Mobile Development</div>
-        <div class="rounded-3xl border-2 border-red-700 px-6 py-1">Data Engineering</div>
-      </div>
-      <div class="relative mx-auto max-w-md">
-        <img src="/src/images/line.svg" alt="sda" />
-      </div>
-    </section>
-    <!-- Jorney -->
-    <section class="my-12">
-      <h2 class="text-2xl font-semibold">My jorney</h2>
-      <ol class="relative border-l border-gray-200 dark:border-gray-700">
-        <li class="mb-10 ml-4">
-          <div
-            class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
-          ></div>
-          <time class="mb-1 text-sm leading-none text-gray-900">
-            July 2017
-          </time>
-          <h3 class="text-lg font-semibold text-gray-900">High School</h3>
-          <p class="mb-4 text-base font-normal text-gray-900">
-            My interest in technology began during elementary school, and in 2017, I took a significant step by purchasing my first laptop. Eager to dive into the field, I immediately started learning programming. The first year was challenging, with many hurdles along the way, but it gave me my initial exposure and excitement for coding, which has shaped my journey ever since.
+        <div class="timeline-content">
+          <div class="timeline-date md-typescale-label-large">July 2017</div>
+          <h3 class="md-typescale-title-large">High School</h3>
+          <p class="md-typescale-body-medium">
+            My interest in technology began during elementary school, and in 2017, I took a significant step by
+            purchasing
+            my first laptop. Eager to dive into the field, I immediately started learning programming. The first year
+            was
+            challenging, with many hurdles along the way, but it gave me my initial exposure and excitement for coding,
+            which has shaped my journey ever since.
           </p>
-        </li>
-        <!-- Internship -->
-        <li class="mb-10 ml-4">
-          <div
-            class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
-          ></div>
-          <time class="mb-1 text-sm leading-none text-gray-900">
-            February 2019 - Juny 2019
-          </time>
-          <h3 class="text-lg font-semibold text-gray-900">
-            Wordpress developer - Internship
-          </h3>
-          <h4 class="text-sm">Total teknologi rekacipta</h4>
-          <p class="mb-4 text-base font-normal text-gray-900">
-            When I worked on my first real project, I thoroughly enjoyed developing a database management web application. During this experience, I advanced my skills in PHP, SQL, and JavaScript, while also gaining hands-on experience with managing and using low-code solutions on the WordPress platform.
+        </div>
+      </md-card>
+
+      <!-- Timeline Item 2 -->
+      <md-card class="timeline-card">
+        <div class="timeline-marker">
+          <md-icon>work</md-icon>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date md-typescale-label-large">February 2019 - June 2019</div>
+          <h3 class="md-typescale-title-large">WordPress Developer - Internship</h3>
+          <div class="md-typescale-body-small company-name">Total Teknologi Rekacipta</div>
+          <p class="md-typescale-body-medium">
+            When I worked on my first real project, I thoroughly enjoyed developing a database management web
+            application.
+            During this experience, I advanced my skills in PHP, SQL, and JavaScript, while also gaining hands-on
+            experience with managing and using low-code solutions on the WordPress platform.
           </p>
-        </li>
-        <!-- SCI Freelance -->
-        <li class="mb-10 ml-4">
-          <div
-            class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
-          ></div>
-          <time class="mb-1 text-sm leading-none text-gray-900">
-            April 2021 - Present
-          </time>
-          <h3 class="text-lg font-semibold text-gray-900">
-            Full-stack Developer - Freelance
-          </h3>
-          <h4 class="text-sm">Smart Center Indonesia, Pekanbaru</h4>
-          <p class="mb-4 text-base font-normal text-gray-900">
-            Developed a small-scale educational tryout website using a variety of technologies, including CodeIgniter, Laravel, Ajax, and React. This project allowed me to gain hands-on experience across multiple frameworks and tools, enhancing both my front-end and back-end development skills.
+        </div>
+      </md-card>
+
+      <!-- Timeline Item 3 -->
+      <md-card class="timeline-card">
+        <div class="timeline-marker">
+          <md-icon>code</md-icon>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date md-typescale-label-large">April 2021 - Present</div>
+          <h3 class="md-typescale-title-large">Full-stack Developer - Freelance</h3>
+          <div class="md-typescale-body-small company-name">Smart Center Indonesia, Pekanbaru</div>
+          <p class="md-typescale-body-medium">
+            Developed a small-scale educational tryout website using a variety of technologies, including CodeIgniter,
+            Laravel, Ajax, and React. This project allowed me to gain hands-on experience across multiple frameworks and
+            tools, enhancing both my front-end and back-end development skills.
           </p>
-        </li>
-        <!-- Enpact -->
-        <li class="ml-4">
-          <div
-            class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
-          ></div>
-          <time class="mb-1 text-sm leading-none text-gray-900">
-            January 2022 - March 2022
-          </time>
-          <h3 class="text-lg font-semibold text-gray-900">
-            Junior Full-stack Developer - Freelance
-          </h3>
-          <h4 class="text-sm">Enpact, Germany</h4>
-          <p class="mb-4 text-base font-normal text-gray-900">
-            During this Work Assignment, I not only developed a web application but also learned the dynamics of effective teamwork. I gained significant experience with NestJS, particularly in using decorators and managing injectable dependencies. Additionally, I strengthened my skills in technical documentation, microservices architecture, Gitflow, and Agile methodologies like Scrum, which greatly enhanced my ability to work collaboratively in a team-driven environment.
+        </div>
+      </md-card>
+
+      <!-- Timeline Item 4 -->
+      <md-card class="timeline-card">
+        <div class="timeline-marker">
+          <md-icon>group</md-icon>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date md-typescale-label-large">January 2022 - March 2022</div>
+          <h3 class="md-typescale-title-large">Junior Full-stack Developer - Freelance</h3>
+          <div class="md-typescale-body-small company-name">Enpact, Germany</div>
+          <p class="md-typescale-body-medium">
+            During this Work Assignment, I not only developed a web application but also learned the dynamics of
+            effective
+            teamwork. I gained significant experience with NestJS, particularly in using decorators and managing
+            injectable dependencies. Additionally, I strengthened my skills in technical documentation, microservices
+            architecture, Gitflow, and Agile methodologies like Scrum, which greatly enhanced my ability to work
+            collaboratively in a team-driven environment.
           </p>
-        </li>
-        <!-- Metrodata -->
-        <li class="ml-4">
-          <div
-            class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
-          ></div>
-          <time class="mb-1 text-sm leading-none text-gray-900">
-            June 2022 - now
-          </time>
-          <h3 class="text-lg font-semibold text-gray-900">
-            Technical Consultant - Contract
-          </h3>
-          <h4 class="text-sm">Metrodata, Jakarta</h4>
-          <p class="mb-4 text-base font-normal text-gray-900">
-            My experience spans a wide variety of projects, from custom web applications to system integrations, giving me a well-rounded perspective of the industry landscape. In these roles, collaboration and teamwork are essential, and I thrive in environments that foster both. The dynamic nature of the industry drives continuous learning, enabling me to constantly refine my technical skills and increase my professional value.
+        </div>
+      </md-card>
+
+      <!-- Timeline Item 5 -->
+      <md-card class="timeline-card">
+        <div class="timeline-marker">
+          <md-icon>business</md-icon>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-date md-typescale-label-large">June 2022 - now</div>
+          <h3 class="md-typescale-title-large">Technical Consultant - Contract</h3>
+          <div class="md-typescale-body-small company-name">Metrodata, Jakarta</div>
+          <p class="md-typescale-body-medium">
+            My experience spans a wide variety of projects, from custom web applications to system integrations, giving
+            me
+            a well-rounded perspective of the industry landscape. In these roles, collaboration and teamwork are
+            essential, and I thrive in environments that foster both. The dynamic nature of the industry drives
+            continuous
+            learning, enabling me to constantly refine my technical skills and increase my professional value.
           </p>
-        </li>
-      </ol>
-    </section>
-    <!-- What i've worked on (projects) -->
-    <section class="my-12">
-      <h2 class="text-2xl font-semibold">What i've worked on</h2>
-      <div class="my-6 grid grid-cols-2 gap-4 md:mx-12">
-        <a
-          href="skd.tryoutindonesia.com"
-          class="overflow-hidden rounded-md border bg-white shadow md:m-12"
-        >
-          <img src="/src/images/projects/skd.jpeg" alt="skd" />
-          <div class="m-2">
-            <h4 class="font-semibold leading-tight">Full-stack Developer</h4>
-            <h5 class="text-xs text-gray-500">Smart Center Indonesia</h5>
+        </div>
+      </md-card>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <h2 class="md-typescale-headline-large section-title">What I've worked on</h2>
+    <div class="projects-grid">
+      <md-card class="project-card">
+        <img src="/src/images/projects/skd.jpeg" alt="SKD Project" class="project-image" />
+        <div class="project-content">
+          <h4 class="md-typescale-title-medium">Full-stack Developer</h4>
+          <p class="md-typescale-body-small company-name">Smart Center Indonesia</p>
+          <div class="project-actions">
+            <md-text-button>
+              <md-icon slot="icon">open_in_new</md-icon>
+              View Project
+            </md-text-button>
           </div>
-        </a>
-      </div>
-      <a href="https://github.com/blanc08?tab=repositories" target="_blank">
-        <i class="fa-brands fa-github mr-2"></i>Personal projects
-      </a>
-    </section>
-    <!-- How to reach me -->
-    <section class="my-12">
-      <h2 class="text-2xl font-semibold">How to reach me</h2>
-      <div class="flex flex-row flex-wrap gap-4">
-        <a href="http://github.com/blanc08" target="_blank">
-          <i class="fa-brands fa-github mr-2"></i>blanc08
-        </a>
-        <a href="mailto:bagusoktaviadi1@gmail.com" target="_blank">
-          <i class="fa-solid fa-envelope mr-2"></i>bagusoktaviadi1@gmail.com
-        </a>
-      </div>
-    </section>
+        </div>
+      </md-card>
+    </div>
+    <div class="projects-link">
+      <md-outlined-button>
+        <md-icon slot="icon">code</md-icon>
+        Personal Projects on GitHub
+      </md-outlined-button>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2 class="md-typescale-headline-large section-title">How to reach me</h2>
+    <div class="contact-links">
+      <md-outlined-button>
+        <md-icon slot="icon">code</md-icon>
+        blanc08
+      </md-outlined-button>
+      <md-outlined-button>
+        <md-icon slot="icon">email</md-icon>
+        bagusoktaviadi1@gmail.com
+      </md-outlined-button>
+    </div>
+  </section>
 
-    <!-- scripts -->
-  </body>
+  <!-- FAB for quick contact -->
+  <md-fab class="contact-fab" size="large" aria-label="Contact me">
+    <md-icon slot="icon">mail</md-icon>
+  </md-fab>
+
+  <!-- Material 3 Scripts -->
+  <script src="/src/script.js"></script>
+</body>
+
 </html>
