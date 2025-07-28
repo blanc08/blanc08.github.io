@@ -5,8 +5,9 @@
 /* Material 3 Design System Custom CSS */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-/* Material 3 Color Tokens */
+/* Material 3 Design Tokens */
 :root {
+  /* Material 3 Color Tokens */
   --md-sys-color-primary: #6750a4;
   --md-sys-color-on-primary: #ffffff;
   --md-sys-color-primary-container: #eaddff;
@@ -32,6 +33,36 @@
   
   --md-sys-color-outline: #79747e;
   --md-sys-color-outline-variant: #cac4d0;
+
+  /* Material 3 Spacing Tokens */
+  --md-sys-spacing-0: 0px;
+  --md-sys-spacing-1: 4px;
+  --md-sys-spacing-2: 8px;
+  --md-sys-spacing-3: 12px;
+  --md-sys-spacing-4: 16px;
+  --md-sys-spacing-5: 20px;
+  --md-sys-spacing-6: 24px;
+  --md-sys-spacing-7: 28px;
+  --md-sys-spacing-8: 32px;
+  --md-sys-spacing-9: 36px;
+  --md-sys-spacing-10: 40px;
+  --md-sys-spacing-11: 44px;
+  --md-sys-spacing-12: 48px;
+  --md-sys-spacing-14: 56px;
+  --md-sys-spacing-16: 64px;
+  --md-sys-spacing-18: 72px;
+  --md-sys-spacing-20: 80px;
+  --md-sys-spacing-24: 96px;
+  --md-sys-spacing-32: 128px;
+
+  /* Material 3 Shape Tokens */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 50%;
 }
 
 /* Base Typography */
@@ -39,7 +70,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* Layout Components */
+/* Layout Components with Material 3 Spacing */
 .m3-surface {
   background-color: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
@@ -55,14 +86,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
   background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-surface) 100%);
 }
 
 .hero-content {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: var(--md-sys-spacing-12);
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
@@ -74,7 +105,7 @@
 
 .hero-subtitle {
   color: var(--md-sys-color-on-surface-variant);
-  margin-top: 1rem;
+  margin-top: var(--md-sys-spacing-4);
 }
 
 .hero-image {
@@ -84,40 +115,40 @@
 .profile-blob {
   width: 240px;
   height: 240px;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   overflow: hidden;
   position: relative;
   background: linear-gradient(45deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
-  padding: 4px;
+  padding: var(--md-sys-spacing-1);
 }
 
 .profile-blob img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
 }
 
 .hero-divider {
-  margin-top: 3rem;
+  margin-top: var(--md-sys-spacing-12);
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
 }
 
-/* Section Styling */
+/* Section Styling with Material 3 Spacing */
 .skills-section,
 .journey-section,
 .projects-section,
 .contact-section {
-  padding: 3rem 2rem;
+  padding: var(--md-sys-spacing-16) var(--md-sys-spacing-6);
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .section-title {
-  margin-bottom: 2rem;
+  margin-bottom: var(--md-sys-spacing-8);
   color: var(--md-sys-color-on-surface);
 }
 
@@ -125,23 +156,23 @@
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--md-sys-spacing-4);
   justify-content: center;
-  margin: 2rem 0 3rem 0;
+  margin: var(--md-sys-spacing-8) 0 var(--md-sys-spacing-12) 0;
 }
 
-/* Timeline */
+/* Timeline with Material 3 Spacing */
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--md-sys-spacing-8);
   position: relative;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 2rem;
+  left: var(--md-sys-spacing-8);
   top: 0;
   bottom: 0;
   width: 2px;
@@ -150,56 +181,66 @@
 
 .timeline-card {
   position: relative;
-  margin-left: 4rem;
+  margin-left: var(--md-sys-spacing-16);
   background: var(--md-sys-color-surface);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .timeline-marker {
   position: absolute;
-  left: -6rem;
-  top: 1.5rem;
-  width: 3rem;
-  height: 3rem;
+  left: calc(var(--md-sys-spacing-24) * -1);
+  top: var(--md-sys-spacing-6);
+  width: 48px;
+  height: 48px;
   background: var(--md-sys-color-primary-container);
-  border-radius: 50%;
+  border-radius: var(--md-sys-shape-corner-full);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
+  border: 4px solid var(--md-sys-color-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .timeline-marker md-icon {
   color: var(--md-sys-color-on-primary-container);
+  font-size: var(--md-sys-spacing-6);
 }
 
 .timeline-content {
-  padding: 1.5rem;
+  padding: var(--md-sys-spacing-6);
 }
 
 .timeline-date {
   color: var(--md-sys-color-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--md-sys-spacing-2);
 }
 
 .company-name {
   color: var(--md-sys-color-on-surface-variant);
-  margin-bottom: 1rem;
+  margin-bottom: var(--md-sys-spacing-4);
 }
 
 /* Projects Section */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--md-sys-spacing-8);
+  margin-bottom: var(--md-sys-spacing-8);
 }
 
 .project-card {
   background: var(--md-sys-color-surface);
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.24);
 }
 
 .project-image {
@@ -209,11 +250,11 @@
 }
 
 .project-content {
-  padding: 1.5rem;
+  padding: var(--md-sys-spacing-6);
 }
 
 .project-actions {
-  margin-top: 1rem;
+  margin-top: var(--md-sys-spacing-4);
 }
 
 .projects-link {
@@ -224,24 +265,41 @@
 .contact-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--md-sys-spacing-4);
   justify-content: center;
 }
 
 /* FAB */
 .contact-fab {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: var(--md-sys-spacing-4);
+  right: var(--md-sys-spacing-4);
   z-index: 1000;
 }
 
-/* Responsive Design */
+/* Responsive Design with Material 3 Spacing */
+@media (max-width: 1024px) {
+  .skills-section,
+  .journey-section,
+  .projects-section,
+  .contact-section {
+    padding: var(--md-sys-spacing-12) var(--md-sys-spacing-5);
+  }
+
+  .hero-section {
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-5);
+  }
+
+  .hero-content {
+    gap: var(--md-sys-spacing-8);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
+    gap: var(--md-sys-spacing-8);
   }
   
   .hero-image {
@@ -255,24 +313,67 @@
   }
   
   .timeline::before {
-    left: 1rem;
+    left: var(--md-sys-spacing-4);
   }
   
   .timeline-card {
-    margin-left: 2.5rem;
+    margin-left: var(--md-sys-spacing-10);
   }
   
   .timeline-marker {
-    left: -2.25rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    left: calc(var(--md-sys-spacing-9) * -1);
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+
+  .timeline-marker md-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
   }
   
   .skills-section,
   .journey-section,
   .projects-section,
   .contact-section {
-    padding: 2rem 1rem;
+    padding: var(--md-sys-spacing-8) var(--md-sys-spacing-4);
+  }
+
+  .hero-section {
+    padding: var(--md-sys-spacing-4);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--md-sys-spacing-6);
+  }
+
+  .contact-fab {
+    bottom: var(--md-sys-spacing-4);
+    right: var(--md-sys-spacing-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-container {
+    gap: var(--md-sys-spacing-3);
+  }
+
+  .timeline {
+    gap: var(--md-sys-spacing-6);
+  }
+
+  .timeline-content {
+    padding: var(--md-sys-spacing-4);
+  }
+
+  .project-content {
+    padding: var(--md-sys-spacing-4);
+  }
+
+  .section-title {
+    margin-bottom: var(--md-sys-spacing-6);
   }
 }
 
@@ -280,23 +381,38 @@
 md-card {
   --md-card-container-color: var(--md-sys-color-surface);
   --md-card-container-elevation: 1;
-  --md-card-container-shape: 12px;
+  --md-card-container-shape: var(--md-sys-shape-corner-medium);
 }
 
 md-filter-chip {
   --md-filter-chip-container-height: 40px;
   --md-filter-chip-selected-container-color: var(--md-sys-color-secondary-container);
+  --md-filter-chip-container-shape: var(--md-sys-shape-corner-small);
+  --md-filter-chip-leading-space: 16px;
+  --md-filter-chip-trailing-space: 16px;
+  --md-filter-chip-with-leading-icon-leading-space: 12px;
+  margin: var(--md-sys-spacing-1);
 }
 
 md-outlined-button,
 md-text-button {
   --md-outlined-button-container-height: 40px;
+  --md-outlined-button-container-shape: var(--md-sys-shape-corner-small);
+  --md-outlined-button-leading-space: 24px;
+  --md-outlined-button-trailing-space: 24px;
+  --md-outlined-button-with-leading-icon-leading-space: 16px;
+  --md-outlined-button-with-leading-icon-trailing-space: 24px;
   cursor: pointer;
+  margin: var(--md-sys-spacing-1);
 }
 
 md-fab {
   --md-fab-container-color: var(--md-sys-color-primary-container);
   --md-fab-icon-color: var(--md-sys-color-on-primary-container);
+  --md-fab-container-shape: var(--md-sys-shape-corner-large);
+  --md-fab-container-width: 56px;
+  --md-fab-container-height: 56px;
+  --md-fab-icon-size: 24px;
   cursor: pointer;
 }
 
@@ -306,6 +422,7 @@ md-elevation {
 
 md-divider {
   --md-divider-color: var(--md-sys-color-outline-variant);
+  margin: var(--md-sys-spacing-8) 0;
 }
 
 /* Fix for Material Icons */
@@ -324,39 +441,135 @@ md-icon {
   font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+  /* Ensure icons are visible and properly spaced */
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+}
+
+/* Specific icon sizing for different contexts */
+.timeline-marker md-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: var(--md-sys-color-on-primary-container);
+}
+
+md-filter-chip md-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+md-outlined-button md-icon,
+md-text-button md-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+md-fab md-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Expressive Motion and Transitions */
+.timeline-card,
+.project-card {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.timeline-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.16);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+md-filter-chip,
+md-outlined-button,
+md-text-button,
+md-fab {
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Expressive spacing for interactive elements */
+.skills-container md-filter-chip {
+  margin: var(--md-sys-spacing-2);
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact-links md-outlined-button {
+  margin: var(--md-sys-spacing-2);
+  padding: 0;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Enhanced visual hierarchy with spacing */
+.timeline-content h3 {
+  margin-top: var(--md-sys-spacing-2);
+  margin-bottom: var(--md-sys-spacing-1);
+}
+
+.timeline-content p {
+  margin-top: var(--md-sys-spacing-3);
+  line-height: 1.6;
+}
+
+.project-content h4 {
+  margin-bottom: var(--md-sys-spacing-1);
+}
+
+.project-content p {
+  margin-bottom: var(--md-sys-spacing-3);
 }
 
 /* Fallback styles for when Material Web components don't load */
 .fallback-mode md-card {
   display: block;
   background: white;
-  border-radius: 12px;
+  border-radius: var(--md-sys-shape-corner-medium);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 16px;
-  margin: 16px 0;
+  padding: var(--md-sys-spacing-4);
+  margin: var(--md-sys-spacing-4) 0;
 }
 
 .fallback-mode md-filter-chip {
   display: inline-block;
-  background: #e8def8;
-  border-radius: 20px;
+  background: var(--md-sys-color-secondary-container);
+  border-radius: var(--md-sys-shape-corner-small);
   padding: 8px 16px;
-  margin: 4px;
-  color: #21005d;
+  margin: var(--md-sys-spacing-1);
+  color: var(--md-sys-color-on-secondary-container);
   border: none;
   cursor: pointer;
+  min-height: 40px;
+  line-height: 1.5;
 }
 
 .fallback-mode md-outlined-button,
 .fallback-mode md-text-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background: transparent;
-  border: 1px solid #6750a4;
-  border-radius: 8px;
-  padding: 8px 16px;
-  color: #6750a4;
+  border: 1px solid var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-corner-small);
+  padding: 8px 24px;
+  margin: var(--md-sys-spacing-1);
+  color: var(--md-sys-color-primary);
   text-decoration: none;
   cursor: pointer;
+  min-height: 40px;
+  line-height: 1.5;
 }
 
 .fallback-mode md-fab {
@@ -365,9 +578,9 @@ md-icon {
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: #6750a4;
-  border-radius: 50%;
-  color: white;
+  background: var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-corner-large);
+  color: var(--md-sys-color-on-primary);
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
