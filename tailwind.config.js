@@ -5,31 +5,38 @@ module.exports = {
       fontFamily: {
         'roboto': ['Roboto', 'sans-serif'],
       },
+      fontWeight: {
+        'light': 300,
+        'normal': 400,
+        'medium': 500,
+        'bold': 700,
+        'black': 900,
+      },
       colors: {
         // Material 3 Color System
         'primary': 'var(--md-sys-color-primary)',
         'on-primary': 'var(--md-sys-color-on-primary)',
         'primary-container': 'var(--md-sys-color-primary-container)',
         'on-primary-container': 'var(--md-sys-color-on-primary-container)',
-        
+
         'secondary': 'var(--md-sys-color-secondary)',
         'on-secondary': 'var(--md-sys-color-on-secondary)',
         'secondary-container': 'var(--md-sys-color-secondary-container)',
         'on-secondary-container': 'var(--md-sys-color-on-secondary-container)',
-        
+
         'tertiary': 'var(--md-sys-color-tertiary)',
         'on-tertiary': 'var(--md-sys-color-on-tertiary)',
         'tertiary-container': 'var(--md-sys-color-tertiary-container)',
         'on-tertiary-container': 'var(--md-sys-color-on-tertiary-container)',
-        
+
         'surface': 'var(--md-sys-color-surface)',
         'on-surface': 'var(--md-sys-color-on-surface)',
         'surface-variant': 'var(--md-sys-color-surface-variant)',
         'on-surface-variant': 'var(--md-sys-color-on-surface-variant)',
-        
+
         'background': 'var(--md-sys-color-background)',
         'on-background': 'var(--md-sys-color-on-background)',
-        
+
         'outline': 'var(--md-sys-color-outline)',
         'outline-variant': 'var(--md-sys-color-outline-variant)',
       },

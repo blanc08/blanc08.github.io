@@ -3,10 +3,106 @@
 @tailwind utilities;
 
 /* Material 3 Design System Custom CSS */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
-/* Material 3 Design Tokens */
+/* Material 3 Typography Tokens */
 :root {
+  /* Typography Scale Tokens */
+  /* Display styles - Large, expressive headlines */
+  --md-sys-typescale-display-large-font: "Roboto";
+  --md-sys-typescale-display-large-size: 57px;
+  --md-sys-typescale-display-large-line-height: 64px;
+  --md-sys-typescale-display-large-weight: 400;
+  --md-sys-typescale-display-large-tracking: -0.25px;
+
+  --md-sys-typescale-display-medium-font: "Roboto";
+  --md-sys-typescale-display-medium-size: 45px;
+  --md-sys-typescale-display-medium-line-height: 52px;
+  --md-sys-typescale-display-medium-weight: 400;
+  --md-sys-typescale-display-medium-tracking: 0px;
+
+  --md-sys-typescale-display-small-font: "Roboto";
+  --md-sys-typescale-display-small-size: 36px;
+  --md-sys-typescale-display-small-line-height: 44px;
+  --md-sys-typescale-display-small-weight: 400;
+  --md-sys-typescale-display-small-tracking: 0px;
+
+  /* Headline styles - High-emphasis text */
+  --md-sys-typescale-headline-large-font: "Roboto";
+  --md-sys-typescale-headline-large-size: 32px;
+  --md-sys-typescale-headline-large-line-height: 40px;
+  --md-sys-typescale-headline-large-weight: 400;
+  --md-sys-typescale-headline-large-tracking: 0px;
+
+  --md-sys-typescale-headline-medium-font: "Roboto";
+  --md-sys-typescale-headline-medium-size: 28px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-medium-weight: 400;
+  --md-sys-typescale-headline-medium-tracking: 0px;
+
+  --md-sys-typescale-headline-small-font: "Roboto";
+  --md-sys-typescale-headline-small-size: 24px;
+  --md-sys-typescale-headline-small-line-height: 32px;
+  --md-sys-typescale-headline-small-weight: 400;
+  --md-sys-typescale-headline-small-tracking: 0px;
+
+  /* Title styles - Medium-emphasis text */
+  --md-sys-typescale-title-large-font: "Roboto";
+  --md-sys-typescale-title-large-size: 22px;
+  --md-sys-typescale-title-large-line-height: 28px;
+  --md-sys-typescale-title-large-weight: 500;
+  --md-sys-typescale-title-large-tracking: 0px;
+
+  --md-sys-typescale-title-medium-font: "Roboto";
+  --md-sys-typescale-title-medium-size: 16px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-weight: 500;
+  --md-sys-typescale-title-medium-tracking: 0.15px;
+
+  --md-sys-typescale-title-small-font: "Roboto";
+  --md-sys-typescale-title-small-size: 14px;
+  --md-sys-typescale-title-small-line-height: 20px;
+  --md-sys-typescale-title-small-weight: 500;
+  --md-sys-typescale-title-small-tracking: 0.1px;
+
+  /* Label styles - Text for components */
+  --md-sys-typescale-label-large-font: "Roboto";
+  --md-sys-typescale-label-large-size: 14px;
+  --md-sys-typescale-label-large-line-height: 20px;
+  --md-sys-typescale-label-large-weight: 500;
+  --md-sys-typescale-label-large-tracking: 0.1px;
+
+  --md-sys-typescale-label-medium-font: "Roboto";
+  --md-sys-typescale-label-medium-size: 12px;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  --md-sys-typescale-label-medium-weight: 500;
+  --md-sys-typescale-label-medium-tracking: 0.5px;
+
+  --md-sys-typescale-label-small-font: "Roboto";
+  --md-sys-typescale-label-small-size: 11px;
+  --md-sys-typescale-label-small-line-height: 16px;
+  --md-sys-typescale-label-small-weight: 500;
+  --md-sys-typescale-label-small-tracking: 0.5px;
+
+  /* Body styles - Reading text */
+  --md-sys-typescale-body-large-font: "Roboto";
+  --md-sys-typescale-body-large-size: 16px;
+  --md-sys-typescale-body-large-line-height: 24px;
+  --md-sys-typescale-body-large-weight: 400;
+  --md-sys-typescale-body-large-tracking: 0.5px;
+
+  --md-sys-typescale-body-medium-font: "Roboto";
+  --md-sys-typescale-body-medium-size: 14px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-weight: 400;
+  --md-sys-typescale-body-medium-tracking: 0.25px;
+
+  --md-sys-typescale-body-small-font: "Roboto";
+  --md-sys-typescale-body-small-size: 12px;
+  --md-sys-typescale-body-small-line-height: 16px;
+  --md-sys-typescale-body-small-weight: 400;
+  --md-sys-typescale-body-small-tracking: 0.4px;
+
   /* Material 3 Color Tokens */
   --md-sys-color-primary: #6750a4;
   --md-sys-color-on-primary: #ffffff;
@@ -133,6 +229,145 @@
 /* Base Typography */
 * {
   font-family: "Roboto", sans-serif;
+}
+
+/* Material 3 Typography Scale Classes */
+.md-typescale-display-large {
+  font-family: var(--md-sys-typescale-display-large-font);
+  font-size: var(--md-sys-typescale-display-large-size);
+  line-height: var(--md-sys-typescale-display-large-line-height);
+  font-weight: var(--md-sys-typescale-display-large-weight);
+  letter-spacing: var(--md-sys-typescale-display-large-tracking);
+  margin: 0;
+}
+
+.md-typescale-display-medium {
+  font-family: var(--md-sys-typescale-display-medium-font);
+  font-size: var(--md-sys-typescale-display-medium-size);
+  line-height: var(--md-sys-typescale-display-medium-line-height);
+  font-weight: var(--md-sys-typescale-display-medium-weight);
+  letter-spacing: var(--md-sys-typescale-display-medium-tracking);
+  margin: 0;
+}
+
+.md-typescale-display-small {
+  font-family: var(--md-sys-typescale-display-small-font);
+  font-size: var(--md-sys-typescale-display-small-size);
+  line-height: var(--md-sys-typescale-display-small-line-height);
+  font-weight: var(--md-sys-typescale-display-small-weight);
+  letter-spacing: var(--md-sys-typescale-display-small-tracking);
+  margin: 0;
+}
+
+.md-typescale-headline-large {
+  font-family: var(--md-sys-typescale-headline-large-font);
+  font-size: var(--md-sys-typescale-headline-large-size);
+  line-height: var(--md-sys-typescale-headline-large-line-height);
+  font-weight: var(--md-sys-typescale-headline-large-weight);
+  letter-spacing: var(--md-sys-typescale-headline-large-tracking);
+  margin: 0;
+}
+
+.md-typescale-headline-medium {
+  font-family: var(--md-sys-typescale-headline-medium-font);
+  font-size: var(--md-sys-typescale-headline-medium-size);
+  line-height: var(--md-sys-typescale-headline-medium-line-height);
+  font-weight: var(--md-sys-typescale-headline-medium-weight);
+  letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
+  margin: 0;
+}
+
+.md-typescale-headline-small {
+  font-family: var(--md-sys-typescale-headline-small-font);
+  font-size: var(--md-sys-typescale-headline-small-size);
+  line-height: var(--md-sys-typescale-headline-small-line-height);
+  font-weight: var(--md-sys-typescale-headline-small-weight);
+  letter-spacing: var(--md-sys-typescale-headline-small-tracking);
+  margin: 0;
+}
+
+.md-typescale-title-large {
+  font-family: var(--md-sys-typescale-title-large-font);
+  font-size: var(--md-sys-typescale-title-large-size);
+  line-height: var(--md-sys-typescale-title-large-line-height);
+  font-weight: var(--md-sys-typescale-title-large-weight);
+  letter-spacing: var(--md-sys-typescale-title-large-tracking);
+  margin: 0;
+}
+
+.md-typescale-title-medium {
+  font-family: var(--md-sys-typescale-title-medium-font);
+  font-size: var(--md-sys-typescale-title-medium-size);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+  font-weight: var(--md-sys-typescale-title-medium-weight);
+  letter-spacing: var(--md-sys-typescale-title-medium-tracking);
+  margin: 0;
+}
+
+.md-typescale-title-small {
+  font-family: var(--md-sys-typescale-title-small-font);
+  font-size: var(--md-sys-typescale-title-small-size);
+  line-height: var(--md-sys-typescale-title-small-line-height);
+  font-weight: var(--md-sys-typescale-title-small-weight);
+  letter-spacing: var(--md-sys-typescale-title-small-tracking);
+  margin: 0;
+}
+
+.md-typescale-label-large {
+  font-family: var(--md-sys-typescale-label-large-font);
+  font-size: var(--md-sys-typescale-label-large-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  font-weight: var(--md-sys-typescale-label-large-weight);
+  letter-spacing: var(--md-sys-typescale-label-large-tracking);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.md-typescale-label-medium {
+  font-family: var(--md-sys-typescale-label-medium-font);
+  font-size: var(--md-sys-typescale-label-medium-size);
+  line-height: var(--md-sys-typescale-label-medium-line-height);
+  font-weight: var(--md-sys-typescale-label-medium-weight);
+  letter-spacing: var(--md-sys-typescale-label-medium-tracking);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.md-typescale-label-small {
+  font-family: var(--md-sys-typescale-label-small-font);
+  font-size: var(--md-sys-typescale-label-small-size);
+  line-height: var(--md-sys-typescale-label-small-line-height);
+  font-weight: var(--md-sys-typescale-label-small-weight);
+  letter-spacing: var(--md-sys-typescale-label-small-tracking);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.md-typescale-body-large {
+  font-family: var(--md-sys-typescale-body-large-font);
+  font-size: var(--md-sys-typescale-body-large-size);
+  line-height: var(--md-sys-typescale-body-large-line-height);
+  font-weight: var(--md-sys-typescale-body-large-weight);
+  letter-spacing: var(--md-sys-typescale-body-large-tracking);
+  margin: 0;
+}
+
+.md-typescale-body-medium {
+  font-family: var(--md-sys-typescale-body-medium-font);
+  font-size: var(--md-sys-typescale-body-medium-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  font-weight: var(--md-sys-typescale-body-medium-weight);
+  letter-spacing: var(--md-sys-typescale-body-medium-tracking);
+  margin: 0;
+}
+
+.md-typescale-body-small {
+  font-family: var(--md-sys-typescale-body-small-font);
+  font-size: var(--md-sys-typescale-body-small-size);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  font-weight: var(--md-sys-typescale-body-small-weight);
+  letter-spacing: var(--md-sys-typescale-body-small-tracking);
+  margin: 0;
 }
 
 /* Layout Components with Material 3 Spacing */
@@ -267,9 +502,121 @@
 }
 
 .section-title {
-  margin-bottom: var(--md-sys-spacing-8);
+  margin-bottom: var(--md-sys-spacing-4);
   color: var(--md-sys-color-on-surface);
   position: relative;
+}
+
+/* Section headers with better typography hierarchy */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--md-sys-spacing-12);
+}
+
+.section-subtitle {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: var(--md-sys-spacing-3);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero section typography enhancements */
+.hero-description {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: var(--md-sys-spacing-6);
+  max-width: 500px;
+}
+
+/* Timeline typography improvements */
+.timeline-summary {
+  color: var(--md-sys-color-on-surface-variant);
+  font-style: italic;
+  margin-top: var(--md-sys-spacing-2);
+  margin-bottom: var(--md-sys-spacing-4);
+}
+
+/* Project card typography */
+.project-role {
+  color: var(--md-sys-color-primary);
+  margin-top: var(--md-sys-spacing-1);
+  margin-bottom: var(--md-sys-spacing-1);
+}
+
+.project-description {
+  margin-top: var(--md-sys-spacing-3);
+  margin-bottom: var(--md-sys-spacing-4);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Contact section typography */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--md-sys-spacing-1);
+}
+
+.contact-info .md-typescale-body-small {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Typography accessibility and readability enhancements */
+.timeline-content p,
+.project-description {
+  /* Improve text readability with optimal line length */
+  max-width: 65ch;
+}
+
+/* Enhanced text contrast for better readability */
+.company-name {
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: var(--md-sys-spacing-2);
+}
+
+.timeline-date {
+  color: var(--md-sys-color-primary);
+  margin-bottom: var(--md-sys-spacing-2);
+  font-weight: 500;
+}
+
+/* Typography emphasis and hierarchy */
+.md-typescale-display-large,
+.md-typescale-headline-large {
+  /* Add subtle text shadow for display text */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Improve focus states for typography elements */
+h1:focus-visible,
+h2:focus-visible,
+h3:focus-visible,
+h4:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+  border-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+/* Better text selection styles */
+::selection {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .section-subtitle,
+  .hero-description,
+  .timeline-summary,
+  .project-description {
+    color: var(--md-sys-color-on-surface);
+  }
+  
+  .company-name,
+  .contact-info .md-typescale-body-small {
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+  }
 }
 
 /* Add expressive underline to section titles */
@@ -483,20 +830,35 @@
 }
 
 @media (max-width: 768px) {
-  /* Typography scaling for mobile */
-  .md-typescale-display-large {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
+  /* Typography scaling for mobile - Using Material 3 responsive tokens */
+  :root {
+    --md-sys-typescale-display-large-size: 40px;
+    --md-sys-typescale-display-large-line-height: 48px;
+    
+    --md-sys-typescale-headline-large-size: 28px;
+    --md-sys-typescale-headline-large-line-height: 36px;
+    
+    --md-sys-typescale-headline-medium-size: 24px;
+    --md-sys-typescale-headline-medium-line-height: 32px;
+    
+    --md-sys-typescale-title-large-size: 20px;
+    --md-sys-typescale-title-large-line-height: 26px;
+    
+    --md-sys-typescale-body-large-size: 15px;
+    --md-sys-typescale-body-large-line-height: 22px;
   }
 
-  .md-typescale-headline-large {
-    font-size: 1.75rem !important;
-    line-height: 1.3 !important;
+  /* Section spacing adjustments for mobile */
+  .section-header {
+    margin-bottom: var(--md-sys-spacing-8);
   }
 
-  .md-typescale-headline-medium {
-    font-size: 1.25rem !important;
-    line-height: 1.4 !important;
+  .section-subtitle {
+    margin-top: var(--md-sys-spacing-2);
+  }
+
+  .hero-description {
+    margin-top: var(--md-sys-spacing-4);
   }
 
   /* Layout improvements */
@@ -621,20 +983,40 @@
 }
 
 @media (max-width: 480px) {
-  /* Extra small mobile devices */
-  .md-typescale-display-large {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
+  /* Extra small mobile devices - Further typography scaling */
+  :root {
+    --md-sys-typescale-display-large-size: 32px;
+    --md-sys-typescale-display-large-line-height: 40px;
+    
+    --md-sys-typescale-headline-large-size: 24px;
+    --md-sys-typescale-headline-large-line-height: 32px;
+    
+    --md-sys-typescale-headline-medium-size: 20px;
+    --md-sys-typescale-headline-medium-line-height: 28px;
+    
+    --md-sys-typescale-title-large-size: 18px;
+    --md-sys-typescale-title-large-line-height: 24px;
+    
+    --md-sys-typescale-body-large-size: 14px;
+    --md-sys-typescale-body-large-line-height: 20px;
+    
+    --md-sys-typescale-body-medium-size: 13px;
+    --md-sys-typescale-body-medium-line-height: 18px;
   }
 
-  .md-typescale-headline-large {
-    font-size: 1.5rem !important;
-    line-height: 1.3 !important;
+  /* Improved readability and spacing */
+  .section-header {
+    margin-bottom: var(--md-sys-spacing-6);
+    text-align: center;
   }
 
-  .md-typescale-title-large {
-    font-size: 1.25rem !important;
-    line-height: 1.4 !important;
+  .section-subtitle {
+    margin-top: var(--md-sys-spacing-2);
+  }
+
+  .timeline-summary {
+    margin-top: var(--md-sys-spacing-1);
+    margin-bottom: var(--md-sys-spacing-3);
   }
 
   /* Ultra-compact spacing */
