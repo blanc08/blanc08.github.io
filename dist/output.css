@@ -651,10 +651,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   --md-sys-shape-expressive-small: 8px 20px 8px 20px;
   --md-sys-shape-expressive-medium: 12px 28px 12px 28px;
   --md-sys-shape-expressive-large: 16px 36px 16px 36px;
+  --md-sys-shape-expressive-extra-large: 20px 44px 20px 44px;
   /* Asymmetric shapes for visual interest */
   --md-sys-shape-asymmetric-1: 4px 16px 4px 16px;
   --md-sys-shape-asymmetric-2: 8px 24px 8px 24px;
   --md-sys-shape-asymmetric-3: 12px 32px 12px 32px;
+  --md-sys-shape-asymmetric-4: 16px 40px 16px 40px;
+  /* Distinctive shapes for special elements */
+  --md-sys-shape-distinctive-1: 24px 8px 24px 8px;
+  --md-sys-shape-distinctive-2: 32px 12px 32px 12px;
+  --md-sys-shape-distinctive-3: 40px 16px 40px 16px;
+  /* Organic shapes for hero elements - moderated for better content containment */
+  --md-sys-shape-organic-1: 16px 32px 48px 16px;
+  --md-sys-shape-organic-2: 24px 48px 16px 32px;
+  --md-sys-shape-organic-3: 32px 16px 48px 24px;
+  /* Wave-like shapes for dynamic sections - adjusted for content safety */
+  --md-sys-shape-wave-1: 20px 40px 20px 8px;
+  --md-sys-shape-wave-2: 28px 56px 28px 12px;
+  --md-sys-shape-wave-3: 36px 72px 36px 16px;
 }
 
 /* Large screen enhancements */
@@ -902,19 +916,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .profile-blob {
   width: 240px;
   height: 240px;
-  /* Expressive asymmetric shape for personality */
-  border-radius: var(--md-sys-shape-expressive-large);
+  /* Organic asymmetric shape for personality and uniqueness */
+  border-radius: var(--md-sys-shape-organic-1);
   overflow: hidden;
   position: relative;
   background: linear-gradient(45deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
   padding: var(--md-sys-spacing-1);
   /* Add subtle rotation for more expressive feel */
   transform: rotate(-2deg);
-  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .profile-blob:hover {
-  transform: rotate(0deg) scale(1.02);
+  transform: rotate(1deg) scale(1.05);
+  border-radius: var(--md-sys-shape-organic-2);
 }
 
 .profile-blob img {
@@ -922,7 +937,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: var(--md-sys-shape-expressive-large);
+  border-radius: var(--md-sys-shape-organic-1);
+  transition: border-radius 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.profile-blob:hover img {
+  border-radius: var(--md-sys-shape-organic-2);
 }
 
 .hero-divider {
@@ -970,7 +990,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 0;
 }
 
-.journey-section > * {
+.journey-section>* {
   position: relative;
   z-index: 1;
 }
@@ -978,16 +998,57 @@ Ensure the default browser behavior of the `hidden` attribute.
 .projects-section {
   /* Subtle shape with rounded background */
   background: var(--md-sys-color-surface);
-  border-radius: var(--md-sys-shape-corner-extra-large) var(--md-sys-shape-corner-extra-large) 0 0;
+  border-radius: var(--md-sys-shape-wave-3) var(--md-sys-shape-wave-3) 0 0;
   margin-top: var(--md-sys-spacing-8);
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: var(--md-sys-color-tertiary-container);
+  border-radius: var(--md-sys-shape-organic-2);
+  opacity: 0.1;
+  transform: translate(50%, -50%);
 }
 
 .contact-section {
   background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-surface) 100%);
-  border-radius: var(--md-sys-shape-corner-extra-large);
+  border-radius: var(--md-sys-shape-organic-3);
   margin-top: var(--md-sys-spacing-8);
   margin-bottom: var(--md-sys-spacing-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, var(--md-sys-color-tertiary-container) 0%, transparent 60%);
+  opacity: 0.3;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
 }
 
 .certifications-section {
@@ -1079,10 +1140,30 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column;
   align-items: flex-start;
   gap: var(--md-sys-spacing-1);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-info .md-typescale-label-large {
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  transition: color 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .contact-info .md-typescale-body-small {
   color: var(--md-sys-color-on-surface-variant);
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.contact-links .contact-button:hover .contact-info .md-typescale-label-large {
+  color: var(--md-sys-color-primary);
+  font-weight: 600;
+}
+
+.contact-links .contact-button:hover .contact-info .md-typescale-body-small {
+  color: var(--md-sys-color-on-primary-container);
+  font-weight: 500;
 }
 
 /* Typography accessibility and readability enhancements */
@@ -1111,7 +1192,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .md-typescale-display-large,
 .md-typescale-headline-large {
   /* Add subtle text shadow for display text */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Improve focus states for typography elements */
@@ -1179,6 +1260,31 @@ h4:focus-visible {
   margin: var(--md-sys-spacing-8) 0 var(--md-sys-spacing-12) 0;
 }
 
+/* Enhanced skills chips with expressive shapes */
+
+.skills-container md-filter-chip {
+  /* Different expressive shapes for variety */
+  border-radius: var(--md-sys-shape-asymmetric-2);
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform: rotate(-1deg);
+}
+
+.skills-container md-filter-chip:nth-child(even) {
+  border-radius: var(--md-sys-shape-distinctive-1);
+  transform: rotate(1deg);
+}
+
+.skills-container md-filter-chip:nth-child(3n) {
+  border-radius: var(--md-sys-shape-wave-1);
+  transform: rotate(0.5deg);
+}
+
+.skills-container md-filter-chip:hover {
+  transform: rotate(0deg) scale(1.05);
+  border-radius: var(--md-sys-shape-expressive-medium);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* Timeline with Material 3 Spacing */
 
 .timeline {
@@ -1205,21 +1311,29 @@ h4:focus-visible {
   /* Expressive shape for visual interest - alternating cards get different shapes */
   border-radius: var(--md-sys-shape-expressive-medium);
   overflow: visible;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   /* Add subtle shape variation */
-  transform: skewY(-0.5deg);
-  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .timeline-card:nth-child(even) {
-  /* Alternate shape for even cards */
-  border-radius: var(--md-sys-shape-asymmetric-2);
-  transform: skewY(0.5deg);
+  border-radius: var(--md-sys-shape-wave-2);
+  transform: translateX(-8px);
+}
+
+.timeline-card:nth-child(odd) {
+  border-radius: var(--md-sys-shape-organic-1);
+  transform: translateX(8px);
+}
+
+.timeline-card:nth-child(3n) {
+  border-radius: var(--md-sys-shape-distinctive-2);
 }
 
 .timeline-card:hover {
-  transform: skewY(0deg) translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.24);
+  transform: translateX(0) translateY(-4px) scale(1.02);
+  border-radius: var(--md-sys-shape-expressive-large);
 }
 
 .timeline-marker {
@@ -1236,7 +1350,7 @@ h4:focus-visible {
   justify-content: center;
   z-index: 1;
   border: 4px solid var(--md-sys-color-surface);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* Add rotation for personality */
   transform: rotate(3deg);
   transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -1252,7 +1366,10 @@ h4:focus-visible {
 }
 
 .timeline-content {
-  padding: var(--md-sys-spacing-6);
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-7);
+  /* Extra padding for expressive shapes */
+  padding-top: var(--md-sys-spacing-9);
+  padding-bottom: var(--md-sys-spacing-9);
 }
 
 .timeline-date {
@@ -1276,18 +1393,20 @@ h4:focus-visible {
 
 .project-card {
   background: var(--md-sys-color-surface);
-  /* Large expressive shape for prominent elements */
-  border-radius: var(--md-sys-shape-expressive-large);
+  /* Extra large expressive shape for maximum visual impact */
+  border-radius: var(--md-sys-shape-wave-3);
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  /* Add subtle 3D perspective */
-  transform: perspective(1000px) rotateX(2deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  /* Add subtle 3D perspective with rotation */
+  transform: perspective(1000px) rotateX(2deg) rotateY(-1deg);
+  position: relative;
 }
 
 .project-card:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.24);
-  transform: perspective(1000px) rotateX(0deg) translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-12px) scale(1.02);
+  border-radius: var(--md-sys-shape-organic-3);
 }
 
 .project-image {
@@ -1300,7 +1419,9 @@ h4:focus-visible {
 }
 
 .project-content {
-  padding: var(--md-sys-spacing-6);
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-7);
+  /* Extra padding for expressive shapes to prevent content cropping */
+  padding-bottom: var(--md-sys-spacing-10);
 }
 
 .project-actions {
@@ -1318,6 +1439,87 @@ h4:focus-visible {
   flex-wrap: wrap;
   gap: var(--md-sys-spacing-4);
   justify-content: center;
+  position: relative;
+  z-index: 1;
+  padding: var(--md-sys-spacing-2);
+}
+
+/* Clean override for Material Web Components */
+
+.contact-links .contact-button {
+  /* Reset all default button styling */
+  all: unset;
+  /* Apply Material 3 button styling */
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+  padding: var(--md-sys-spacing-4) var(--md-sys-spacing-5);
+  min-height: 56px;
+  border: 2px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  /* Base expressive shape */
+  border-radius: 12px 28px 12px 28px;
+  /* Smooth transitions */
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  /* Positioning */
+  position: relative;
+  margin: var(--md-sys-spacing-2);
+}
+
+.contact-links md-outlined-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--md-sys-color-primary-container), transparent);
+  transition: left 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.contact-links md-outlined-button:hover::before {
+  left: 100%;
+}
+
+/* Individual character for each contact button */
+
+.contact-links .contact-button:nth-child(1) {
+  border-radius: 32px 12px 32px 12px;
+  transform: rotate(-0.5deg);
+  border-color: var(--md-sys-color-primary);
+}
+
+.contact-links .contact-button:nth-child(2) {
+  border-radius: 32px 12px 32px 12px;
+  transform: rotate(0.8deg);
+  border-color: var(--md-sys-color-secondary);
+}
+
+.contact-links .contact-button:nth-child(3) {
+  border-radius: 24px 32px 8px 32px;
+  transform: rotate(-0.3deg);
+  border-color: var(--md-sys-color-tertiary);
+}
+
+.contact-links .contact-button:nth-child(4) {
+  border-radius: 8px 24px 8px 24px;
+  transform: rotate(0.6deg);
+  border-color: var(--md-sys-color-error);
+}
+
+/* Hover effects for contact buttons */
+
+.contact-links .contact-button:hover {
+  border-radius: 16px 36px 16px 36px;
+  transform: rotate(0deg) scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--md-sys-color-primary);
+  background-color: var(--md-sys-color-primary-container);
+  z-index: 10;
 }
 
 /* FAB */
@@ -1327,6 +1529,21 @@ h4:focus-visible {
   bottom: var(--md-sys-spacing-4);
   right: var(--md-sys-spacing-4);
   z-index: 1000;
+  border-radius: var(--md-sys-shape-organic-2);
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform: rotate(-3deg) scale(1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-fab:hover {
+  border-radius: var(--md-sys-shape-distinctive-3);
+  transform: rotate(2deg) scale(1.15);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-fab:active {
+  transform: rotate(0deg) scale(1.05);
+  transition-duration: 0.1s;
 }
 
 /* Certifications Section */
@@ -1344,10 +1561,27 @@ h4:focus-visible {
   background: var(--md-sys-color-surface);
   border-radius: var(--md-sys-shape-expressive-medium);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.12);
   transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
   position: relative;
   border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* Different expressive shapes for each certification card */
+
+.certification-card:nth-child(1) {
+  border-radius: var(--md-sys-shape-distinctive-2);
+  transform: rotate(-1deg);
+}
+
+.certification-card:nth-child(2) {
+  border-radius: var(--md-sys-shape-wave-2);
+  transform: rotate(0.5deg);
+}
+
+.certification-card:nth-child(3) {
+  border-radius: var(--md-sys-shape-organic-1);
+  transform: rotate(1deg);
 }
 
 .certification-card::before {
@@ -1357,10 +1591,10 @@ h4:focus-visible {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, 
-    var(--md-sys-color-primary) 0%, 
-    var(--md-sys-color-secondary) 50%, 
-    var(--md-sys-color-tertiary) 100%);
+  background: linear-gradient(90deg,
+      var(--md-sys-color-primary) 0%,
+      var(--md-sys-color-secondary) 50%,
+      var(--md-sys-color-tertiary) 100%);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -1371,18 +1605,22 @@ h4:focus-visible {
 }
 
 .certification-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.16), 0 4px 16px rgba(0,0,0,0.12);
-  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px) scale(1.05) rotate(0deg);
   border-color: var(--md-sys-color-primary);
+  border-radius: var(--md-sys-shape-expressive-extra-large);
 }
 
 .certification-content {
-  padding: var(--md-sys-spacing-6);
+  padding: var(--md-sys-spacing-8) var(--md-sys-spacing-6);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: var(--md-sys-spacing-4);
+  /* Extra padding for expressive shapes to prevent content cropping */
+  padding-top: var(--md-sys-spacing-10);
+  padding-bottom: var(--md-sys-spacing-10);
 }
 
 .certification-icon {
@@ -1602,6 +1840,25 @@ h4:focus-visible {
     border-radius: var(--md-sys-shape-corner-large);
   }
 
+  /* Adjust content padding for mobile to prevent cropping */
+
+  .certification-content {
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-4);
+    padding-top: var(--md-sys-spacing-7);
+    padding-bottom: var(--md-sys-spacing-7);
+  }
+
+  .timeline-content {
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-5);
+    padding-top: var(--md-sys-spacing-7);
+    padding-bottom: var(--md-sys-spacing-7);
+  }
+
+  .project-content {
+    padding: var(--md-sys-spacing-6) var(--md-sys-spacing-5);
+    padding-bottom: var(--md-sys-spacing-8);
+  }
+
   .hero-section {
     padding: var(--md-sys-spacing-4);
     min-height: auto;
@@ -1628,14 +1885,17 @@ h4:focus-visible {
   .contact-links {
     flex-direction: column;
     align-items: center;
-    gap: var(--md-sys-spacing-3);
+    gap: var(--md-sys-spacing-4);
+    padding: var(--md-sys-spacing-2);
   }
 
-  .contact-links md-outlined-button {
+  .contact-links .contact-button {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
     justify-content: flex-start;
-    padding-left: var(--md-sys-spacing-4);
+    padding: var(--md-sys-spacing-3) var(--md-sys-spacing-4);
+    margin: var(--md-sys-spacing-1);
+    min-height: 52px;
   }
 
   /* Certifications grid mobile layout */
@@ -1747,7 +2007,20 @@ h4:focus-visible {
   }
 
   .timeline-content {
-    padding: var(--md-sys-spacing-4);
+    padding: var(--md-sys-spacing-5) var(--md-sys-spacing-4);
+    padding-top: var(--md-sys-spacing-6);
+    padding-bottom: var(--md-sys-spacing-6);
+  }
+
+  .certification-content {
+    padding: var(--md-sys-spacing-5) var(--md-sys-spacing-3);
+    padding-top: var(--md-sys-spacing-6);
+    padding-bottom: var(--md-sys-spacing-6);
+  }
+
+  .project-content {
+    padding: var(--md-sys-spacing-5) var(--md-sys-spacing-4);
+    padding-bottom: var(--md-sys-spacing-7);
   }
 
   .timeline-marker {
@@ -1978,7 +2251,8 @@ md-fab {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
 
@@ -2057,7 +2331,7 @@ md-fab md-icon {
 
 .timeline-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.16);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.16);
 }
 
 .project-card:hover {
@@ -2116,7 +2390,7 @@ md-fab {
 
   .timeline-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.16);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.16);
   }
 
   .project-card:hover {
@@ -2298,7 +2572,7 @@ html {
   display: block;
   background: white;
   border-radius: var(--md-sys-shape-corner-medium);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: var(--md-sys-spacing-4);
   margin: var(--md-sys-spacing-4) 0;
 }
@@ -2343,5 +2617,5 @@ html {
   color: var(--md-sys-color-on-primary);
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
