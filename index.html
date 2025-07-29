@@ -102,136 +102,321 @@
     <header class="section-header">
       <h2 class="md-typescale-headline-large section-title">My Journey</h2>
       <p class="md-typescale-body-large section-subtitle">
-        Key milestones that shaped my professional development
+        Key milestones that shaped my professional development. Click any card to explore more details.
       </p>
+      <div class="journey-hint">
+        <md-icon class="hint-icon">touch_app</md-icon>
+        <span class="md-typescale-body-small hint-text">Tap to expand</span>
+      </div>
     </header>
     <div class="timeline">
       <!-- Timeline Item 1 -->
-      <md-card class="timeline-card">
+      <md-card class="timeline-card expandable-card">
         <div class="timeline-marker">
           <md-icon>school</md-icon>
         </div>
         <div class="timeline-content">
-          <div class="timeline-date md-typescale-label-large">July 2017 - July 2020</div>
-          <h3 class="md-typescale-title-large">High School Diploma</h3>
-          <div class="md-typescale-label-medium company-name">SMK HASANAH PEKANBARU</div>
-          <p class="md-typescale-body-large timeline-summary">
-            Information Technology - First steps into the world of programming and technology
-          </p>
-          <p class="md-typescale-body-medium">
-            My interest in technology began during elementary school, and in 2017, I took a significant step by
-            purchasing my first laptop. Eager to dive into the field, I immediately started learning programming. The
-            first year
-            was challenging, with many hurdles along the way, but it gave me my initial exposure and excitement for
-            coding,
-            which has shaped my journey ever since.
-          </p>
+          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="timeline-main-content">
+              <div class="timeline-date md-typescale-label-large">July 2017 - July 2020</div>
+              <h3 class="md-typescale-title-large">High School Diploma</h3>
+              <div class="md-typescale-label-medium company-name">SMK HASANAH PEKANBARU</div>
+              <p class="md-typescale-body-large timeline-summary">
+                Information Technology - First steps into the world of programming and technology
+              </p>
+            </div>
+            <div class="expand-indicator">
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
+          </div>
+          <div class="timeline-details" aria-hidden="true">
+            <md-divider></md-divider>
+            <div class="timeline-expanded-content">
+              <p class="md-typescale-body-medium">
+                My interest in technology began during elementary school, and in 2017, I took a significant step by
+                purchasing my first laptop. Eager to dive into the field, I immediately started learning programming.
+                The
+                first year
+                was challenging, with many hurdles along the way, but it gave me my initial exposure and excitement for
+                coding,
+                which has shaped my journey ever since.
+              </p>
+              <div class="timeline-highlights">
+                <h4 class="md-typescale-title-medium">Key Highlights</h4>
+                <ul class="timeline-list">
+                  <li class="md-typescale-body-medium">First programming experience</li>
+                  <li class="md-typescale-body-medium">Purchased first personal laptop</li>
+                  <li class="md-typescale-body-medium">Developed passion for technology</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </md-card>
 
       <!-- Timeline Item 2 -->
-      <md-card class="timeline-card">
+      <md-card class="timeline-card expandable-card">
         <div class="timeline-marker">
           <md-icon>work</md-icon>
         </div>
         <div class="timeline-content">
-          <div class="timeline-date md-typescale-label-large">February 2019 - June 2019</div>
-          <h3 class="md-typescale-title-large">WordPress Developer - Internship</h3>
-          <div class="md-typescale-label-medium company-name">PT. Total Teknologi Rekacipta</div>
-          <p class="md-typescale-body-large timeline-summary">
-            First professional experience with database management and web development
-          </p>
-          <p class="md-typescale-body-medium">
-            Gained proficiency in CodeIgniter 3 for developing database-driven web applications. Experienced WordPress
-            administration and customization using low-code methods. Developed solid understanding of PHP
-            object-oriented
-            programming (OOP) concepts and familiarity with JavaScript's Asynchronous JavaScript and XML (AJAX) for
-            dynamic web interactions. Gained experience deploying applications on cPanel hosting environments.
-          </p>
+          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="timeline-main-content">
+              <div class="timeline-date md-typescale-label-large">February 2019 - June 2019</div>
+              <h3 class="md-typescale-title-large">WordPress Developer - Internship</h3>
+              <div class="md-typescale-label-medium company-name">PT. Total Teknologi Rekacipta</div>
+              <p class="md-typescale-body-large timeline-summary">
+                First professional experience with database management and web development
+              </p>
+            </div>
+            <div class="expand-indicator">
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
+          </div>
+          <div class="timeline-details" aria-hidden="true">
+            <md-divider></md-divider>
+            <div class="timeline-expanded-content">
+              <p class="md-typescale-body-medium">
+                Gained proficiency in CodeIgniter 3 for developing database-driven web applications. Experienced
+                WordPress
+                administration and customization using low-code methods. Developed solid understanding of PHP
+                object-oriented
+                programming (OOP) concepts and familiarity with JavaScript's Asynchronous JavaScript and XML (AJAX) for
+                dynamic web interactions. Gained experience deploying applications on cPanel hosting environments.
+              </p>
+              <div class="timeline-highlights">
+                <h4 class="md-typescale-title-medium">Technologies Used</h4>
+                <div class="tech-chips">
+                  <md-filter-chip label="CodeIgniter 3" selected>
+                    <md-icon slot="icon">code</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="WordPress" selected>
+                    <md-icon slot="icon">web</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="PHP OOP" selected>
+                    <md-icon slot="icon">language</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="JavaScript AJAX" selected>
+                    <md-icon slot="icon">javascript</md-icon>
+                  </md-filter-chip>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </md-card>
 
       <!-- Timeline Item 3 -->
-      <md-card class="timeline-card">
+      <md-card class="timeline-card expandable-card">
         <div class="timeline-marker">
           <md-icon>school</md-icon>
         </div>
         <div class="timeline-content">
-          <div class="timeline-date md-typescale-label-large">July 2021</div>
-          <h3 class="md-typescale-title-large">Bachelor's Degree</h3>
-          <div class="md-typescale-label-medium company-name">Universitas Mercu Buana</div>
-          <p class="md-typescale-body-large timeline-summary">
-            Informatics Engineering - Developing research and analytical skills
-          </p>
-          <p class="md-typescale-body-medium">
-            Completed Bachelor's degree in Informatics Engineering, where I developed my research, analytical,
-            public speaking, and team leadership skills. This educational foundation strengthened my technical
-            knowledge and prepared me for professional challenges in software development.
-          </p>
+          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="timeline-main-content">
+              <div class="timeline-date md-typescale-label-large">July 2021</div>
+              <h3 class="md-typescale-title-large">Bachelor's Degree</h3>
+              <div class="md-typescale-label-medium company-name">Universitas Mercu Buana</div>
+              <p class="md-typescale-body-large timeline-summary">
+                Informatics Engineering - Developing research and analytical skills
+              </p>
+            </div>
+            <div class="expand-indicator">
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
+          </div>
+          <div class="timeline-details" aria-hidden="true">
+            <md-divider></md-divider>
+            <div class="timeline-expanded-content">
+              <p class="md-typescale-body-medium">
+                Completed Bachelor's degree in Informatics Engineering, where I developed my research, analytical,
+                public speaking, and team leadership skills. This educational foundation strengthened my technical
+                knowledge and prepared me for professional challenges in software development.
+              </p>
+              <div class="timeline-highlights">
+                <h4 class="md-typescale-title-medium">Skills Developed</h4>
+                <ul class="timeline-list">
+                  <li class="md-typescale-body-medium">Research and analytical thinking</li>
+                  <li class="md-typescale-body-medium">Public speaking and presentation</li>
+                  <li class="md-typescale-body-medium">Team leadership and collaboration</li>
+                  <li class="md-typescale-body-medium">Software engineering principles</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </md-card>
 
       <!-- Timeline Item 4 -->
-      <md-card class="timeline-card">
+      <md-card class="timeline-card expandable-card">
         <div class="timeline-marker">
           <md-icon>code</md-icon>
         </div>
         <div class="timeline-content">
-          <div class="timeline-date md-typescale-label-large">April 2021 - September 2021</div>
-          <h3 class="md-typescale-title-large">Full Stack Web Programmer</h3>
-          <div class="md-typescale-label-medium company-name">Smart Center Indonesia, Pekanbaru</div>
-          <p class="md-typescale-body-large timeline-summary">
-            Educational platform development for UTBK & SKD Tryout systems
-          </p>
-          <p class="md-typescale-body-medium">
-            Developed website project for UTBK & SKD Tryout (entrance exams for universities and civil service positions
-            in Indonesia). Focused on streamlining development and ensuring efficient time management. Used a variety of
-            technologies, including CodeIgniter, Laravel, Ajax, and React to enhance both front-end and back-end
-            development skills.
-          </p>
+          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="timeline-main-content">
+              <div class="timeline-date md-typescale-label-large">April 2021 - September 2021</div>
+              <h3 class="md-typescale-title-large">Full Stack Web Programmer</h3>
+              <div class="md-typescale-label-medium company-name">Smart Center Indonesia, Pekanbaru</div>
+              <p class="md-typescale-body-large timeline-summary">
+                Educational platform development for UTBK & SKD Tryout systems
+              </p>
+            </div>
+            <div class="expand-indicator">
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
+          </div>
+          <div class="timeline-details" aria-hidden="true">
+            <md-divider></md-divider>
+            <div class="timeline-expanded-content">
+              <p class="md-typescale-body-medium">
+                Developed website project for UTBK & SKD Tryout (entrance exams for universities and civil service
+                positions
+                in Indonesia). Focused on streamlining development and ensuring efficient time management. Used a
+                variety of
+                technologies, including CodeIgniter, Laravel, Ajax, and React to enhance both front-end and back-end
+                development skills.
+              </p>
+              <div class="timeline-highlights">
+                <h4 class="md-typescale-title-medium">Tech Stack</h4>
+                <div class="tech-chips">
+                  <md-filter-chip label="Laravel" selected>
+                    <md-icon slot="icon">code</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="CodeIgniter" selected>
+                    <md-icon slot="icon">web</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="React" selected>
+                    <md-icon slot="icon">javascript</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="AJAX" selected>
+                    <md-icon slot="icon">sync</md-icon>
+                  </md-filter-chip>
+                </div>
+                <h4 class="md-typescale-title-medium">Key Achievements</h4>
+                <ul class="timeline-list">
+                  <li class="md-typescale-body-medium">Built comprehensive tryout platform</li>
+                  <li class="md-typescale-body-medium">Improved development efficiency</li>
+                  <li class="md-typescale-body-medium">Enhanced full-stack skills</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </md-card>
 
       <!-- Timeline Item 5 -->
-      <md-card class="timeline-card">
+      <md-card class="timeline-card expandable-card">
         <div class="timeline-marker">
           <md-icon>group</md-icon>
         </div>
         <div class="timeline-content">
-          <div class="timeline-date md-typescale-label-large">January 2022 - March 2022</div>
-          <h3 class="md-typescale-title-large">Full-stack Developer - Contract</h3>
-          <div class="md-typescale-label-medium company-name">enpact, Berlin, Germany</div>
-          <p class="md-typescale-body-large timeline-summary">
-            International team collaboration and microservices architecture
-          </p>
-          <p class="md-typescale-body-medium">
-            Contracted to build a website application in an international team environment. Learned extensively about
-            NestJS (especially decorators & injectable dependency), Technical Documentation, Microservices, Gitflow,
-            and Scrum methodologies. This role greatly enhanced my ability to work collaboratively in a team-driven
-            environment and understand global development practices.
-          </p>
+          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="timeline-main-content">
+              <div class="timeline-date md-typescale-label-large">January 2022 - March 2022</div>
+              <h3 class="md-typescale-title-large">Full-stack Developer - Contract</h3>
+              <div class="md-typescale-label-medium company-name">enpact, Berlin, Germany</div>
+              <p class="md-typescale-body-large timeline-summary">
+                International team collaboration and microservices architecture
+              </p>
+            </div>
+            <div class="expand-indicator">
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
+          </div>
+          <div class="timeline-details" aria-hidden="true">
+            <md-divider></md-divider>
+            <div class="timeline-expanded-content">
+              <p class="md-typescale-body-medium">
+                Contracted to build a website application in an international team environment. Learned extensively
+                about
+                NestJS (especially decorators & injectable dependency), Technical Documentation, Microservices, Gitflow,
+                and Scrum methodologies. This role greatly enhanced my ability to work collaboratively in a team-driven
+                environment and understand global development practices.
+              </p>
+              <div class="timeline-highlights">
+                <h4 class="md-typescale-title-medium">Technologies & Methodologies</h4>
+                <div class="tech-chips">
+                  <md-filter-chip label="NestJS" selected>
+                    <md-icon slot="icon">architecture</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="Microservices" selected>
+                    <md-icon slot="icon">hub</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="Scrum" selected>
+                    <md-icon slot="icon">group</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="Gitflow" selected>
+                    <md-icon slot="icon">merge_type</md-icon>
+                  </md-filter-chip>
+                </div>
+                <h4 class="md-typescale-title-medium">International Experience</h4>
+                <ul class="timeline-list">
+                  <li class="md-typescale-body-medium">Remote collaboration with Berlin team</li>
+                  <li class="md-typescale-body-medium">Cross-cultural communication skills</li>
+                  <li class="md-typescale-body-medium">Global development best practices</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </md-card>
 
       <!-- Timeline Item 6 -->
-      <md-card class="timeline-card">
+      <md-card class="timeline-card expandable-card">
         <div class="timeline-marker">
           <md-icon>business</md-icon>
         </div>
         <div class="timeline-content">
-          <div class="timeline-date md-typescale-label-large">June 2022 - Present</div>
-          <h3 class="md-typescale-title-large">Technical Consultant</h3>
-          <div class="md-typescale-label-medium company-name">PT. Metrodata Electronics Tbk., Jakarta</div>
-          <p class="md-typescale-body-large timeline-summary">
-            Enterprise solutions and continuous professional development
-          </p>
-          <p class="md-typescale-body-medium">
-            My experience encompasses a diverse range of projects, including custom web applications and system
-            integrations, which has provided me with a comprehensive understanding of the industrial landscape.
-            This role fosters a collaborative environment, where teamwork is highly valued. The dynamic nature of
-            the industry necessitates continuous learning and personal growth, allowing me to consistently enhance
-            my technical expertise and professional value.
-          </p>
+          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="timeline-main-content">
+              <div class="timeline-date md-typescale-label-large">June 2022 - Present</div>
+              <h3 class="md-typescale-title-large">Technical Consultant</h3>
+              <div class="md-typescale-label-medium company-name">PT. Metrodata Electronics Tbk., Jakarta</div>
+              <p class="md-typescale-body-large timeline-summary">
+                Enterprise solutions and continuous professional development
+              </p>
+            </div>
+            <div class="expand-indicator">
+              <md-icon class="expand-icon">expand_more</md-icon>
+            </div>
+          </div>
+          <div class="timeline-details" aria-hidden="true">
+            <md-divider></md-divider>
+            <div class="timeline-expanded-content">
+              <p class="md-typescale-body-medium">
+                My experience encompasses a diverse range of projects, including custom web applications and system
+                integrations, which has provided me with a comprehensive understanding of the industrial landscape.
+                This role fosters a collaborative environment, where teamwork is highly valued. The dynamic nature of
+                the industry necessitates continuous learning and personal growth, allowing me to consistently enhance
+                my technical expertise and professional value.
+              </p>
+              <div class="timeline-highlights">
+                <h4 class="md-typescale-title-medium">Current Focus Areas</h4>
+                <div class="tech-chips">
+                  <md-filter-chip label="Enterprise Solutions" selected>
+                    <md-icon slot="icon">business</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="System Integration" selected>
+                    <md-icon slot="icon">hub</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="Client Consulting" selected>
+                    <md-icon slot="icon">person</md-icon>
+                  </md-filter-chip>
+                  <md-filter-chip label="Team Leadership" selected>
+                    <md-icon slot="icon">group</md-icon>
+                  </md-filter-chip>
+                </div>
+                <h4 class="md-typescale-title-medium">Professional Growth</h4>
+                <ul class="timeline-list">
+                  <li class="md-typescale-body-medium">Custom web application development</li>
+                  <li class="md-typescale-body-medium">Enterprise system integrations</li>
+                  <li class="md-typescale-body-medium">Client relationship management</li>
+                  <li class="md-typescale-body-medium">Continuous learning and adaptation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </md-card>
     </div>
