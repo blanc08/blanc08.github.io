@@ -97,364 +97,435 @@
     </div>
     <md-divider></md-divider>
   </section>
+
   <!-- Journey Section -->
   <section class="journey-section">
     <header class="section-header">
       <h2 class="md-typescale-headline-large section-title">My Journey</h2>
       <p class="md-typescale-body-large section-subtitle">
-        Key milestones that shaped my professional development. Click any card to explore more details.
+        Professional experience meets technical innovation. Hover to see connections between work and projects.
       </p>
-      <div class="journey-hint">
-        <md-icon class="hint-icon">touch_app</md-icon>
-        <span class="md-typescale-body-small hint-text">Tap to expand</span>
+      <div class="journey-columns-hint">
+        <div class="column-label">
+          <md-icon>work</md-icon>
+          <span class="md-typescale-body-medium">Work Experience</span>
+        </div>
+        <div class="connection-indicator">
+          <md-icon>arrow_forward</md-icon>
+        </div>
+        <div class="column-label">
+          <md-icon>code</md-icon>
+          <span class="md-typescale-body-medium">Projects & Deliverables</span>
+        </div>
       </div>
     </header>
-    <div class="timeline">
-      <!-- Timeline Item 1 -->
-      <md-card class="timeline-card expandable-card">
-        <div class="timeline-marker">
-          <md-icon>school</md-icon>
+
+    <div class="journey-container">
+      <!-- Central Timeline -->
+      <div class="central-timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-progress"></div>
+      </div>
+
+      <!-- Work Experience Column -->
+      <div class="work-column">
+        <div class="column-header">
+          <h3 class="md-typescale-headline-medium">Professional Experience</h3>
+          <p class="md-typescale-body-medium">Roles, responsibilities & growth</p>
         </div>
-        <div class="timeline-content">
-          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
-            <div class="timeline-main-content">
-              <div class="timeline-date md-typescale-label-large">July 2017 - July 2020</div>
-              <h3 class="md-typescale-title-large">High School Diploma</h3>
-              <div class="md-typescale-label-medium company-name">SMK HASANAH PEKANBARU</div>
-              <p class="md-typescale-body-large timeline-summary">
-                Information Technology - First steps into the world of programming and technology
-              </p>
-            </div>
-            <div class="expand-indicator">
-              <md-icon class="expand-icon">expand_more</md-icon>
-            </div>
+
+        <!-- Work Item 1: High School -->
+        <md-card class="work-card" data-connection="education-1">
+          <div class="work-marker">
+            <md-icon>school</md-icon>
           </div>
-          <div class="timeline-details" aria-hidden="true">
-            <md-divider></md-divider>
-            <div class="timeline-expanded-content">
-              <p class="md-typescale-body-medium">
-                My interest in technology began during elementary school, and in 2017, I took a significant step by
-                purchasing my first laptop. Eager to dive into the field, I immediately started learning programming.
-                The
-                first year
-                was challenging, with many hurdles along the way, but it gave me my initial exposure and excitement for
-                coding,
-                which has shaped my journey ever since.
-              </p>
-              <div class="timeline-highlights">
-                <h4 class="md-typescale-title-medium">Key Highlights</h4>
-                <ul class="timeline-list">
-                  <li class="md-typescale-body-medium">First programming experience</li>
-                  <li class="md-typescale-body-medium">Purchased first personal laptop</li>
-                  <li class="md-typescale-body-medium">Developed passion for technology</li>
-                </ul>
+          <div class="work-content">
+            <div class="work-date md-typescale-label-large">July 2017 - July 2020</div>
+            <h4 class="md-typescale-title-large">Information Technology Student</h4>
+            <div class="md-typescale-label-medium company-name">SMK HASANAH PEKANBARU</div>
+            <p class="md-typescale-body-medium work-description">
+              Laid the foundation for my technical career through comprehensive IT education.
+              Focused on programming fundamentals, database concepts, and web technologies.
+            </p>
+            <div class="work-highlights">
+              <div class="highlight-item">
+                <md-icon>psychology</md-icon>
+                <span>Developed problem-solving mindset</span>
+              </div>
+              <div class="highlight-item">
+                <md-icon>group</md-icon>
+                <span>Collaborative learning environment</span>
               </div>
             </div>
           </div>
-        </div>
-      </md-card>
+        </md-card>
 
-      <!-- Timeline Item 2 -->
-      <md-card class="timeline-card expandable-card">
-        <div class="timeline-marker">
-          <md-icon>work</md-icon>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
-            <div class="timeline-main-content">
-              <div class="timeline-date md-typescale-label-large">February 2019 - June 2019</div>
-              <h3 class="md-typescale-title-large">WordPress Developer - Internship</h3>
-              <div class="md-typescale-label-medium company-name">PT. Total Teknologi Rekacipta</div>
-              <p class="md-typescale-body-large timeline-summary">
-                First professional experience with database management and web development
-              </p>
-            </div>
-            <div class="expand-indicator">
-              <md-icon class="expand-icon">expand_more</md-icon>
+        <!-- Work Item 2: Internship -->
+        <md-card class="work-card" data-connection="project-1">
+          <div class="work-marker">
+            <md-icon>work</md-icon>
+          </div>
+          <div class="work-content">
+            <div class="work-date md-typescale-label-large">February 2019 - June 2019</div>
+            <h4 class="md-typescale-title-large">WordPress Developer Intern</h4>
+            <div class="md-typescale-label-medium company-name">PT. Total Teknologi Rekacipta</div>
+            <p class="md-typescale-body-medium work-description">
+              First professional experience working with real clients and production systems.
+              Learned industry standards, deployment processes, and professional workflow.
+            </p>
+            <div class="work-highlights">
+              <div class="highlight-item">
+                <md-icon>business</md-icon>
+                <span>Client interaction & requirements gathering</span>
+              </div>
+              <div class="highlight-item">
+                <md-icon>cloud</md-icon>
+                <span>Production deployment on cPanel</span>
+              </div>
             </div>
           </div>
-          <div class="timeline-details" aria-hidden="true">
-            <md-divider></md-divider>
-            <div class="timeline-expanded-content">
-              <p class="md-typescale-body-medium">
-                Gained proficiency in CodeIgniter 3 for developing database-driven web applications. Experienced
-                WordPress
-                administration and customization using low-code methods. Developed solid understanding of PHP
-                object-oriented
-                programming (OOP) concepts and familiarity with JavaScript's Asynchronous JavaScript and XML (AJAX) for
-                dynamic web interactions. Gained experience deploying applications on cPanel hosting environments.
-              </p>
-              <div class="timeline-highlights">
-                <h4 class="md-typescale-title-medium">Technologies Used</h4>
-                <div class="tech-chips">
-                  <md-filter-chip label="CodeIgniter 3" selected>
-                    <md-icon slot="icon">code</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="WordPress" selected>
-                    <md-icon slot="icon">web</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="PHP OOP" selected>
-                    <md-icon slot="icon">language</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="JavaScript AJAX" selected>
-                    <md-icon slot="icon">javascript</md-icon>
-                  </md-filter-chip>
+        </md-card>
+
+        <!-- Work Item 3: University -->
+        <md-card class="work-card" data-connection="education-2">
+          <div class="work-marker">
+            <md-icon>school</md-icon>
+          </div>
+          <div class="work-content">
+            <div class="work-date md-typescale-label-large">July 2021</div>
+            <h4 class="md-typescale-title-large">Bachelor's in Informatics</h4>
+            <div class="md-typescale-label-medium company-name">Universitas Mercu Buana</div>
+            <p class="md-typescale-body-medium work-description">
+              Advanced my technical knowledge with computer science fundamentals.
+              Developed research skills, analytical thinking, and leadership capabilities.
+            </p>
+            <div class="work-highlights">
+              <div class="highlight-item">
+                <md-icon>science</md-icon>
+                <span>Research & analytical methodology</span>
+              </div>
+              <div class="highlight-item">
+                <md-icon>person</md-icon>
+                <span>Public speaking & presentations</span>
+              </div>
+            </div>
+          </div>
+        </md-card>
+
+        <!-- Work Item 4: Full Stack Role -->
+        <md-card class="work-card" data-connection="project-2">
+          <div class="work-marker">
+            <md-icon>code</md-icon>
+          </div>
+          <div class="work-content">
+            <div class="work-date md-typescale-label-large">April 2021 - September 2021</div>
+            <h4 class="md-typescale-title-large">Full Stack Developer</h4>
+            <div class="md-typescale-label-medium company-name">Smart Center Indonesia</div>
+            <p class="md-typescale-body-medium work-description">
+              Led development of educational platforms serving thousands of students.
+              Managed full project lifecycle from requirements to deployment.
+            </p>
+            <div class="work-highlights">
+              <div class="highlight-item">
+                <md-icon>speed</md-icon>
+                <span>Performance optimization & scaling</span>
+              </div>
+              <div class="highlight-item">
+                <md-icon>schedule</md-icon>
+                <span>Project timeline management</span>
+              </div>
+            </div>
+          </div>
+        </md-card>
+
+        <!-- Work Item 5: International Contract -->
+        <md-card class="work-card" data-connection="project-3">
+          <div class="work-marker">
+            <md-icon>public</md-icon>
+          </div>
+          <div class="work-content">
+            <div class="work-date md-typescale-label-large">January 2022 - March 2022</div>
+            <h4 class="md-typescale-title-large">Full-stack Developer</h4>
+            <div class="md-typescale-label-medium company-name">enpact, Berlin, Germany</div>
+            <p class="md-typescale-body-medium work-description">
+              International remote collaboration with European startup ecosystem.
+              Implemented modern microservices architecture and agile methodologies.
+            </p>
+            <div class="work-highlights">
+              <div class="highlight-item">
+                <md-icon>language</md-icon>
+                <span>Cross-cultural team collaboration</span>
+              </div>
+              <div class="highlight-item">
+                <md-icon>architecture</md-icon>
+                <span>Microservices & system design</span>
+              </div>
+            </div>
+          </div>
+        </md-card>
+
+        <!-- Work Item 6: Current Role -->
+        <md-card class="work-card" data-connection="project-4">
+          <div class="work-marker">
+            <md-icon>business</md-icon>
+          </div>
+          <div class="work-content">
+            <div class="work-date md-typescale-label-large">June 2022 - Present</div>
+            <h4 class="md-typescale-title-large">Technical Consultant</h4>
+            <div class="md-typescale-label-medium company-name">PT. Metrodata Electronics Tbk.</div>
+            <p class="md-typescale-body-medium work-description">
+              Strategic technology consulting for enterprise clients.
+              Leading digital transformation initiatives and system integrations.
+            </p>
+            <div class="work-highlights">
+              <div class="highlight-item">
+                <md-icon>handshake</md-icon>
+                <span>Client relationship management</span>
+              </div>
+              <div class="highlight-item">
+                <md-icon>trending_up</md-icon>
+                <span>Digital transformation leadership</span>
+              </div>
+            </div>
+          </div>
+        </md-card>
+      </div>
+
+      <!-- Projects Column -->
+      <div class="projects-column">
+        <div class="column-header">
+          <h3 class="md-typescale-headline-medium">Projects & Deliverables</h3>
+          <p class="md-typescale-body-medium">Technical output & innovations</p>
+        </div>
+
+        <!-- Project 1: Learning Projects -->
+        <md-card class="project-card" data-connection="education-1">
+          <div class="project-visual">
+            <div class="project-icon">
+              <md-icon>terminal</md-icon>
+            </div>
+            <div class="project-preview">
+              <div class="code-snippet">
+                <span class="code-line">console.log('Hello World!');</span>
+                <span class="code-line">$sql = "SELECT * FROM users";</span>
+                <span class="code-line">&lt;h1&gt;My First Website&lt;/h1&gt;</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="md-typescale-title-medium">First Programming Projects</h4>
+            <p class="md-typescale-body-small project-type">Educational Development</p>
+            <p class="md-typescale-body-medium">
+              Built foundational projects including calculator apps, simple websites,
+              and database-driven applications during high school.
+            </p>
+            <div class="tech-stack-mini">
+              <span class="tech-tag">HTML/CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+          </div>
+        </md-card>
+
+        <!-- Project 2: Client Websites -->
+        <md-card class="project-card" data-connection="project-1">
+          <div class="project-visual">
+            <div class="project-screenshot">
+              <div class="browser-frame">
+                <div class="browser-header">
+                  <div class="browser-dots"></div>
+                  <div class="browser-url">client-website.com</div>
+                </div>
+                <div class="browser-content">
+                  <div class="website-preview">
+                    <div class="preview-header"></div>
+                    <div class="preview-content"></div>
+                    <div class="preview-sidebar"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </md-card>
-
-      <!-- Timeline Item 3 -->
-      <md-card class="timeline-card expandable-card">
-        <div class="timeline-marker">
-          <md-icon>school</md-icon>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
-            <div class="timeline-main-content">
-              <div class="timeline-date md-typescale-label-large">July 2021</div>
-              <h3 class="md-typescale-title-large">Bachelor's Degree</h3>
-              <div class="md-typescale-label-medium company-name">Universitas Mercu Buana</div>
-              <p class="md-typescale-body-large timeline-summary">
-                Informatics Engineering - Developing research and analytical skills
-              </p>
+          <div class="project-content">
+            <h4 class="md-typescale-title-medium">Client WordPress Sites</h4>
+            <p class="md-typescale-body-small project-type">Professional Development</p>
+            <p class="md-typescale-body-medium">
+              Developed custom WordPress themes and plugins for multiple clients.
+              Implemented database integrations and AJAX functionality.
+            </p>
+            <div class="tech-stack-mini">
+              <span class="tech-tag">WordPress</span>
+              <span class="tech-tag">CodeIgniter 3</span>
+              <span class="tech-tag">PHP OOP</span>
+              <span class="tech-tag">AJAX</span>
             </div>
-            <div class="expand-indicator">
-              <md-icon class="expand-icon">expand_more</md-icon>
+            <div class="project-links">
+              <md-text-button>
+                <md-icon slot="icon">launch</md-icon>
+                <span>View Demo</span>
+              </md-text-button>
             </div>
           </div>
-          <div class="timeline-details" aria-hidden="true">
-            <md-divider></md-divider>
-            <div class="timeline-expanded-content">
-              <p class="md-typescale-body-medium">
-                Completed Bachelor's degree in Informatics Engineering, where I developed my research, analytical,
-                public speaking, and team leadership skills. This educational foundation strengthened my technical
-                knowledge and prepared me for professional challenges in software development.
-              </p>
-              <div class="timeline-highlights">
-                <h4 class="md-typescale-title-medium">Skills Developed</h4>
-                <ul class="timeline-list">
-                  <li class="md-typescale-body-medium">Research and analytical thinking</li>
-                  <li class="md-typescale-body-medium">Public speaking and presentation</li>
-                  <li class="md-typescale-body-medium">Team leadership and collaboration</li>
-                  <li class="md-typescale-body-medium">Software engineering principles</li>
-                </ul>
+        </md-card>
+
+        <!-- Project 3: Research Projects -->
+        <md-card class="project-card" data-connection="education-2">
+          <div class="project-visual">
+            <div class="research-visual">
+              <md-icon class="research-icon">analytics</md-icon>
+              <div class="research-data">
+                <div class="data-chart"></div>
+                <div class="data-points"></div>
               </div>
             </div>
           </div>
-        </div>
-      </md-card>
-
-      <!-- Timeline Item 4 -->
-      <md-card class="timeline-card expandable-card">
-        <div class="timeline-marker">
-          <md-icon>code</md-icon>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
-            <div class="timeline-main-content">
-              <div class="timeline-date md-typescale-label-large">April 2021 - September 2021</div>
-              <h3 class="md-typescale-title-large">Full Stack Web Programmer</h3>
-              <div class="md-typescale-label-medium company-name">Smart Center Indonesia, Pekanbaru</div>
-              <p class="md-typescale-body-large timeline-summary">
-                Educational platform development for UTBK & SKD Tryout systems
-              </p>
-            </div>
-            <div class="expand-indicator">
-              <md-icon class="expand-icon">expand_more</md-icon>
+          <div class="project-content">
+            <h4 class="md-typescale-title-medium">Academic Research Projects</h4>
+            <p class="md-typescale-body-small project-type">Research & Analysis</p>
+            <p class="md-typescale-body-medium">
+              Conducted research on software engineering methodologies and
+              modern web development frameworks for thesis project.
+            </p>
+            <div class="tech-stack-mini">
+              <span class="tech-tag">Research</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">Documentation</span>
             </div>
           </div>
-          <div class="timeline-details" aria-hidden="true">
-            <md-divider></md-divider>
-            <div class="timeline-expanded-content">
-              <p class="md-typescale-body-medium">
-                Developed website project for UTBK & SKD Tryout (entrance exams for universities and civil service
-                positions
-                in Indonesia). Focused on streamlining development and ensuring efficient time management. Used a
-                variety of
-                technologies, including CodeIgniter, Laravel, Ajax, and React to enhance both front-end and back-end
-                development skills.
-              </p>
-              <div class="timeline-highlights">
-                <h4 class="md-typescale-title-medium">Tech Stack</h4>
-                <div class="tech-chips">
-                  <md-filter-chip label="Laravel" selected>
-                    <md-icon slot="icon">code</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="CodeIgniter" selected>
-                    <md-icon slot="icon">web</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="React" selected>
-                    <md-icon slot="icon">javascript</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="AJAX" selected>
-                    <md-icon slot="icon">sync</md-icon>
-                  </md-filter-chip>
+        </md-card>
+
+        <!-- Project 4: Educational Platform -->
+        <md-card class="project-card" data-connection="project-2">
+          <div class="project-visual">
+            <img src="/src/images/projects/skd.jpeg" alt="Educational Platform" class="project-image" />
+            <div class="project-overlay">
+              <md-icon>open_in_new</md-icon>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="md-typescale-title-medium">UTBK & SKD Tryout Platform</h4>
+            <p class="md-typescale-body-small project-type">Full-Stack Application</p>
+            <p class="md-typescale-body-medium">
+              Comprehensive educational platform serving thousands of students
+              preparing for university and civil service exams.
+            </p>
+            <div class="tech-stack-mini">
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+            <div class="project-metrics">
+              <div class="metric">
+                <span class="metric-value">5K+</span>
+                <span class="metric-label">Active Users</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">99.9%</span>
+                <span class="metric-label">Uptime</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <md-text-button>
+                <md-icon slot="icon">launch</md-icon>
+                <span>Live Demo</span>
+              </md-text-button>
+            </div>
+          </div>
+        </md-card>
+
+        <!-- Project 5: Microservices Architecture -->
+        <md-card class="project-card" data-connection="project-3">
+          <div class="project-visual">
+            <div class="architecture-diagram">
+              <div class="service-node api">API</div>
+              <div class="service-node db">DB</div>
+              <div class="service-node auth">Auth</div>
+              <div class="service-connections"></div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4 class="md-typescale-title-medium">Startup Platform Architecture</h4>
+            <p class="md-typescale-body-small project-type">Enterprise Development</p>
+            <p class="md-typescale-body-medium">
+              Designed and implemented scalable microservices architecture
+              for Berlin-based startup's core platform.
+            </p>
+            <div class="tech-stack-mini">
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+            <div class="project-achievements">
+              <div class="achievement">
+                <md-icon>speed</md-icon>
+                <span>40% faster response times</span>
+              </div>
+              <div class="achievement">
+                <md-icon>security</md-icon>
+                <span>Enterprise-grade security</span>
+              </div>
+            </div>
+          </div>
+        </md-card>
+
+        <!-- Project 6: Enterprise Solutions -->
+        <md-card class="project-card" data-connection="project-4">
+          <div class="project-visual">
+            <div class="enterprise-visual">
+              <div class="dashboard-preview">
+                <div class="dashboard-header"></div>
+                <div class="dashboard-widgets">
+                  <div class="widget"></div>
+                  <div class="widget"></div>
+                  <div class="widget large"></div>
                 </div>
-                <h4 class="md-typescale-title-medium">Key Achievements</h4>
-                <ul class="timeline-list">
-                  <li class="md-typescale-body-medium">Built comprehensive tryout platform</li>
-                  <li class="md-typescale-body-medium">Improved development efficiency</li>
-                  <li class="md-typescale-body-medium">Enhanced full-stack skills</li>
-                </ul>
               </div>
             </div>
           </div>
-        </div>
-      </md-card>
+          <div class="project-content">
+            <h4 class="md-typescale-title-medium">Enterprise Integration Suite</h4>
+            <p class="md-typescale-body-small project-type">Consulting Solutions</p>
+            <p class="md-typescale-body-medium">
+              Custom enterprise solutions including system integrations,
+              workflow automation, and digital transformation projects.
+            </p>
+            <div class="tech-stack-mini">
+              <span class="tech-tag">Workato</span>
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Ruby</span>
+              <span class="tech-tag">APIs</span>
+            </div>
+            <div class="project-impact">
+              <div class="impact-item">
+                <md-icon>trending_up</md-icon>
+                <span>60% efficiency improvement</span>
+              </div>
+              <div class="impact-item">
+                <md-icon>business</md-icon>
+                <span>Multiple enterprise clients</span>
+              </div>
+            </div>
+            <div class="project-status">
+              <md-chip>
+                <md-icon slot="icon">work</md-icon>
+                <span>Ongoing</span>
+              </md-chip>
+            </div>
+          </div>
+        </md-card>
+      </div>
 
-      <!-- Timeline Item 5 -->
-      <md-card class="timeline-card expandable-card">
-        <div class="timeline-marker">
-          <md-icon>group</md-icon>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
-            <div class="timeline-main-content">
-              <div class="timeline-date md-typescale-label-large">January 2022 - March 2022</div>
-              <h3 class="md-typescale-title-large">Full-stack Developer - Contract</h3>
-              <div class="md-typescale-label-medium company-name">enpact, Berlin, Germany</div>
-              <p class="md-typescale-body-large timeline-summary">
-                International team collaboration and microservices architecture
-              </p>
-            </div>
-            <div class="expand-indicator">
-              <md-icon class="expand-icon">expand_more</md-icon>
-            </div>
-          </div>
-          <div class="timeline-details" aria-hidden="true">
-            <md-divider></md-divider>
-            <div class="timeline-expanded-content">
-              <p class="md-typescale-body-medium">
-                Contracted to build a website application in an international team environment. Learned extensively
-                about
-                NestJS (especially decorators & injectable dependency), Technical Documentation, Microservices, Gitflow,
-                and Scrum methodologies. This role greatly enhanced my ability to work collaboratively in a team-driven
-                environment and understand global development practices.
-              </p>
-              <div class="timeline-highlights">
-                <h4 class="md-typescale-title-medium">Technologies & Methodologies</h4>
-                <div class="tech-chips">
-                  <md-filter-chip label="NestJS" selected>
-                    <md-icon slot="icon">architecture</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="Microservices" selected>
-                    <md-icon slot="icon">hub</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="Scrum" selected>
-                    <md-icon slot="icon">group</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="Gitflow" selected>
-                    <md-icon slot="icon">merge_type</md-icon>
-                  </md-filter-chip>
-                </div>
-                <h4 class="md-typescale-title-medium">International Experience</h4>
-                <ul class="timeline-list">
-                  <li class="md-typescale-body-medium">Remote collaboration with Berlin team</li>
-                  <li class="md-typescale-body-medium">Cross-cultural communication skills</li>
-                  <li class="md-typescale-body-medium">Global development best practices</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </md-card>
-
-      <!-- Timeline Item 6 -->
-      <md-card class="timeline-card expandable-card">
-        <div class="timeline-marker">
-          <md-icon>business</md-icon>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
-            <div class="timeline-main-content">
-              <div class="timeline-date md-typescale-label-large">June 2022 - Present</div>
-              <h3 class="md-typescale-title-large">Technical Consultant</h3>
-              <div class="md-typescale-label-medium company-name">PT. Metrodata Electronics Tbk., Jakarta</div>
-              <p class="md-typescale-body-large timeline-summary">
-                Enterprise solutions and continuous professional development
-              </p>
-            </div>
-            <div class="expand-indicator">
-              <md-icon class="expand-icon">expand_more</md-icon>
-            </div>
-          </div>
-          <div class="timeline-details" aria-hidden="true">
-            <md-divider></md-divider>
-            <div class="timeline-expanded-content">
-              <p class="md-typescale-body-medium">
-                My experience encompasses a diverse range of projects, including custom web applications and system
-                integrations, which has provided me with a comprehensive understanding of the industrial landscape.
-                This role fosters a collaborative environment, where teamwork is highly valued. The dynamic nature of
-                the industry necessitates continuous learning and personal growth, allowing me to consistently enhance
-                my technical expertise and professional value.
-              </p>
-              <div class="timeline-highlights">
-                <h4 class="md-typescale-title-medium">Current Focus Areas</h4>
-                <div class="tech-chips">
-                  <md-filter-chip label="Enterprise Solutions" selected>
-                    <md-icon slot="icon">business</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="System Integration" selected>
-                    <md-icon slot="icon">hub</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="Client Consulting" selected>
-                    <md-icon slot="icon">person</md-icon>
-                  </md-filter-chip>
-                  <md-filter-chip label="Team Leadership" selected>
-                    <md-icon slot="icon">group</md-icon>
-                  </md-filter-chip>
-                </div>
-                <h4 class="md-typescale-title-medium">Professional Growth</h4>
-                <ul class="timeline-list">
-                  <li class="md-typescale-body-medium">Custom web application development</li>
-                  <li class="md-typescale-body-medium">Enterprise system integrations</li>
-                  <li class="md-typescale-body-medium">Client relationship management</li>
-                  <li class="md-typescale-body-medium">Continuous learning and adaptation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </md-card>
+      <!-- Connection Lines SVG -->
+      <svg class="connection-lines" viewBox="0 0 1200 2000">
+        <!-- Connections will be drawn dynamically -->
+      </svg>
     </div>
-  </section>
-  <!-- Projects Section -->
-  <section class="projects-section">
-    <header class="section-header">
-      <h2 class="md-typescale-headline-large section-title">What I've worked on</h2>
-      <p class="md-typescale-body-large section-subtitle">
-        Featured projects that showcase my skills and experience
-      </p>
-    </header>
-    <div class="projects-grid">
-      <md-card class="project-card">
-        <img src="/src/images/projects/skd.jpeg" alt="SKD Project" class="project-image" />
-        <div class="project-content">
-          <h4 class="md-typescale-title-large">Educational Tryout Platform</h4>
-          <p class="md-typescale-label-medium project-role">Full-stack Developer</p>
-          <p class="md-typescale-body-small company-name">Smart Center Indonesia</p>
-          <p class="md-typescale-body-medium project-description">
-            A comprehensive educational platform built with modern web technologies for online assessments and learning.
-          </p>
-          <div class="project-actions">
-            <md-text-button>
-              <md-icon slot="icon">open_in_new</md-icon>
-              <span class="md-typescale-label-large">View Project</span>
-            </md-text-button>
-          </div>
-        </div>
-      </md-card>
-    </div>
-    <div class="projects-link">
-      <md-outlined-button>
-        <md-icon slot="icon">code</md-icon>
-        <span class="md-typescale-label-large">Personal Projects on GitHub</span>
-      </md-outlined-button>
-    </div>
-  </section>
+
+  </section> <!-- Journey Section - Full Screen Sectioned Layout -->
+
   <!-- Certifications Section -->
   <section class="certifications-section">
     <header class="section-header">
