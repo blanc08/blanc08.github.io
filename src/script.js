@@ -78,9 +78,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const journeySection = document.querySelector('.journey-section');
     const timeline = document.querySelector('.timeline-progress');
 
+    // Validate required elements
+    if (!workCards.length || !projectCards.length) {
+      console.warn('Connection mechanism: No work or project cards found');
+      return;
+    }
+
+    if (!svg) {
+      console.warn('Connection mechanism: SVG element not found');
+      return;
+    }
+
+    if (!journeySection) {
+      console.warn('Connection mechanism: Journey section not found');
+      return;
+    }
+
     let connections = new Map();
     let currentConnection = null;
     let isHovering = false;
+    let deactivateTimeout = null;
 
     // Setup connection mappings
     setupConnections();
@@ -134,9 +151,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         workCard.addEventListener('mouseleave', () => {
-          if (!isHovering) {
+          // Use a short delay to allow moving to connected project card
+          deactivateTimeout = setTimeout(() => {
             deactivateConnection();
-          }
+          }, 150);
         });
 
         // Keyboard navigation support
@@ -162,9 +180,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         workCard.addEventListener('blur', () => {
-          if (!isHovering) {
+          deactivateTimeout = setTimeout(() => {
             deactivateConnection();
-          }
+          }, 150);
         });
 
         // Touch events for mobile devices
@@ -187,9 +205,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         projectCard.addEventListener('mouseleave', () => {
-          if (!isHovering) {
+          // Use a short delay to allow moving to connected work card
+          deactivateTimeout = setTimeout(() => {
             deactivateConnection();
-          }
+          }, 150);
         });
 
         // Keyboard navigation support
@@ -215,9 +234,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         projectCard.addEventListener('blur', () => {
-          if (!isHovering) {
+          deactivateTimeout = setTimeout(() => {
             deactivateConnection();
-          }
+          }, 150);
         });
 
         // Touch events for mobile devices
@@ -231,12 +250,42 @@ document.addEventListener('DOMContentLoaded', function () {
           }, 2000);
         }, { passive: true });
       });
-    } function activateConnection(connectionId) {
-      if (!connections.has(connectionId)) return;
+    }
+
+    function activateConnection(connectionId) {
+      if (!connectionId || !connections.has(connectionId)) {
+        console.warn(`Connection mechanism: Invalid connection ID: ${connectionId}`);
+        return;
+      }
+
+      // If the same connection is already active, just clear any pending deactivation
+      if (currentConnection === connectionId) {
+        if (deactivateTimeout) {
+          clearTimeout(deactivateTimeout);
+          deactivateTimeout = null;
+        }
+        return;
+      }
 
       const connection = connections.get(connectionId);
+      if (!connection.work || !connection.project) {
+        console.warn(`Connection mechanism: Missing work or project card for connection: ${connectionId}`);
+        return;
+      }
+
+      // Deactivate any existing connection first
+      if (currentConnection) {
+        deactivateConnection();
+      }
+
       currentConnection = connectionId;
       isHovering = true;
+
+      // Clear any pending deactivation
+      if (deactivateTimeout) {
+        clearTimeout(deactivateTimeout);
+        deactivateTimeout = null;
+      }
 
       // Add connected classes with enhanced effects
       connection.work.classList.add('connected');
@@ -293,43 +342,42 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         });
 
-        // Remove preview after delay
-        setTimeout(() => {
-          relatedCards.forEach(card => card.classList.remove('related-preview'));
-        }, 1500);
+        // Note: related-preview will be removed in deactivateConnection
+        // No setTimeout needed here to avoid conflicts
       }
     }
 
     function deactivateConnection() {
       if (!currentConnection) return;
 
+      // Clear any pending deactivation timeout
+      if (deactivateTimeout) {
+        clearTimeout(deactivateTimeout);
+        deactivateTimeout = null;
+      }
+
+      // Remove connected classes immediately
+      const workCards = document.querySelectorAll('.work-card');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      workCards.forEach(card => {
+        card.classList.remove('connected', 'related-preview');
+        card.style.opacity = '';
+      });
+
+      projectCards.forEach(card => {
+        card.classList.remove('connected', 'related-preview');
+        card.style.opacity = '';
+      });
+
+      // Remove connection lines and particles
+      if (svg) {
+        const lines = svg.querySelectorAll('.connection-line, .connection-particle, circle');
+        lines.forEach(line => line.remove());
+      }
+
+      currentConnection = null;
       isHovering = false;
-
-      setTimeout(() => {
-        if (!isHovering) {
-          // Remove connected classes
-          const workCards = document.querySelectorAll('.work-card');
-          const projectCards = document.querySelectorAll('.project-card');
-
-          workCards.forEach(card => {
-            card.classList.remove('connected', 'related-preview');
-            card.style.opacity = '';
-          });
-
-          projectCards.forEach(card => {
-            card.classList.remove('connected', 'related-preview');
-            card.style.opacity = '';
-          });
-
-          // Remove connection lines and particles
-          if (svg) {
-            const lines = svg.querySelectorAll('.connection-line, .connection-particle, circle');
-            lines.forEach(line => line.remove());
-          }
-
-          currentConnection = null;
-        }
-      }, 100);
     }
 
     function drawConnectionLine(connection) {
