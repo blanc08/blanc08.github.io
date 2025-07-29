@@ -142,25 +142,66 @@ document.addEventListener('DOMContentLoaded', function () {
       currentConnection = connectionId;
       isHovering = true;
 
-      // Add connected classes
+      // Add connected classes with enhanced effects
       connection.work.classList.add('connected');
       connection.project.classList.add('connected');
+
+      // Add preview effect for related cards
+      addConnectionPreview(connectionId);
 
       // Create connection line
       drawConnectionLine(connection);
 
-      // Dim other cards
+      // Dim other cards with smart opacity
+      const workCards = document.querySelectorAll('.work-card');
+      const projectCards = document.querySelectorAll('.project-card');
+      
       workCards.forEach(card => {
         if (card !== connection.work) {
-          card.style.opacity = '0.4';
+          const cardStrength = card.dataset.connectionStrength;
+          const opacity = getSmartOpacity(cardStrength);
+          card.style.opacity = opacity;
+          card.style.filter = 'blur(1px)';
         }
       });
 
       projectCards.forEach(card => {
         if (card !== connection.project) {
-          card.style.opacity = '0.4';
+          const cardStrength = card.dataset.connectionStrength;
+          const opacity = getSmartOpacity(cardStrength);
+          card.style.opacity = opacity;
+          card.style.filter = 'blur(1px)';
         }
       });
+    }
+
+    function getSmartOpacity(strength) {
+      switch(strength) {
+        case 'very-high': return '0.3';
+        case 'high': return '0.4';
+        case 'medium': return '0.5';
+        case 'foundation': return '0.6';
+        default: return '0.4';
+      }
+    }
+
+    function addConnectionPreview(connectionId) {
+      // Find cards with same connection type for preview
+      const currentType = document.querySelector(`[data-connection="${connectionId}"]`)?.dataset.connectionType;
+      
+      if (currentType) {
+        const relatedCards = document.querySelectorAll(`[data-connection-type="${currentType}"]`);
+        relatedCards.forEach(card => {
+          if (card.dataset.connection !== connectionId) {
+            card.classList.add('related-preview');
+          }
+        });
+
+        // Remove preview after delay
+        setTimeout(() => {
+          relatedCards.forEach(card => card.classList.remove('related-preview'));
+        }, 1500);
+      }
     }
 
     function deactivateConnection() {
@@ -171,19 +212,24 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(() => {
         if (!isHovering) {
           // Remove connected classes
+          const workCards = document.querySelectorAll('.work-card');
+          const projectCards = document.querySelectorAll('.project-card');
+          
           workCards.forEach(card => {
-            card.classList.remove('connected');
+            card.classList.remove('connected', 'related-preview');
             card.style.opacity = '';
+            card.style.filter = '';
           });
 
           projectCards.forEach(card => {
-            card.classList.remove('connected');
+            card.classList.remove('connected', 'related-preview');
             card.style.opacity = '';
+            card.style.filter = '';
           });
 
-          // Remove connection lines
+          // Remove connection lines and particles
           if (svg) {
-            const lines = svg.querySelectorAll('.connection-line');
+            const lines = svg.querySelectorAll('.connection-line, .connection-particle, circle');
             lines.forEach(line => line.remove());
           }
 
@@ -205,23 +251,165 @@ document.addEventListener('DOMContentLoaded', function () {
       const endX = projectRect.left - journeyRect.left;
       const endY = projectRect.top + projectRect.height / 2 - journeyRect.top;
 
-      // Create curved path
+      // Determine connection type based on data
+      const connectionId = connection.work.dataset.connection;
+      const connectionType = getConnectionType(connectionId);
+
+      // Create curved path with enhanced curve
       const midX = (startX + endX) / 2;
-      const curveOffset = 50;
+      const curveOffset = Math.abs(startY - endY) > 100 ? 80 : 50;
+      const controlY = Math.min(startY, endY) - curveOffset;
 
-      const path = `M ${startX} ${startY} Q ${midX} ${startY - curveOffset} ${endX} ${endY}`;
+      const path = `M ${startX} ${startY} Q ${midX} ${controlY} ${endX} ${endY}`;
 
-      // Create SVG path element
+      // Remove existing lines and labels
+      const existingLines = svg.querySelectorAll('.connection-line');
+      const existingLabels = svg.querySelectorAll('.connection-label');
+      const existingParticles = svg.querySelectorAll('.connection-particle');
+      
+      existingLines.forEach(line => line.remove());
+      existingLabels.forEach(label => label.remove());
+      existingParticles.forEach(particle => particle.remove());
+
+      // Create enhanced SVG path element
       const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       pathElement.setAttribute('d', path);
-      pathElement.classList.add('connection-line', 'active');
+      pathElement.setAttribute('id', `connection-${connectionId}`);
+      pathElement.classList.add('connection-line', 'active', connectionType);
 
-      // Remove existing lines
-      const existingLines = svg.querySelectorAll('.connection-line');
-      existingLines.forEach(line => line.remove());
+      // Add gradient for enhanced visual appeal
+      const gradientId = `gradient-${connectionId}`;
+      createConnectionGradient(gradientId, connectionType);
+      pathElement.setAttribute('stroke', `url(#${gradientId})`);
 
-      // Add new line
       svg.appendChild(pathElement);
+
+      // Add data flow particles
+      addDataFlowParticles(pathElement, connectionId);
+
+      // Add connection label
+      addConnectionLabel(connectionId, midX, controlY - 20);
+
+      // Add connection strength indicator
+      addConnectionStrength(connection, startX, startY, endX, endY);
+    }
+
+    function getConnectionType(connectionId) {
+      const workCard = document.querySelector(`[data-connection="${connectionId}"]`);
+      return workCard?.dataset.connectionType || 'primary-connection';
+    }
+
+    function createConnectionGradient(gradientId, connectionType) {
+      const defs = svg.querySelector('defs') || document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      if (!svg.querySelector('defs')) {
+        svg.appendChild(defs);
+      }
+
+      const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+      gradient.setAttribute('id', gradientId);
+      gradient.setAttribute('x1', '0%');
+      gradient.setAttribute('y1', '0%');
+      gradient.setAttribute('x2', '100%');
+      gradient.setAttribute('y2', '0%');
+
+      const colors = {
+        'primary-connection': ['var(--md-sys-color-primary)', 'var(--md-sys-color-secondary)'],
+        'secondary-connection': ['var(--md-sys-color-tertiary)', 'var(--md-sys-color-primary)'],
+        'skill-transfer': ['var(--md-sys-color-secondary)', 'var(--md-sys-color-tertiary)']
+      };
+
+      const [startColor, endColor] = colors[connectionType] || colors['primary-connection'];
+
+      const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      stop1.setAttribute('offset', '0%');
+      stop1.setAttribute('stop-color', startColor);
+      stop1.setAttribute('stop-opacity', '0.8');
+
+      const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      stop2.setAttribute('offset', '100%');
+      stop2.setAttribute('stop-color', endColor);
+      stop2.setAttribute('stop-opacity', '0.8');
+
+      gradient.appendChild(stop1);
+      gradient.appendChild(stop2);
+      defs.appendChild(gradient);
+    }
+
+    function addDataFlowParticles(pathElement, connectionId) {
+      const pathLength = pathElement.getTotalLength();
+      const particleCount = 3;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        particle.classList.add('connection-particle', 'pulse');
+        particle.setAttribute('r', '3');
+        particle.setAttribute('fill', 'var(--md-sys-color-primary)');
+
+        svg.appendChild(particle);
+
+        // Animate particle along path
+        const animateMotion = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+        animateMotion.setAttribute('dur', '3s');
+        animateMotion.setAttribute('repeatCount', 'indefinite');
+        animateMotion.setAttribute('begin', `${i * 1}s`);
+
+        const mpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+        mpath.setAttribute('href', `#connection-${connectionId}`);
+
+        animateMotion.appendChild(mpath);
+        particle.appendChild(animateMotion);
+      }
+    }
+
+    function addConnectionLabel(connectionId, x, y) {
+      const workCard = document.querySelector(`[data-connection="${connectionId}"]`);
+      const labelText = workCard?.dataset.connectionLabel || 'Connection';
+      const connectionStrength = workCard?.dataset.connectionStrength || 'medium';
+      
+      const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+      foreignObject.setAttribute('x', x - 60);
+      foreignObject.setAttribute('y', y - 15);
+      foreignObject.setAttribute('width', '120');
+      foreignObject.setAttribute('height', '30');
+
+      const labelDiv = document.createElement('div');
+      labelDiv.classList.add('connection-label', 'active', `strength-${connectionStrength}`);
+      labelDiv.textContent = labelText;
+      labelDiv.style.textAlign = 'center';
+
+      foreignObject.appendChild(labelDiv);
+      svg.appendChild(foreignObject);
+
+      // Auto-hide label after duration based on strength
+      const hideDuration = connectionStrength === 'very-high' ? 5000 : 
+                          connectionStrength === 'high' ? 4000 : 3000;
+      
+      setTimeout(() => {
+        labelDiv.classList.remove('active');
+        setTimeout(() => foreignObject.remove(), 300);
+      }, hideDuration);
+    }
+
+    function addConnectionStrength(connection, startX, startY, endX, endY) {
+      // Add pulsing dots at connection points
+      const startDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      startDot.setAttribute('cx', startX);
+      startDot.setAttribute('cy', startY);
+      startDot.setAttribute('r', '6');
+      startDot.setAttribute('fill', 'var(--md-sys-color-primary)');
+      startDot.setAttribute('opacity', '0.8');
+      startDot.style.animation = 'connectionPulse 2s ease-in-out infinite';
+
+      const endDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      endDot.setAttribute('cx', endX);
+      endDot.setAttribute('cy', endY);
+      endDot.setAttribute('r', '6');
+      endDot.setAttribute('fill', 'var(--md-sys-color-secondary)');
+      endDot.setAttribute('opacity', '0.8');
+      endDot.style.animation = 'connectionPulse 2s ease-in-out infinite 0.5s';
+
+      svg.appendChild(startDot);
+      svg.appendChild(endDot);
     }
   }
 
