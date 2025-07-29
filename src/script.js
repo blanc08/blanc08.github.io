@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const cardStrength = card.dataset.connectionStrength;
           const opacity = getSmartOpacity(cardStrength);
           card.style.opacity = opacity;
-          card.style.filter = 'blur(1px)';
+          // Removed blur effect that was causing UX issues
         }
       });
 
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const cardStrength = card.dataset.connectionStrength;
           const opacity = getSmartOpacity(cardStrength);
           card.style.opacity = opacity;
-          card.style.filter = 'blur(1px)';
+          // Removed blur effect that was causing UX issues
         }
       });
     }
@@ -577,16 +577,16 @@ function initializeAnalytics() {
   if (window.trackPortfolioEvent) {
     window.trackPortfolioEvent('page_view', 'Navigation', window.location.pathname, 1);
   }
-  
+
   // Track user engagement
   trackUserEngagement();
-  
+
   // Track scroll depth
   trackScrollDepth();
-  
+
   // Track connection interactions
   trackConnectionInteractions();
-  
+
   // Track performance metrics
   trackPerformanceMetrics();
 }
@@ -594,21 +594,21 @@ function initializeAnalytics() {
 function trackUserEngagement() {
   let engagementTimer;
   let isEngaged = false;
-  
+
   const trackEngagement = () => {
     if (!isEngaged) {
       isEngaged = true;
       sessionStorage.setItem('user_engaged', 'true');
-      
+
       if (window.trackPortfolioEvent) {
         window.trackPortfolioEvent('engagement', 'User', 'engaged', 1);
       }
     }
   };
-  
+
   // Track various engagement signals
   const engagementEvents = ['scroll', 'click', 'keydown', 'mousemove', 'touchstart'];
-  
+
   engagementEvents.forEach(event => {
     document.addEventListener(event, () => {
       clearTimeout(engagementTimer);
@@ -620,21 +620,21 @@ function trackUserEngagement() {
 function trackScrollDepth() {
   const scrollDepths = [25, 50, 75, 90];
   const tracked = new Set();
-  
+
   const trackScroll = () => {
     const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    
+
     scrollDepths.forEach(depth => {
       if (scrollPercent >= depth && !tracked.has(depth)) {
         tracked.add(depth);
-        
+
         if (window.trackPortfolioEvent) {
           window.trackPortfolioEvent('scroll_depth', 'Engagement', `${depth}%`, depth);
         }
       }
     });
   };
-  
+
   window.addEventListener('scroll', trackScroll, { passive: true });
 }
 
@@ -643,33 +643,33 @@ function trackConnectionInteractions() {
   document.addEventListener('click', (e) => {
     const workCard = e.target.closest('.work-card[data-connection]');
     const projectCard = e.target.closest('.project-card[data-connection]');
-    
+
     if (workCard) {
       const connectionId = workCard.dataset.connection;
       const connectionType = workCard.dataset.connectionType;
-      
+
       if (window.trackPortfolioEvent) {
         window.trackPortfolioEvent('connection_click', 'Interaction', `work_${connectionId}`, 1);
         window.trackPortfolioEvent('connection_type', 'Interaction', connectionType, 1);
       }
     }
-    
+
     if (projectCard) {
       const connectionId = projectCard.dataset.connection;
       const connectionType = projectCard.dataset.connectionType;
-      
+
       if (window.trackPortfolioEvent) {
         window.trackPortfolioEvent('connection_click', 'Interaction', `project_${connectionId}`, 1);
         window.trackPortfolioEvent('connection_type', 'Interaction', connectionType, 1);
       }
     }
   });
-  
+
   // Track contact button clicks
   document.querySelectorAll('.contact-button').forEach(button => {
     button.addEventListener('click', () => {
       const iconText = button.querySelector('md-icon').textContent;
-      
+
       if (window.trackPortfolioEvent) {
         window.trackPortfolioEvent('contact_click', 'Contact', iconText, 1);
       }
@@ -682,14 +682,14 @@ function trackPerformanceMetrics() {
   window.addEventListener('load', () => {
     setTimeout(() => {
       const perfData = performance.getEntriesByType('navigation')[0];
-      
+
       if (perfData && window.trackPortfolioEvent) {
         const loadTime = Math.round(perfData.loadEventEnd - perfData.fetchStart);
         const domContentLoaded = Math.round(perfData.domContentLoadedEventEnd - perfData.fetchStart);
-        
+
         window.trackPortfolioEvent('performance', 'Load Time', 'page_load', loadTime);
         window.trackPortfolioEvent('performance', 'Load Time', 'dom_content_loaded', domContentLoaded);
-        
+
         // Track Core Web Vitals if available
         if ('web-vital' in window) {
           trackCoreWebVitals();
@@ -702,17 +702,17 @@ function trackPerformanceMetrics() {
 function trackCoreWebVitals() {
   // This would integrate with Core Web Vitals library
   // For now, we'll track basic metrics
-  
+
   // Largest Contentful Paint (LCP)
   new PerformanceObserver((list) => {
     const entries = list.getEntries();
     const lastEntry = entries[entries.length - 1];
-    
+
     if (window.trackPortfolioEvent) {
       window.trackPortfolioEvent('core_web_vitals', 'Performance', 'LCP', Math.round(lastEntry.startTime));
     }
   }).observe({ entryTypes: ['largest-contentful-paint'] });
-  
+
   // First Input Delay (FID)
   new PerformanceObserver((list) => {
     const entries = list.getEntries();
