@@ -1700,7 +1700,7 @@ h4:focus-visible {
 
   /* Skills container mobile layout */
   .skills-container {
-    justify-content: flex-start;
+    justify-content: center;
     gap: var(--md-sys-spacing-3);
   }
 
