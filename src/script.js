@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize Material Web Components
   console.log('Material 3 Portfolio loaded');
 
+  // Initialize Analytics
+  initializeAnalytics();
+
   // Initialize Connected Magazine
   initializeConnectedMagazine();
 
@@ -20,13 +23,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Handle project link clicks
-  const projectButton = document.querySelector('.project-actions md-text-button');
-  if (projectButton) {
-    projectButton.addEventListener('click', () => {
-      window.open('https://skd.tryoutindonesia.com', '_blank');
+  // Handle project link clicks - Updated to handle all project buttons
+  const projectButtons = document.querySelectorAll('.project-links md-text-button');
+  projectButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const projectCard = button.closest('.project-card');
+      const projectTitle = projectCard.querySelector('h4').textContent;
+
+      // Route based on project title
+      if (projectTitle.includes('UTBK & SKD')) {
+        window.open('https://skd.tryoutindonesia.com', '_blank');
+      } else if (projectTitle.includes('WordPress')) {
+        // Demo portfolio site
+        window.open('https://github.com/blanc08', '_blank');
+      } else {
+        // Default to GitHub for other projects
+        window.open('https://github.com/blanc08?tab=repositories', '_blank');
+      }
     });
-  }
+  });
 
   // Handle GitHub projects link
   const githubProjectsButton = document.querySelector('.projects-link md-outlined-button');
@@ -36,19 +51,30 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Handle contact links
-  const contactButtons = document.querySelectorAll('.contact-links md-outlined-button');
-  if (contactButtons.length >= 2) {
-    // GitHub button
-    contactButtons[0].addEventListener('click', () => {
-      window.open('https://github.com/blanc08', '_blank');
-    });
+  // Handle contact links - Updated to use new contact-button class
+  const contactButtons = document.querySelectorAll('.contact-button');
+  contactButtons.forEach((button, index) => {
+    const iconText = button.querySelector('md-icon').textContent;
 
-    // Email button
-    contactButtons[1].addEventListener('click', () => {
-      window.open('mailto:bagusoktaviadi1@gmail.com', '_blank');
+    button.addEventListener('click', () => {
+      switch (iconText) {
+        case 'code':
+          window.open('https://github.com/blanc08', '_blank');
+          break;
+        case 'email':
+          window.open('mailto:bagusoktaviadi1@gmail.com', '_blank');
+          break;
+        case 'business':
+          window.open('https://linkedin.com/in/bagus-oktaviadi', '_blank');
+          break;
+        case 'phone':
+          window.open('tel:+62085158622062', '_blank');
+          break;
+        default:
+          console.log('Unknown contact type');
+      }
     });
-  }
+  });
 
   // Connected Magazine Functionality
   function initializeConnectedMagazine() {
@@ -118,6 +144,45 @@ document.addEventListener('DOMContentLoaded', function () {
             deactivateConnection();
           }
         });
+
+        // Keyboard navigation support
+        workCard.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const connectionId = workCard.dataset.connection;
+            activateConnection(connectionId);
+
+            // Auto-deactivate after 3 seconds for keyboard users
+            setTimeout(() => {
+              deactivateConnection();
+            }, 3000);
+          }
+          if (e.key === 'Escape') {
+            deactivateConnection();
+          }
+        });
+
+        workCard.addEventListener('focus', () => {
+          const connectionId = workCard.dataset.connection;
+          activateConnection(connectionId);
+        });
+
+        workCard.addEventListener('blur', () => {
+          if (!isHovering) {
+            deactivateConnection();
+          }
+        });
+
+        // Touch events for mobile devices
+        workCard.addEventListener('touchstart', (e) => {
+          const connectionId = workCard.dataset.connection;
+          activateConnection(connectionId);
+
+          // Auto-deactivate after 2 seconds on touch
+          setTimeout(() => {
+            deactivateConnection();
+          }, 2000);
+        }, { passive: true });
       });
 
       // Project card hover events
@@ -132,10 +197,47 @@ document.addEventListener('DOMContentLoaded', function () {
             deactivateConnection();
           }
         });
-      });
-    }
 
-    function activateConnection(connectionId) {
+        // Keyboard navigation support
+        projectCard.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const connectionId = projectCard.dataset.connection;
+            activateConnection(connectionId);
+
+            // Auto-deactivate after 3 seconds for keyboard users
+            setTimeout(() => {
+              deactivateConnection();
+            }, 3000);
+          }
+          if (e.key === 'Escape') {
+            deactivateConnection();
+          }
+        });
+
+        projectCard.addEventListener('focus', () => {
+          const connectionId = projectCard.dataset.connection;
+          activateConnection(connectionId);
+        });
+
+        projectCard.addEventListener('blur', () => {
+          if (!isHovering) {
+            deactivateConnection();
+          }
+        });
+
+        // Touch events for mobile devices
+        projectCard.addEventListener('touchstart', (e) => {
+          const connectionId = projectCard.dataset.connection;
+          activateConnection(connectionId);
+
+          // Auto-deactivate after 2 seconds on touch
+          setTimeout(() => {
+            deactivateConnection();
+          }, 2000);
+        }, { passive: true });
+      });
+    } function activateConnection(connectionId) {
       if (!connections.has(connectionId)) return;
 
       const connection = connections.get(connectionId);
@@ -155,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Dim other cards with smart opacity
       const workCards = document.querySelectorAll('.work-card');
       const projectCards = document.querySelectorAll('.project-card');
-      
+
       workCards.forEach(card => {
         if (card !== connection.work) {
           const cardStrength = card.dataset.connectionStrength;
@@ -176,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function getSmartOpacity(strength) {
-      switch(strength) {
+      switch (strength) {
         case 'very-high': return '0.3';
         case 'high': return '0.4';
         case 'medium': return '0.5';
@@ -188,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function addConnectionPreview(connectionId) {
       // Find cards with same connection type for preview
       const currentType = document.querySelector(`[data-connection="${connectionId}"]`)?.dataset.connectionType;
-      
+
       if (currentType) {
         const relatedCards = document.querySelectorAll(`[data-connection-type="${currentType}"]`);
         relatedCards.forEach(card => {
@@ -214,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function () {
           // Remove connected classes
           const workCards = document.querySelectorAll('.work-card');
           const projectCards = document.querySelectorAll('.project-card');
-          
+
           workCards.forEach(card => {
             card.classList.remove('connected', 'related-preview');
             card.style.opacity = '';
@@ -266,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const existingLines = svg.querySelectorAll('.connection-line');
       const existingLabels = svg.querySelectorAll('.connection-label');
       const existingParticles = svg.querySelectorAll('.connection-particle');
-      
+
       existingLines.forEach(line => line.remove());
       existingLabels.forEach(label => label.remove());
       existingParticles.forEach(particle => particle.remove());
@@ -365,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const workCard = document.querySelector(`[data-connection="${connectionId}"]`);
       const labelText = workCard?.dataset.connectionLabel || 'Connection';
       const connectionStrength = workCard?.dataset.connectionStrength || 'medium';
-      
+
       const foreignObject = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
       foreignObject.setAttribute('x', x - 60);
       foreignObject.setAttribute('y', y - 15);
@@ -381,9 +483,9 @@ document.addEventListener('DOMContentLoaded', function () {
       svg.appendChild(foreignObject);
 
       // Auto-hide label after duration based on strength
-      const hideDuration = connectionStrength === 'very-high' ? 5000 : 
-                          connectionStrength === 'high' ? 4000 : 3000;
-      
+      const hideDuration = connectionStrength === 'very-high' ? 5000 :
+        connectionStrength === 'high' ? 4000 : 3000;
+
       setTimeout(() => {
         labelDiv.classList.remove('active');
         setTimeout(() => foreignObject.remove(), 300);
@@ -439,485 +541,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// ===== CONNECTED MAGAZINE FUNCTIONALITY =====
-
-class ConnectedMagazine {
-  constructor() {
-    this.connections = new Map();
-    this.isActive = false;
-    this.svg = null;
-    this.init();
-  }
-
-  init() {
-    this.setupConnections();
-    this.createSVGElements();
-    this.bindEvents();
-    this.animateOnLoad();
-  }
-
-  setupConnections() {
-    // Define connections between work experience and projects
-    this.connections.set('education-1', {
-      work: 'education-1',
-      project: 'education-1',
-      description: 'Foundation learning projects built during high school'
-    });
-
-    this.connections.set('project-1', {
-      work: 'project-1',
-      project: 'project-1',
-      description: 'Professional client websites developed during internship'
-    });
-
-    this.connections.set('education-2', {
-      work: 'education-2',
-      project: 'education-2',
-      description: 'Academic research and methodology projects'
-    });
-
-    this.connections.set('project-2', {
-      work: 'project-2',
-      project: 'project-2',
-      description: 'Educational platform serving thousands of students'
-    });
-
-    this.connections.set('project-3', {
-      work: 'project-3',
-      project: 'project-3',
-      description: 'International microservices architecture development'
-    });
-
-    this.connections.set('project-4', {
-      work: 'project-4',
-      project: 'project-4',
-      description: 'Enterprise solutions and system integrations'
-    });
-  }
-
-  createSVGElements() {
-    this.svg = document.querySelector('.connection-lines');
-    if (!this.svg) return;
-
-    // Clear existing paths
-    this.svg.innerHTML = '';
-
-    // Create defs for gradients and patterns
-    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-
-    // Animated gradient
-    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-    gradient.setAttribute('id', 'connectionGradient');
-    gradient.setAttribute('x1', '0%');
-    gradient.setAttribute('y1', '0%');
-    gradient.setAttribute('x2', '100%');
-    gradient.setAttribute('y2', '0%');
-
-    const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-    stop1.setAttribute('offset', '0%');
-    stop1.setAttribute('stop-color', 'var(--md-sys-color-primary)');
-    stop1.setAttribute('stop-opacity', '0.3');
-
-    const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-    stop2.setAttribute('offset', '50%');
-    stop2.setAttribute('stop-color', 'var(--md-sys-color-tertiary)');
-    stop2.setAttribute('stop-opacity', '0.8');
-
-    const stop3 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-    stop3.setAttribute('offset', '100%');
-    stop3.setAttribute('stop-color', 'var(--md-sys-color-primary)');
-    stop3.setAttribute('stop-opacity', '0.3');
-
-    gradient.appendChild(stop1);
-    gradient.appendChild(stop2);
-    gradient.appendChild(stop3);
-    defs.appendChild(gradient);
-    this.svg.appendChild(defs);
-  }
-
-  bindEvents() {
-    // Add hover events to work and project cards
-    this.connections.forEach((connection, id) => {
-      const workCard = document.querySelector(`[data-connection="${connection.work}"]`);
-      const projectCard = document.querySelector(`[data-connection="${connection.project}"]`);
-
-      if (workCard && projectCard) {
-        [workCard, projectCard].forEach(card => {
-          card.addEventListener('mouseenter', () => this.highlightConnection(id));
-          card.addEventListener('mouseleave', () => this.clearHighlight());
-          card.addEventListener('click', () => this.toggleConnection(id));
-        });
-      }
-    });
-
-    // Clear highlight when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('[data-connection]')) {
-        this.clearHighlight();
-      }
-    });
-  }
-
-  highlightConnection(connectionId) {
-    if (this.isActive) return;
-
-    const connection = this.connections.get(connectionId);
-    if (!connection) return;
-
-    const container = document.querySelector('.journey-container');
-    if (!container) return;
-
-    container.classList.add('connection-active');
-
-    // Highlight connected cards
-    const workCard = document.querySelector(`[data-connection="${connection.work}"]`);
-    const projectCard = document.querySelector(`[data-connection="${connection.project}"]`);
-
-    if (workCard) workCard.classList.add('highlighted');
-    if (projectCard) projectCard.classList.add('highlighted');
-
-    // Draw connection line
-    this.drawConnection(workCard, projectCard, connectionId);
-  }
-
-  clearHighlight() {
-    if (this.isActive) return;
-
-    const container = document.querySelector('.journey-container');
-    if (container) {
-      container.classList.remove('connection-active');
-    }
-
-    // Remove all highlights
-    document.querySelectorAll('.highlighted').forEach(card => {
-      card.classList.remove('highlighted');
-    });
-
-    // Clear connection lines
-    if (this.svg) {
-      this.svg.querySelectorAll('.connection-line').forEach(line => line.remove());
-    }
-  }
-
-  toggleConnection(connectionId) {
-    this.isActive = !this.isActive;
-
-    if (this.isActive) {
-      this.highlightConnection(connectionId);
-      this.showConnectionTooltip(connectionId);
-    } else {
-      this.clearHighlight();
-      this.hideConnectionTooltip();
-    }
-  }
-
-  drawConnection(workCard, projectCard, connectionId) {
-    if (!this.svg || !workCard || !projectCard) return;
-
-    const container = document.querySelector('.journey-container');
-    const containerRect = container.getBoundingClientRect();
-    const workRect = workCard.getBoundingClientRect();
-    const projectRect = projectCard.getBoundingClientRect();
-
-    // Calculate relative positions
-    const startX = workRect.right - containerRect.left;
-    const startY = (workRect.top + workRect.height / 2) - containerRect.top;
-    const endX = projectRect.left - containerRect.left;
-    const endY = (projectRect.top + projectRect.height / 2) - containerRect.top;
-
-    // Create curved path
-    const midX = (startX + endX) / 2;
-    const controlY = Math.min(startY, endY) - 50;
-
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    const pathData = `M ${startX} ${startY} Q ${midX} ${controlY} ${endX} ${endY}`;
-
-    path.setAttribute('d', pathData);
-    path.setAttribute('stroke', 'url(#connectionGradient)');
-    path.setAttribute('stroke-width', '3');
-    path.setAttribute('fill', 'none');
-    path.setAttribute('class', 'connection-line');
-    path.setAttribute('opacity', '0');
-
-    // Add animation
-    const pathLength = path.getTotalLength();
-    path.setAttribute('stroke-dasharray', pathLength);
-    path.setAttribute('stroke-dashoffset', pathLength);
-
-    this.svg.appendChild(path);
-
-    // Animate the line
-    path.animate([
-      { strokeDashoffset: pathLength, opacity: 0 },
-      { strokeDashoffset: 0, opacity: 1 }
-    ], {
-      duration: 800,
-      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-      fill: 'forwards'
-    });
-
-    // Add flowing dots
-    this.addFlowingDots(path, pathLength);
-  }
-
-  addFlowingDots(path, pathLength) {
-    const dotCount = 3;
-    for (let i = 0; i < dotCount; i++) {
-      const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      dot.setAttribute('r', '3');
-      dot.setAttribute('fill', 'var(--md-sys-color-primary)');
-      dot.setAttribute('opacity', '0.8');
-      dot.setAttribute('class', 'connection-dot');
-
-      this.svg.appendChild(dot);
-
-      // Animate dot along path
-      const motionPath = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
-      motionPath.setAttribute('dur', '2s');
-      motionPath.setAttribute('repeatCount', 'indefinite');
-      motionPath.setAttribute('begin', `${i * 0.5}s`);
-
-      const mpath = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
-      mpath.setAttributeNS('http://www.w3.org/1999/xlink', 'href', `#${path.id || 'connectionPath'}`);
-
-      motionPath.appendChild(mpath);
-      dot.appendChild(motionPath);
-    }
-  }
-
-  showConnectionTooltip(connectionId) {
-    const connection = this.connections.get(connectionId);
-    if (!connection) return;
-
-    // Create tooltip
-    const tooltip = document.createElement('div');
-    tooltip.className = 'connection-tooltip';
-    tooltip.innerHTML = `
-      <div class="tooltip-content">
-        <md-icon>link</md-icon>
-        <span>${connection.description}</span>
-      </div>
-    `;
-
-    document.body.appendChild(tooltip);
-
-    // Position tooltip
-    const container = document.querySelector('.journey-container');
-    const rect = container.getBoundingClientRect();
-    tooltip.style.position = 'absolute';
-    tooltip.style.top = `${rect.top + 20}px`;
-    tooltip.style.left = `${rect.left + rect.width / 2}px`;
-    tooltip.style.transform = 'translateX(-50%)';
-    tooltip.style.zIndex = '1000';
-
-    // Style tooltip
-    tooltip.style.background = 'var(--md-sys-color-inverse-surface)';
-    tooltip.style.color = 'var(--md-sys-color-inverse-on-surface)';
-    tooltip.style.padding = '0.75rem 1rem';
-    tooltip.style.borderRadius = 'var(--md-sys-shape-corner-medium)';
-    tooltip.style.boxShadow = 'var(--md-sys-elevation-level3)';
-    tooltip.style.fontSize = '0.875rem';
-    tooltip.style.maxWidth = '300px';
-    tooltip.style.textAlign = 'center';
-
-    // Animate tooltip
-    tooltip.animate([
-      { opacity: 0, transform: 'translateX(-50%) translateY(10px)' },
-      { opacity: 1, transform: 'translateX(-50%) translateY(0)' }
-    ], {
-      duration: 300,
-      easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-      fill: 'forwards'
-    });
-  }
-
-  hideConnectionTooltip() {
-    const tooltip = document.querySelector('.connection-tooltip');
-    if (tooltip) {
-      tooltip.animate([
-        { opacity: 1, transform: 'translateX(-50%) translateY(0)' },
-        { opacity: 0, transform: 'translateX(-50%) translateY(-10px)' }
-      ], {
-        duration: 200,
-        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-        fill: 'forwards'
-      }).addEventListener('finish', () => tooltip.remove());
-    }
-  }
-
-  animateOnLoad() {
-    // Animate timeline progress
-    setTimeout(() => {
-      const timelineProgress = document.querySelector('.timeline-progress');
-      if (timelineProgress) {
-        timelineProgress.style.height = '100%';
-      }
-    }, 500);
-
-    // Stagger card animations
-    const workCards = document.querySelectorAll('.work-card');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    [...workCards, ...projectCards].forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-
-      setTimeout(() => {
-        card.animate([
-          { opacity: 0, transform: 'translateY(20px)' },
-          { opacity: 1, transform: 'translateY(0)' }
-        ], {
-          duration: 600,
-          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-          fill: 'forwards'
-        });
-      }, index * 100);
-    });
-  }
-}
-
-// Initialize connected magazine
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('.journey-container')) {
-    new ConnectedMagazine();
-  }
-});
-
-// ===== ORIGINAL TIMELINE EXPANDABLE FUNCTIONALITY (Preserved for fallback) =====
-function initializeExpandableCards() {
-  const expandableCards = document.querySelectorAll('.expandable-card');
-
-  expandableCards.forEach((card, index) => {
-    const header = card.querySelector('.timeline-header');
-    const details = card.querySelector('.timeline-details');
-    const expandIcon = card.querySelector('.expand-icon');
-
-    if (header && details) {
-      // Add ripple effect on click
-      header.addEventListener('click', (e) => {
-        createRippleEffect(e, header);
-        setTimeout(() => toggleCard(card, header, details, expandIcon), 100);
-      });
-
-      header.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          createRippleEffect(e, header);
-          setTimeout(() => toggleCard(card, header, details, expandIcon), 100);
-        }
-      });
-
-      // Add hover animations
-      header.addEventListener('mouseenter', () => {
-        expandIcon.style.transform = header.getAttribute('aria-expanded') === 'true'
-          ? 'rotate(180deg) scale(1.1)'
-          : 'scale(1.1)';
-      });
-
-      header.addEventListener('mouseleave', () => {
-        expandIcon.style.transform = header.getAttribute('aria-expanded') === 'true'
-          ? 'rotate(180deg)'
-          : '';
-      });
-
-      // Stagger animation for initial load
-      setTimeout(() => {
-        card.style.transform = 'translateY(0)';
-        card.style.opacity = '1';
-      }, index * 150);
-    }
-  });
-}
-
-function createRippleEffect(event, element) {
-  const ripple = document.createElement('span');
-  const rect = element.getBoundingClientRect();
-  const size = Math.max(rect.width, rect.height);
-  const x = event.clientX - rect.left - size / 2;
-  const y = event.clientY - rect.top - size / 2;
-
-  ripple.style.cssText = `
-      position: absolute;
-      width: ${size}px;
-      height: ${size}px;
-      left: ${x}px;
-      top: ${y}px;
-      background: radial-gradient(circle, var(--md-sys-color-primary) 0%, transparent 70%);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
-      pointer-events: none;
-      z-index: 1;
-    `;
-
-  // Add ripple animation keyframes if not already added
-  if (!document.querySelector('#ripple-styles')) {
-    const style = document.createElement('style');
-    style.id = 'ripple-styles';
-    style.textContent = `
-        @keyframes ripple {
-          to {
-            transform: scale(2);
-            opacity: 0;
-          }
-        }
-      `;
-    document.head.appendChild(style);
-  }
-
-  element.style.position = 'relative';
-  element.style.overflow = 'hidden';
-  element.appendChild(ripple);
-
-  setTimeout(() => {
-    ripple.remove();
-  }, 600);
-}
-
-function toggleCard(card, header, details, expandIcon) {
-  const isExpanded = header.getAttribute('aria-expanded') === 'true';
-  const newExpanded = !isExpanded;
-
-  // Hide hint on first interaction
-  const journeySection = document.querySelector('.journey-section');
-  if (journeySection && !journeySection.classList.contains('interacted')) {
-    journeySection.classList.add('interacted');
-  }
-
-  // Update ARIA attributes
-  header.setAttribute('aria-expanded', newExpanded);
-  details.setAttribute('aria-hidden', !newExpanded);
-
-  // Update card state
-  card.setAttribute('data-expanded', newExpanded);
-
-  // Add Material Design 3 haptic feedback simulation
-  if (navigator.vibrate) {
-    navigator.vibrate(50);
-  }
-
-  // Add subtle sound feedback (optional - requires user interaction first)
-  // playClickSound();
-
-  // Smooth scroll adjustment if card expands beyond viewport
-  if (newExpanded) {
-    setTimeout(() => {
-      const cardRect = card.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      if (cardRect.bottom > viewportHeight) {
-        card.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest'
-        });
-      }
-    }, 200);
-  }
-}
-
-// Initialize expandable cards
-initializeExpandableCards();
-
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -946,3 +569,157 @@ prefersDarkScheme.addEventListener('change', (e) => {
 
 // Set initial theme
 updateTheme(prefersDarkScheme.matches);
+
+// ===== ANALYTICS FUNCTIONALITY =====
+
+function initializeAnalytics() {
+  // Track page view
+  if (window.trackPortfolioEvent) {
+    window.trackPortfolioEvent('page_view', 'Navigation', window.location.pathname, 1);
+  }
+  
+  // Track user engagement
+  trackUserEngagement();
+  
+  // Track scroll depth
+  trackScrollDepth();
+  
+  // Track connection interactions
+  trackConnectionInteractions();
+  
+  // Track performance metrics
+  trackPerformanceMetrics();
+}
+
+function trackUserEngagement() {
+  let engagementTimer;
+  let isEngaged = false;
+  
+  const trackEngagement = () => {
+    if (!isEngaged) {
+      isEngaged = true;
+      sessionStorage.setItem('user_engaged', 'true');
+      
+      if (window.trackPortfolioEvent) {
+        window.trackPortfolioEvent('engagement', 'User', 'engaged', 1);
+      }
+    }
+  };
+  
+  // Track various engagement signals
+  const engagementEvents = ['scroll', 'click', 'keydown', 'mousemove', 'touchstart'];
+  
+  engagementEvents.forEach(event => {
+    document.addEventListener(event, () => {
+      clearTimeout(engagementTimer);
+      engagementTimer = setTimeout(trackEngagement, 2000);
+    }, { once: true, passive: true });
+  });
+}
+
+function trackScrollDepth() {
+  const scrollDepths = [25, 50, 75, 90];
+  const tracked = new Set();
+  
+  const trackScroll = () => {
+    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    
+    scrollDepths.forEach(depth => {
+      if (scrollPercent >= depth && !tracked.has(depth)) {
+        tracked.add(depth);
+        
+        if (window.trackPortfolioEvent) {
+          window.trackPortfolioEvent('scroll_depth', 'Engagement', `${depth}%`, depth);
+        }
+      }
+    });
+  };
+  
+  window.addEventListener('scroll', trackScroll, { passive: true });
+}
+
+function trackConnectionInteractions() {
+  // Track work-project connection interactions
+  document.addEventListener('click', (e) => {
+    const workCard = e.target.closest('.work-card[data-connection]');
+    const projectCard = e.target.closest('.project-card[data-connection]');
+    
+    if (workCard) {
+      const connectionId = workCard.dataset.connection;
+      const connectionType = workCard.dataset.connectionType;
+      
+      if (window.trackPortfolioEvent) {
+        window.trackPortfolioEvent('connection_click', 'Interaction', `work_${connectionId}`, 1);
+        window.trackPortfolioEvent('connection_type', 'Interaction', connectionType, 1);
+      }
+    }
+    
+    if (projectCard) {
+      const connectionId = projectCard.dataset.connection;
+      const connectionType = projectCard.dataset.connectionType;
+      
+      if (window.trackPortfolioEvent) {
+        window.trackPortfolioEvent('connection_click', 'Interaction', `project_${connectionId}`, 1);
+        window.trackPortfolioEvent('connection_type', 'Interaction', connectionType, 1);
+      }
+    }
+  });
+  
+  // Track contact button clicks
+  document.querySelectorAll('.contact-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const iconText = button.querySelector('md-icon').textContent;
+      
+      if (window.trackPortfolioEvent) {
+        window.trackPortfolioEvent('contact_click', 'Contact', iconText, 1);
+      }
+    });
+  });
+}
+
+function trackPerformanceMetrics() {
+  // Track page load performance
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const perfData = performance.getEntriesByType('navigation')[0];
+      
+      if (perfData && window.trackPortfolioEvent) {
+        const loadTime = Math.round(perfData.loadEventEnd - perfData.fetchStart);
+        const domContentLoaded = Math.round(perfData.domContentLoadedEventEnd - perfData.fetchStart);
+        
+        window.trackPortfolioEvent('performance', 'Load Time', 'page_load', loadTime);
+        window.trackPortfolioEvent('performance', 'Load Time', 'dom_content_loaded', domContentLoaded);
+        
+        // Track Core Web Vitals if available
+        if ('web-vital' in window) {
+          trackCoreWebVitals();
+        }
+      }
+    }, 1000);
+  });
+}
+
+function trackCoreWebVitals() {
+  // This would integrate with Core Web Vitals library
+  // For now, we'll track basic metrics
+  
+  // Largest Contentful Paint (LCP)
+  new PerformanceObserver((list) => {
+    const entries = list.getEntries();
+    const lastEntry = entries[entries.length - 1];
+    
+    if (window.trackPortfolioEvent) {
+      window.trackPortfolioEvent('core_web_vitals', 'Performance', 'LCP', Math.round(lastEntry.startTime));
+    }
+  }).observe({ entryTypes: ['largest-contentful-paint'] });
+  
+  // First Input Delay (FID)
+  new PerformanceObserver((list) => {
+    const entries = list.getEntries();
+    entries.forEach(entry => {
+      if (window.trackPortfolioEvent) {
+        window.trackPortfolioEvent('core_web_vitals', 'Performance', 'FID', Math.round(entry.processingStart - entry.startTime));
+      }
+    });
+  }).observe({ entryTypes: ['first-input'] });
+}
