@@ -43,13 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Handle GitHub projects link
-  const githubProjectsButton = document.querySelector('.projects-link md-outlined-button');
-  if (githubProjectsButton) {
-    githubProjectsButton.addEventListener('click', () => {
-      window.open('https://github.com/blanc08?tab=repositories', '_blank');
-    });
-  }
+
 
   // Handle contact links - Updated to use new contact-button class
   const contactButtons = document.querySelectorAll('.contact-button');
@@ -320,13 +314,11 @@ document.addEventListener('DOMContentLoaded', function () {
           workCards.forEach(card => {
             card.classList.remove('connected', 'related-preview');
             card.style.opacity = '';
-            card.style.filter = '';
           });
 
           projectCards.forEach(card => {
             card.classList.remove('connected', 'related-preview');
             card.style.opacity = '';
-            card.style.filter = '';
           });
 
           // Remove connection lines and particles
@@ -515,30 +507,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Add scroll animations for timeline cards
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, observerOptions);
-
-  // Observe timeline cards
-  const timelineCards = document.querySelectorAll('.timeline-card');
-  timelineCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(50px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
-  });
-
 });
 
 // Smooth scroll for navigation links
@@ -689,37 +657,9 @@ function trackPerformanceMetrics() {
 
         window.trackPortfolioEvent('performance', 'Load Time', 'page_load', loadTime);
         window.trackPortfolioEvent('performance', 'Load Time', 'dom_content_loaded', domContentLoaded);
-
-        // Track Core Web Vitals if available
-        if ('web-vital' in window) {
-          trackCoreWebVitals();
-        }
       }
     }, 1000);
   });
 }
 
-function trackCoreWebVitals() {
-  // This would integrate with Core Web Vitals library
-  // For now, we'll track basic metrics
 
-  // Largest Contentful Paint (LCP)
-  new PerformanceObserver((list) => {
-    const entries = list.getEntries();
-    const lastEntry = entries[entries.length - 1];
-
-    if (window.trackPortfolioEvent) {
-      window.trackPortfolioEvent('core_web_vitals', 'Performance', 'LCP', Math.round(lastEntry.startTime));
-    }
-  }).observe({ entryTypes: ['largest-contentful-paint'] });
-
-  // First Input Delay (FID)
-  new PerformanceObserver((list) => {
-    const entries = list.getEntries();
-    entries.forEach(entry => {
-      if (window.trackPortfolioEvent) {
-        window.trackPortfolioEvent('core_web_vitals', 'Performance', 'FID', Math.round(entry.processingStart - entry.startTime));
-      }
-    });
-  }).observe({ entryTypes: ['first-input'] });
-}
