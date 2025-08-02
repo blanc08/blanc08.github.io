@@ -1,5 +1,8 @@
 module.exports = {
-  content: ['*.{html,js}'],
+  content: [
+    './*.{html,js}',
+    './src/**/*.{html,js,ts,jsx,tsx}'
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -46,7 +49,7 @@ module.exports = {
 
         'outline': 'var(--md-sys-color-outline)',
         'outline-variant': 'var(--md-sys-color-outline-variant)',
-        
+
         // Expressive accent colors
         'inverse-surface': 'var(--md-sys-color-inverse-surface)',
         'inverse-on-surface': 'var(--md-sys-color-inverse-on-surface)',

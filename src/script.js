@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeConnectedMagazine();
 
   // Handle FAB click - scroll to contact section
-  const fab = document.querySelector('.contact-fab');
-  const contactSection = document.querySelector('.contact-section');
+  const fab = document.querySelector('md-fab');
+  const contactSection = document.querySelector('section:last-of-type');
 
   if (fab && contactSection) {
     fab.addEventListener('click', () => {
@@ -23,31 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Handle project link clicks - Updated to handle all project buttons
-  const projectButtons = document.querySelectorAll('.project-links md-text-button');
-  projectButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const projectCard = button.closest('.project-card');
-      const projectTitle = projectCard.querySelector('h4').textContent;
-
-      // Route based on project title
-      if (projectTitle.includes('UTBK & SKD')) {
-        window.open('https://skd.tryoutindonesia.com', '_blank');
-      } else if (projectTitle.includes('WordPress')) {
-        // Demo portfolio site
-        window.open('https://github.com/blanc08', '_blank');
-      } else {
-        // Default to GitHub for other projects
-        window.open('https://github.com/blanc08?tab=repositories', '_blank');
-      }
-    });
-  });
-
-
-
-  // Handle contact links - Updated to use new contact-button class
-  const contactButtons = document.querySelectorAll('.contact-button');
-  contactButtons.forEach((button, index) => {
+  // Handle contact links - Updated to use Material components
+  const contactButtons = document.querySelectorAll('md-filled-tonal-button');
+  contactButtons.forEach((button) => {
     const iconText = button.querySelector('md-icon').textContent;
 
     button.addEventListener('click', () => {

@@ -96,29 +96,32 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Hero Section -->
-  <header class="hero-section py-20 lg:py-32" role="banner" id="main-content">
+  <header class="hero-section min-h-screen flex flex-col justify-center px-6 lg:px-8 py-20 lg:py-32 relative overflow-hidden" role="banner" id="main-content">
+    <!-- Background gradient using CSS custom properties -->
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-container to-surface"></div>
+    
     <md-elevation></md-elevation>
-    <div class="hero-content max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="hero-text space-y-8">
-        <h1 class="md-typescale-display-large">
+    <div class="hero-content max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+      <div class="hero-text space-y-8 text-center lg:text-left">
+        <h1 class="md-typescale-display-large font-normal">
           Hi, I'm Bagus Oktaviadi
         </h1>
-        <p class="md-typescale-headline-medium hero-subtitle text-primary">Technical Consultant @
+        <p class="md-typescale-headline-medium text-primary font-medium">Technical Consultant @
           PT. Metrodata Electronics Tbk.</p>
-        <p class="md-typescale-body-large hero-description max-w-2xl text-on-surface-variant">
+        <p class="md-typescale-body-large max-w-2xl text-on-surface-variant leading-relaxed">
           As a Technical Consultant, I work with clients to provide solutions for their IT needs, using my skills in
           PHP, Node, Workato, Ruby, and Golang. I am passionate about software development and ML and enjoy acquiring
           new skills and knowledge in these fields.
         </p>
       </div>
-      <div class="hero-image flex-shrink-0">
-        <div class="profile-blob">
+      <div class="hero-image flex justify-center lg:justify-end">
+        <div class="profile-blob w-60 h-60 lg:w-72 lg:h-72 rounded-3xl overflow-hidden relative bg-gradient-to-45 from-primary to-tertiary p-0.5 transition-transform duration-300 hover:scale-105">
           <img src="/src/images/background.jpg" alt="Professional headshot of Bagus Oktaviadi"
-            class="rounded-full shadow-2xl" />
+            class="w-full h-full object-cover rounded-3xl" />
         </div>
       </div>
     </div>
-    <div class="hero-divider max-w-7xl mx-auto px-6 mt-16">
+    <div class="hero-divider max-w-7xl mx-auto px-6 mt-16 relative z-10">
       <md-divider></md-divider>
     </div>
   </header>
@@ -127,73 +130,75 @@
   <main>
 
     <!-- Skills Section -->
-    <section class="skills-section py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8" aria-labelledby="skills-heading">
-      <header class="section-header text-center mb-16 lg:mb-20">
-        <h2 id="skills-heading" class="md-typescale-headline-large section-title mb-6 text-on-surface">What am I good
+    <section class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8" aria-labelledby="skills-heading">
+      <header class="text-center mb-16 lg:mb-20 w-full flex flex-col items-center">
+        <h2 id="skills-heading" class="md-typescale-headline-large mb-6 text-on-surface font-normal">What am I good
           at?</h2>
-        <p class="md-typescale-body-large section-subtitle max-w-2xl mx-auto text-on-surface-variant">
+        <p class="md-typescale-body-large max-w-2xl mx-auto text-on-surface-variant text-center leading-relaxed">
           Areas of expertise where I excel and continue to grow
         </p>
       </header>
-      <div class="skills-container flex flex-wrap gap-4 justify-center mb-12" role="list" aria-label="Technical skills">
-        <md-filter-chip label="PHP & Laravel" selected role="listitem" class="transition-transform hover:scale-105">
+      <div class="flex flex-wrap gap-4 justify-center mb-12" role="list" aria-label="Technical skills">
+        <md-filter-chip label="PHP & Laravel" selected role="listitem" class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">code</md-icon>
         </md-filter-chip>
         <md-filter-chip label="Node.js & Express.js" selected role="listitem"
-          class="transition-transform hover:scale-105">
+          class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">javascript</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Ruby" selected role="listitem" class="transition-transform hover:scale-105">
+        <md-filter-chip label="Ruby" selected role="listitem" class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">pets</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Golang" selected role="listitem" class="transition-transform hover:scale-105">
+        <md-filter-chip label="Golang" selected role="listitem" class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">speed</md-icon>
         </md-filter-chip>
         <md-filter-chip label="Workato Integration" selected role="listitem"
-          class="transition-transform hover:scale-105">
+          class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">settings</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Team Leadership" selected role="listitem" class="transition-transform hover:scale-105">
+        <md-filter-chip label="Team Leadership" selected role="listitem" class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">group</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="System Integration" role="listitem" class="transition-transform hover:scale-105">
+        <md-filter-chip label="System Integration" role="listitem" class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">hub</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Microservices" role="listitem" class="transition-transform hover:scale-105">
+        <md-filter-chip label="Microservices" role="listitem" class="transition-transform duration-200 hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">architecture</md-icon>
         </md-filter-chip>
       </div>
-      <md-divider></md-divider>
+      <md-divider class="my-8"></md-divider>
     </section>
 
     <!-- Journey Section -->
-    <section class="journey-section py-16 lg:py-24" aria-labelledby="journey-heading">
-      <header class="section-header max-w-7xl mx-auto px-6 lg:px-8 text-center mb-20 lg:mb-24">
-        <h2 id="journey-heading" class="md-typescale-headline-large section-title mb-6 text-on-surface">My Journey</h2>
-        <p class="md-typescale-body-large section-subtitle max-w-3xl mx-auto text-on-surface-variant">
+    <section class="py-16 lg:py-24 w-full" aria-labelledby="journey-heading">
+      <header class="max-w-7xl mx-auto py-16 text-center w-full flex flex-col items-center px-6 lg:px-8">
+        <h2 id="journey-heading" class="md-typescale-headline-large mb-6 text-on-surface font-normal">
+          My Journey
+        </h2>
+        <p class="md-typescale-body-large max-w-3xl mx-auto text-on-surface-variant leading-relaxed">
           Professional experience meets technical innovation. Each milestone shaped my expertise and passion for
           technology.
         </p>
       </header>
 
       <!-- Full-Screen Journey Experiences -->
-      <div class="journey-fullscreen">
+      <div class="w-full">
 
         <!-- Education Experience - Full Screen -->
         <section
-          class="experience-fullscreen min-h-screen flex items-center justify-center bg-primary-container relative overflow-hidden">
+          class="min-h-screen flex items-center justify-center bg-primary-container relative overflow-hidden w-full">
           <!-- Background decorative elements -->
-          <div class="absolute inset-0 bg-grid-blue-500/[0.03] bg-[size:20px_20px]"></div>
-          <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-10 right-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl"></div>
+          <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle, rgb(59 130 246 / 0.03) 1px, transparent 1px); background-size: 20px 20px;"></div>
+          <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+          <div class="absolute bottom-10 right-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -2s;"></div>
 
-          <div class="experience-content max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+          <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
             <div class="grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
 
               <!-- Content Side -->
-              <div class="space-y-10 lg:space-y-12">
+              <div class="space-y-10 lg:space-y-12 animate-fade-in-up">
                 <!-- Timeline badge -->
-                <div class="inline-flex items-center gap-3 bg-primary text-on-primary px-6 py-3 rounded-full">
+                <div class="inline-flex items-center gap-3 bg-primary text-on-primary px-6 py-3 rounded-full shadow-elevation-2">
                   <md-icon class="text-xl">school</md-icon>
                   <span class="md-typescale-label-large font-semibold">2017 - 2020</span>
                   <span class="md-typescale-body-small opacity-75">3 Years</span>
@@ -217,7 +222,7 @@
                 <!-- Achievement highlights -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
                   <div
-                    class="achievement-highlight bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300">
+                    class="bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
                     <div class="flex items-center gap-4 mb-4">
                       <md-icon class="text-primary text-3xl">psychology</md-icon>
                       <span
@@ -229,7 +234,7 @@
                   </div>
 
                   <div
-                    class="achievement-highlight bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300">
+                    class="bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
                     <div class="flex items-center gap-4 mb-4">
                       <md-icon class="text-primary text-3xl">group</md-icon>
                       <span
@@ -243,23 +248,23 @@
               </div>
 
               <!-- Visual Side -->
-              <div class="flex justify-center lg:justify-end">
+              <div class="flex justify-center lg:justify-end animate-fade-in-scale" style="animation-delay: 200ms;">
                 <div class="relative">
                   <!-- Main icon container -->
                   <div
-                    class="w-80 h-80 bg-primary rounded-3xl flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-500">
+                    class="w-80 h-80 bg-primary rounded-3xl flex items-center justify-center shadow-elevation-4 hover:scale-105 transition-transform duration-500">
                     <md-icon class="text-on-primary text-9xl">school</md-icon>
                   </div>
 
                   <!-- Floating elements -->
                   <div
-                    class="absolute -top-6 -right-6 w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    class="absolute -top-6 -right-6 w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
                     style="animation-delay: 0.5s;">
                     <md-icon class="text-yellow-900 text-2xl">lightbulb</md-icon>
                   </div>
 
                   <div
-                    class="absolute -bottom-6 -left-6 w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    class="absolute -bottom-6 -left-6 w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
                     style="animation-delay: 1s;">
                     <md-icon class="text-white text-3xl">code</md-icon>
                   </div>
@@ -272,33 +277,33 @@
 
         <!-- Professional Experience - Full Screen -->
         <section
-          class="experience-fullscreen min-h-screen flex items-center justify-center bg-secondary-container relative overflow-hidden">
+          class="min-h-screen flex items-center justify-center bg-secondary-container relative overflow-hidden w-full">
           <!-- Background decorative elements -->
-          <div class="absolute inset-0 bg-grid-green-500/[0.03] bg-[size:20px_20px]"></div>
-          <div class="absolute top-10 right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-10 left-10 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl"></div>
+          <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle, rgb(34 197 94 / 0.03) 1px, transparent 1px); background-size: 20px 20px;"></div>
+          <div class="absolute top-10 right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl animate-float"></div>
+          <div class="absolute bottom-10 left-10 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
 
-          <div class="experience-content max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+          <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
             <div class="grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
 
               <!-- Visual Side (Left on this one) -->
-              <div class="flex justify-center lg:justify-start order-2 lg:order-1">
+              <div class="flex justify-center lg:justify-start order-2 lg:order-1 animate-fade-in-scale" style="animation-delay: 200ms;">
                 <div class="relative">
                   <!-- Main icon container -->
                   <div
-                    class="w-80 h-80 bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-500">
+                    class="w-80 h-80 bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl flex items-center justify-center shadow-elevation-4 hover:scale-105 transition-transform duration-500">
                     <md-icon class="text-white text-9xl">work</md-icon>
                   </div>
 
                   <!-- Floating elements -->
                   <div
-                    class="absolute -top-6 -left-6 w-16 h-16 bg-blue-400 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    class="absolute -top-6 -left-6 w-16 h-16 bg-blue-400 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
                     style="animation-delay: 0.3s;">
                     <md-icon class="text-blue-900 text-2xl">business</md-icon>
                   </div>
 
                   <div
-                    class="absolute -bottom-6 -right-6 w-20 h-20 bg-purple-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    class="absolute -bottom-6 -right-6 w-20 h-20 bg-purple-500 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
                     style="animation-delay: 0.8s;">
                     <md-icon class="text-white text-3xl">cloud</md-icon>
                   </div>
@@ -306,9 +311,9 @@
               </div>
 
               <!-- Content Side -->
-              <div class="space-y-10 lg:space-y-12 order-1 lg:order-2">
+              <div class="space-y-10 lg:space-y-12 order-1 lg:order-2 animate-fade-in-up">
                 <!-- Timeline badge -->
-                <div class="inline-flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-full">
+                <div class="inline-flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-full shadow-elevation-2">
                   <md-icon class="text-xl">work</md-icon>
                   <span class="md-typescale-label-large font-semibold">2019</span>
                   <span class="md-typescale-body-small opacity-75">5 Months</span>
@@ -334,7 +339,7 @@
                 <!-- Achievement highlights -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
                   <div
-                    class="achievement-highlight bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300">
+                    class="bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
                     <div class="flex items-center gap-4 mb-4">
                       <md-icon class="text-green-600 text-3xl">business</md-icon>
                       <span class="md-typescale-title-medium font-semibold text-green-900 dark:text-green-100">Client
@@ -346,7 +351,7 @@
                   </div>
 
                   <div
-                    class="achievement-highlight bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300">
+                    class="bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
                     <div class="flex items-center gap-4 mb-4">
                       <md-icon class="text-green-600 text-3xl">cloud</md-icon>
                       <span
@@ -365,23 +370,22 @@
         </section>
 
       </div>
-      </div>
     </section>
     <!-- Journey Section - Full Screen Sectioned Layout -->
 
     <!-- Certifications Section -->
-    <section class="certifications-section py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
-      <header class="section-header text-center mb-16 lg:mb-20">
-        <h2 class="md-typescale-headline-large section-title mb-6 text-on-surface">Certifications</h2>
-        <p class="md-typescale-body-large section-subtitle max-w-2xl mx-auto text-on-surface-variant">
+    <section class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
+      <header class="text-center mb-16 lg:mb-20">
+        <h2 class="md-typescale-headline-large mb-6 text-on-surface font-normal">Certifications</h2>
+        <p class="md-typescale-body-large max-w-2xl mx-auto text-on-surface-variant leading-relaxed">
           Professional certifications that demonstrate my technical expertise
         </p>
       </header>
-      <div class="certifications-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-        <md-card class="certification-card group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="certification-content p-10 lg:p-12 text-center space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <md-card class="group hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-3 overflow-hidden border border-outline-variant">
+          <div class="p-10 lg:p-12 text-center space-y-6">
             <md-icon
-              class="certification-icon text-6xl lg:text-7xl text-primary group-hover:scale-110 transition-transform duration-300">code</md-icon>
+              class="text-6xl lg:text-7xl text-primary group-hover:scale-110 transition-transform duration-300">code</md-icon>
             <h4 class="md-typescale-title-medium font-semibold text-on-surface">Go: The Complete Developer's Guide
               (Golang)</h4>
             <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Comprehensive certification in
@@ -390,10 +394,10 @@
               practices</p>
           </div>
         </md-card>
-        <md-card class="certification-card group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="certification-content p-10 lg:p-12 text-center space-y-6">
+        <md-card class="group hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-3 overflow-hidden border border-outline-variant">
+          <div class="p-10 lg:p-12 text-center space-y-6">
             <md-icon
-              class="certification-icon text-6xl lg:text-7xl text-secondary group-hover:scale-110 transition-transform duration-300">network_check</md-icon>
+              class="text-6xl lg:text-7xl text-secondary group-hover:scale-110 transition-transform duration-300">network_check</md-icon>
             <h4 class="md-typescale-title-medium font-semibold text-on-surface">CCNA: Introduction to Networks</h4>
             <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Cisco Certified Network
               Associate
@@ -401,10 +405,10 @@
             </p>
           </div>
         </md-card>
-        <md-card class="certification-card group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-          <div class="certification-content p-10 lg:p-12 text-center space-y-6">
+        <md-card class="group hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-3 overflow-hidden border border-outline-variant">
+          <div class="p-10 lg:p-12 text-center space-y-6">
             <md-icon
-              class="certification-icon text-6xl lg:text-7xl text-tertiary group-hover:scale-110 transition-transform duration-300">psychology</md-icon>
+              class="text-6xl lg:text-7xl text-tertiary group-hover:scale-110 transition-transform duration-300">psychology</md-icon>
             <h4 class="md-typescale-title-medium font-semibold text-on-surface">Problem Solving (Basic)</h4>
             <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Fundamental problem-solving
               skills and
@@ -417,20 +421,20 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
-      <header class="section-header text-center mb-16 lg:mb-20">
-        <h2 class="md-typescale-headline-large section-title mb-6 text-on-surface">How to reach me</h2>
-        <p class="md-typescale-body-large section-subtitle max-w-2xl mx-auto text-on-surface-variant">
+    <section class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
+      <header class="text-center mb-16 lg:mb-20">
+        <h2 class="md-typescale-headline-large mb-6 text-on-surface font-normal">How to reach me</h2>
+        <p class="md-typescale-body-large max-w-2xl mx-auto text-on-surface-variant leading-relaxed">
           Let's connect and discuss opportunities or collaborations
         </p>
       </header>
-      <div class="contact-links grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
         <!-- GitHub Contact Button -->
         <md-filled-tonal-button
-          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-lg hover:-translate-y-1 w-full justify-start"
+          class="group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-elevation-3 hover:-translate-y-1 w-full justify-start transition-all duration-300"
           href="https://github.com/blanc08" target="_blank" aria-label="Visit GitHub profile">
           <md-icon class="text-3xl lg:text-4xl">code</md-icon>
-          <div class="contact-info text-left">
+          <div class="text-left">
             <span class="md-typescale-label-large block font-semibold mb-1">GitHub</span>
             <span class="md-typescale-body-small opacity-75">blanc08</span>
           </div>
@@ -438,10 +442,10 @@
 
         <!-- Email Contact Button -->
         <md-filled-tonal-button
-          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-lg hover:-translate-y-1 w-full justify-start"
+          class="group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-elevation-3 hover:-translate-y-1 w-full justify-start transition-all duration-300"
           href="mailto:bagusoktaviadi1@gmail.com" aria-label="Send email">
           <md-icon class="text-3xl lg:text-4xl">email</md-icon>
-          <div class="contact-info text-left">
+          <div class="text-left">
             <span class="md-typescale-label-large block font-semibold mb-1">Email</span>
             <span class="md-typescale-body-small opacity-75">bagusoktaviadi1@gmail.com</span>
           </div>
@@ -449,10 +453,10 @@
 
         <!-- LinkedIn Contact Button -->
         <md-filled-tonal-button
-          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-lg hover:-translate-y-1 w-full justify-start"
+          class="group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-elevation-3 hover:-translate-y-1 w-full justify-start transition-all duration-300"
           href="https://linkedin.com/in/bagus-oktaviadi" target="_blank" aria-label="Visit LinkedIn profile">
           <md-icon class="text-3xl lg:text-4xl">business</md-icon>
-          <div class="contact-info text-left">
+          <div class="text-left">
             <span class="md-typescale-label-large block font-semibold mb-1">LinkedIn</span>
             <span class="md-typescale-body-small opacity-75">bagus-oktaviadi</span>
           </div>
@@ -460,10 +464,10 @@
 
         <!-- Phone Contact Button -->
         <md-filled-tonal-button
-          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-lg hover:-translate-y-1 w-full justify-start"
+          class="group flex items-center gap-6 p-8 lg:p-10 rounded-xl hover:shadow-elevation-3 hover:-translate-y-1 w-full justify-start transition-all duration-300"
           href="tel:+6285158622062" aria-label="Call phone number">
           <md-icon class="text-3xl lg:text-4xl">phone</md-icon>
-          <div class="contact-info text-left">
+          <div class="text-left">
             <span class="md-typescale-label-large block font-semibold mb-1">Mobile</span>
             <span class="md-typescale-body-small opacity-75">085158622062</span>
           </div>
@@ -475,7 +479,7 @@
     <div class="pb-24"></div>
 
     <!-- FAB for quick contact -->
-    <md-fab class="contact-fab fixed bottom-6 right-6 z-50 hover:scale-110 transition-transform duration-300 shadow-2xl"
+    <md-fab class="fixed bottom-6 right-6 z-50 hover:scale-110 transition-transform duration-300 shadow-elevation-4 animate-bounce-in"
       size="large" aria-label="Contact me">
       <md-icon slot="icon">mail</md-icon>
     </md-fab>
