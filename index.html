@@ -95,27 +95,29 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Hero Section -->
-  <header class="hero-section" role="banner">
+  <header class="hero-section py-20 lg:py-32" role="banner">
     <md-elevation></md-elevation>
-    <div class="hero-content">
-      <div class="hero-text">
+    <div class="hero-content max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="hero-text space-y-8">
         <h1 class="md-typescale-display-large">
           Hi, I'm Bagus Oktaviadi
         </h1>
-        <p class="md-typescale-headline-medium hero-subtitle">Technical Consultant @ PT. Metrodata Electronics Tbk.</p>
-        <p class="md-typescale-body-large hero-description">
+        <p class="md-typescale-headline-medium hero-subtitle text-primary">Technical Consultant @
+          PT. Metrodata Electronics Tbk.</p>
+        <p class="md-typescale-body-large hero-description max-w-2xl text-on-surface-variant">
           As a Technical Consultant, I work with clients to provide solutions for their IT needs, using my skills in
           PHP, Node, Workato, Ruby, and Golang. I am passionate about software development and ML and enjoy acquiring
           new skills and knowledge in these fields.
         </p>
       </div>
-      <div class="hero-image">
+      <div class="hero-image flex-shrink-0">
         <div class="profile-blob">
-          <img src="/src/images/background.jpg" alt="Professional headshot of Bagus Oktaviadi" />
+          <img src="/src/images/background.jpg" alt="Professional headshot of Bagus Oktaviadi"
+            class="rounded-full shadow-2xl" />
         </div>
       </div>
     </div>
-    <div class="hero-divider">
+    <div class="hero-divider max-w-7xl mx-auto px-6 mt-16">
       <md-divider></md-divider>
     </div>
   </header>
@@ -124,36 +126,39 @@
   <main id="main-content">
 
     <!-- Skills Section -->
-    <section class="skills-section" aria-labelledby="skills-heading">
-      <header class="section-header">
-        <h2 id="skills-heading" class="md-typescale-headline-large section-title">What am I good at?</h2>
-        <p class="md-typescale-body-large section-subtitle">
+    <section class="skills-section py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8" aria-labelledby="skills-heading">
+      <header class="section-header text-center mb-16 lg:mb-20">
+        <h2 id="skills-heading" class="md-typescale-headline-large section-title mb-6 text-on-surface">What am I good
+          at?</h2>
+        <p class="md-typescale-body-large section-subtitle max-w-2xl mx-auto text-on-surface-variant">
           Areas of expertise where I excel and continue to grow
         </p>
       </header>
-      <div class="skills-container" role="list" aria-label="Technical skills">
-        <md-filter-chip label="PHP & Laravel" selected role="listitem">
+      <div class="skills-container flex flex-wrap gap-4 justify-center mb-12" role="list" aria-label="Technical skills">
+        <md-filter-chip label="PHP & Laravel" selected role="listitem" class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">code</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Node.js & Express.js" selected role="listitem">
+        <md-filter-chip label="Node.js & Express.js" selected role="listitem"
+          class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">javascript</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Ruby" selected role="listitem">
+        <md-filter-chip label="Ruby" selected role="listitem" class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">pets</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Golang" selected role="listitem">
+        <md-filter-chip label="Golang" selected role="listitem" class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">speed</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Workato Integration" selected role="listitem">
+        <md-filter-chip label="Workato Integration" selected role="listitem"
+          class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">settings</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Team Leadership" selected role="listitem">
+        <md-filter-chip label="Team Leadership" selected role="listitem" class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">group</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="System Integration" role="listitem">
+        <md-filter-chip label="System Integration" role="listitem" class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">hub</md-icon>
         </md-filter-chip>
-        <md-filter-chip label="Microservices" role="listitem">
+        <md-filter-chip label="Microservices" role="listitem" class="transition-transform hover:scale-105">
           <md-icon slot="icon" aria-hidden="true">architecture</md-icon>
         </md-filter-chip>
       </div>
@@ -161,477 +166,248 @@
     </section>
 
     <!-- Journey Section -->
-    <section class="journey-section" aria-labelledby="journey-heading">
-      <header class="section-header">
-        <h2 id="journey-heading" class="md-typescale-headline-large section-title">My Journey</h2>
-        <p class="md-typescale-body-large section-subtitle">
-          Professional experience meets technical innovation. Hover to see connections between work and projects.
+    <section class="journey-section py-16 lg:py-24" aria-labelledby="journey-heading">
+      <header class="section-header max-w-7xl mx-auto px-6 lg:px-8 text-center mb-20 lg:mb-24">
+        <h2 id="journey-heading" class="md-typescale-headline-large section-title mb-6 text-on-surface">My Journey</h2>
+        <p class="md-typescale-body-large section-subtitle max-w-3xl mx-auto text-on-surface-variant">
+          Professional experience meets technical innovation. Each milestone shaped my expertise and passion for
+          technology.
         </p>
-        <div class="journey-columns-hint" role="presentation" aria-label="Interface guidance">
-          <div class="column-label">
-            <md-icon aria-hidden="true">work</md-icon>
-            <span class="md-typescale-body-medium">Work Experience</span>
-          </div>
-          <div class="connection-indicator" aria-hidden="true">
-            <md-icon>arrow_forward</md-icon>
-          </div>
-          <div class="column-label">
-            <md-icon aria-hidden="true">code</md-icon>
-            <span class="md-typescale-body-medium">Projects & Deliverables</span>
-          </div>
-        </div>
       </header>
 
-      <div class="journey-container" role="application" aria-label="Interactive work experience and projects timeline">
-        <!-- Central Timeline -->
-        <div class="central-timeline" role="presentation" aria-hidden="true">
-          <div class="timeline-line"></div>
-          <div class="timeline-progress" aria-label="Timeline progress indicator"></div>
-        </div>
+      <!-- Full-Screen Journey Experiences -->
+      <div class="journey-fullscreen">
 
-        <!-- Work Experience Column -->
-        <div class="work-column" role="region" aria-labelledby="work-column-heading">
-          <div class="column-header">
-            <h3 id="work-column-heading" class="md-typescale-headline-medium">Professional Experience</h3>
-            <p class="md-typescale-body-medium">Roles, responsibilities & growth</p>
-          </div>
+        <!-- Education Experience - Full Screen -->
+        <section
+          class="experience-fullscreen min-h-screen flex items-center justify-center bg-primary-container relative overflow-hidden">
+          <!-- Background decorative elements -->
+          <div class="absolute inset-0 bg-grid-blue-500/[0.03] bg-[size:20px_20px]"></div>
+          <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-10 right-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl"></div>
 
-          <!-- Work Item 1: High School -->
-          <md-card class="work-card" data-connection="education-1" data-connection-type="skill-transfer"
-            data-connection-strength="foundation" data-connection-label="Foundation Learning" role="button" tabindex="0"
-            aria-describedby="education-1-desc">
-            <div class="work-marker" aria-hidden="true">
-              <md-icon>school</md-icon>
-            </div>
-            <div class="work-content">
-              <div class="work-date md-typescale-label-large">July 2017 - July 2020</div>
-              <h4 class="md-typescale-title-large">Information Technology Student</h4>
-              <div class="md-typescale-label-medium company-name">SMK HASANAH PEKANBARU</div>
-              <p id="education-1-desc" class="md-typescale-body-medium work-description">
-                Laid the foundation for my technical career through comprehensive IT education.
-                Focused on programming fundamentals, database concepts, and web technologies.
-              </p>
-              <div class="work-highlights" role="list" aria-label="Key achievements">
-                <div class="highlight-item" role="listitem">
-                  <md-icon aria-hidden="true">psychology</md-icon>
-                  <span>Developed problem-solving mindset</span>
-                </div>
-                <div class="highlight-item" role="listitem">
-                  <md-icon aria-hidden="true">group</md-icon>
-                  <span>Collaborative learning environment</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
+          <div class="experience-content max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
 
-          <!-- Work Item 2: Internship -->
-          <md-card class="work-card" data-connection="project-1" data-connection-type="primary-connection"
-            data-connection-strength="high" data-connection-label="Professional Experience">
-            <div class="work-marker">
-              <md-icon>work</md-icon>
-            </div>
-            <div class="work-content">
-              <div class="work-date md-typescale-label-large">February 2019 - June 2019</div>
-              <h4 class="md-typescale-title-large">WordPress Developer Intern</h4>
-              <div class="md-typescale-label-medium company-name">PT. Total Teknologi Rekacipta</div>
-              <p class="md-typescale-body-medium work-description">
-                First professional experience working with real clients and production systems.
-                Learned industry standards, deployment processes, and professional workflow.
-              </p>
-              <div class="work-highlights">
-                <div class="highlight-item">
-                  <md-icon>business</md-icon>
-                  <span>Client interaction & requirements gathering</span>
+              <!-- Content Side -->
+              <div class="space-y-10 lg:space-y-12">
+                <!-- Timeline badge -->
+                <div class="inline-flex items-center gap-3 bg-primary text-on-primary px-6 py-3 rounded-full">
+                  <md-icon class="text-xl">school</md-icon>
+                  <span class="md-typescale-label-large font-semibold">2017 - 2020</span>
+                  <span class="md-typescale-body-small opacity-75">3 Years</span>
                 </div>
-                <div class="highlight-item">
-                  <md-icon>cloud</md-icon>
-                  <span>Production deployment on cPanel</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
 
-          <!-- Work Item 3: University -->
-          <md-card class="work-card" data-connection="education-2" data-connection-type="skill-transfer"
-            data-connection-strength="medium" data-connection-label="Academic Research">
-            <div class="work-marker">
-              <md-icon>school</md-icon>
-            </div>
-            <div class="work-content">
-              <div class="work-date md-typescale-label-large">July 2021</div>
-              <h4 class="md-typescale-title-large">Bachelor's in Informatics</h4>
-              <div class="md-typescale-label-medium company-name">Universitas Mercu Buana</div>
-              <p class="md-typescale-body-medium work-description">
-                Advanced my technical knowledge with computer science fundamentals.
-                Developed research skills, analytical thinking, and leadership capabilities.
-              </p>
-              <div class="work-highlights">
-                <div class="highlight-item">
-                  <md-icon>science</md-icon>
-                  <span>Research & analytical methodology</span>
+                <!-- Main content -->
+                <div class="space-y-8">
+                  <h3 class="md-typescale-display-small font-bold text-on-primary-container leading-tight">
+                    Information Technology Student
+                  </h3>
+                  <p class="md-typescale-headline-small text-primary font-medium">
+                    SMK HASANAH PEKANBARU
+                  </p>
+                  <p class="md-typescale-body-large text-on-surface leading-relaxed max-w-2xl">
+                    This foundational period shaped my technical journey through comprehensive IT education.
+                    I dove deep into programming fundamentals, database architecture, and modern web technologies,
+                    building the core skills that would define my career path.
+                  </p>
                 </div>
-                <div class="highlight-item">
-                  <md-icon>person</md-icon>
-                  <span>Public speaking & presentations</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
 
-          <!-- Work Item 4: Full Stack Role -->
-          <md-card class="work-card" data-connection="project-2" data-connection-type="primary-connection"
-            data-connection-strength="high" data-connection-label="Full-Stack Development">
-            <div class="work-marker">
-              <md-icon>code</md-icon>
-            </div>
-            <div class="work-content">
-              <div class="work-date md-typescale-label-large">April 2021 - September 2021</div>
-              <h4 class="md-typescale-title-large">Full Stack Developer</h4>
-              <div class="md-typescale-label-medium company-name">Smart Center Indonesia</div>
-              <p class="md-typescale-body-medium work-description">
-                Led development of educational platforms serving thousands of students.
-                Managed full project lifecycle from requirements to deployment.
-              </p>
-              <div class="work-highlights">
-                <div class="highlight-item">
-                  <md-icon>speed</md-icon>
-                  <span>Performance optimization & scaling</span>
-                </div>
-                <div class="highlight-item">
-                  <md-icon>schedule</md-icon>
-                  <span>Project timeline management</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
-
-          <!-- Work Item 5: International Contract -->
-          <md-card class="work-card" data-connection="project-3" data-connection-type="secondary-connection"
-            data-connection-strength="high" data-connection-label="International Collaboration">
-            <div class="work-marker">
-              <md-icon>public</md-icon>
-            </div>
-            <div class="work-content">
-              <div class="work-date md-typescale-label-large">January 2022 - March 2022</div>
-              <h4 class="md-typescale-title-large">Full-stack Developer</h4>
-              <div class="md-typescale-label-medium company-name">enpact, Berlin, Germany</div>
-              <p class="md-typescale-body-medium work-description">
-                International remote collaboration with European startup ecosystem.
-                Implemented modern microservices architecture and agile methodologies.
-              </p>
-              <div class="work-highlights">
-                <div class="highlight-item">
-                  <md-icon>language</md-icon>
-                  <span>Cross-cultural team collaboration</span>
-                </div>
-                <div class="highlight-item">
-                  <md-icon>architecture</md-icon>
-                  <span>Microservices & system design</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
-
-          <!-- Work Item 6: Current Role -->
-          <md-card class="work-card" data-connection="project-4" data-connection-type="primary-connection"
-            data-connection-strength="very-high" data-connection-label="Enterprise Solutions">
-            <div class="work-marker">
-              <md-icon>business</md-icon>
-            </div>
-            <div class="work-content">
-              <div class="work-date md-typescale-label-large">June 2022 - Present</div>
-              <h4 class="md-typescale-title-large">Technical Consultant</h4>
-              <div class="md-typescale-label-medium company-name">PT. Metrodata Electronics Tbk.</div>
-              <p class="md-typescale-body-medium work-description">
-                Strategic technology consulting for enterprise clients.
-                Leading digital transformation initiatives and system integrations.
-              </p>
-              <div class="work-highlights">
-                <div class="highlight-item">
-                  <md-icon>handshake</md-icon>
-                  <span>Client relationship management</span>
-                </div>
-                <div class="highlight-item">
-                  <md-icon>trending_up</md-icon>
-                  <span>Digital transformation leadership</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
-        </div>
-
-        <!-- Projects Column -->
-        <div class="projects-column">
-          <div class="column-header">
-            <h3 class="md-typescale-headline-medium">Projects & Deliverables</h3>
-            <p class="md-typescale-body-medium">Technical output & innovations</p>
-          </div>
-
-          <!-- Project 1: Learning Projects -->
-          <md-card class="project-card" data-connection="education-1" data-connection-type="skill-transfer"
-            data-connection-strength="foundation" data-connection-label="Foundation Learning">
-            <div class="project-visual">
-              <div class="project-icon">
-                <md-icon>terminal</md-icon>
-              </div>
-              <div class="project-preview">
-                <div class="code-snippet">
-                  <span class="code-line">console.log('Hello World!');</span>
-                  <span class="code-line">$sql = "SELECT * FROM users";</span>
-                  <span class="code-line">&lt;h1&gt;My First Website&lt;/h1&gt;</span>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h4 class="md-typescale-title-medium">First Programming Projects</h4>
-              <p class="md-typescale-body-small project-type">Educational Development</p>
-              <p class="md-typescale-body-medium">
-                Built foundational projects including calculator apps, simple websites,
-                and database-driven applications during high school.
-              </p>
-              <div class="tech-stack-mini">
-                <span class="tech-tag">HTML/CSS</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">PHP</span>
-                <span class="tech-tag">MySQL</span>
-              </div>
-            </div>
-          </md-card>
-
-          <!-- Project 2: Client Websites -->
-          <md-card class="project-card" data-connection="project-1" data-connection-type="primary-connection"
-            data-connection-strength="high" data-connection-label="Professional Experience">
-            <div class="project-visual">
-              <div class="project-screenshot">
-                <div class="browser-frame">
-                  <div class="browser-header">
-                    <div class="browser-dots"></div>
-                    <div class="browser-url">client-website.com</div>
-                  </div>
-                  <div class="browser-content">
-                    <div class="website-preview">
-                      <div class="preview-header"></div>
-                      <div class="preview-content"></div>
-                      <div class="preview-sidebar"></div>
+                <!-- Achievement highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+                  <div
+                    class="achievement-highlight bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                      <md-icon class="text-primary text-3xl">psychology</md-icon>
+                      <span
+                        class="md-typescale-title-medium font-semibold text-on-primary-container">Problem-solving</span>
                     </div>
+                    <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Developed analytical
+                      thinking
+                      and systematic approach to complex challenges</p>
+                  </div>
+
+                  <div
+                    class="achievement-highlight bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                      <md-icon class="text-primary text-3xl">group</md-icon>
+                      <span
+                        class="md-typescale-title-medium font-semibold text-on-primary-container">Collaboration</span>
+                    </div>
+                    <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Built strong teamwork
+                      skills
+                      through group projects and peer learning</p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="project-content">
-              <h4 class="md-typescale-title-medium">Client WordPress Sites</h4>
-              <p class="md-typescale-body-small project-type">Professional Development</p>
-              <p class="md-typescale-body-medium">
-                Developed custom WordPress themes and plugins for multiple clients.
-                Implemented database integrations and AJAX functionality.
-              </p>
-              <div class="tech-stack-mini">
-                <span class="tech-tag">WordPress</span>
-                <span class="tech-tag">CodeIgniter 3</span>
-                <span class="tech-tag">PHP OOP</span>
-                <span class="tech-tag">AJAX</span>
-              </div>
-              <div class="project-links">
-                <md-text-button>
-                  <md-icon slot="icon">launch</md-icon>
-                  <span>View Demo</span>
-                </md-text-button>
-              </div>
-            </div>
-          </md-card>
 
-          <!-- Project 3: Research Projects -->
-          <md-card class="project-card" data-connection="education-2" data-connection-type="skill-transfer"
-            data-connection-strength="medium" data-connection-label="Academic Research">
-            <div class="project-visual">
-              <div class="research-visual">
-                <md-icon class="research-icon">analytics</md-icon>
-                <div class="research-data">
-                  <div class="data-chart"></div>
-                  <div class="data-points"></div>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h4 class="md-typescale-title-medium">Academic Research Projects</h4>
-              <p class="md-typescale-body-small project-type">Research & Analysis</p>
-              <p class="md-typescale-body-medium">
-                Conducted research on software engineering methodologies and
-                modern web development frameworks for thesis project.
-              </p>
-              <div class="tech-stack-mini">
-                <span class="tech-tag">Research</span>
-                <span class="tech-tag">Data Analysis</span>
-                <span class="tech-tag">Documentation</span>
-              </div>
-            </div>
-          </md-card>
+              <!-- Visual Side -->
+              <div class="flex justify-center lg:justify-end">
+                <div class="relative">
+                  <!-- Main icon container -->
+                  <div
+                    class="w-80 h-80 bg-primary rounded-3xl flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-500">
+                    <md-icon class="text-on-primary text-9xl">school</md-icon>
+                  </div>
 
-          <!-- Project 4: Educational Platform -->
-          <md-card class="project-card" data-connection="project-2" data-connection-type="primary-connection"
-            data-connection-strength="high" data-connection-label="Full-Stack Development">
-            <div class="project-visual">
-              <img src="/src/images/projects/skd.jpeg" alt="Educational Platform" class="project-image" />
-              <div class="project-overlay">
-                <md-icon>open_in_new</md-icon>
-              </div>
-            </div>
-            <div class="project-content">
-              <h4 class="md-typescale-title-medium">UTBK & SKD Tryout Platform</h4>
-              <p class="md-typescale-body-small project-type">Full-Stack Application</p>
-              <p class="md-typescale-body-medium">
-                Comprehensive educational platform serving thousands of students
-                preparing for university and civil service exams.
-              </p>
-              <div class="tech-stack-mini">
-                <span class="tech-tag">Laravel</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">MySQL</span>
-                <span class="tech-tag">Redis</span>
-              </div>
-              <div class="project-metrics">
-                <div class="metric">
-                  <span class="metric-value">5K+</span>
-                  <span class="metric-label">Active Users</span>
-                </div>
-                <div class="metric">
-                  <span class="metric-value">99.9%</span>
-                  <span class="metric-label">Uptime</span>
-                </div>
-              </div>
-              <div class="project-links">
-                <md-text-button>
-                  <md-icon slot="icon">launch</md-icon>
-                  <span>Live Demo</span>
-                </md-text-button>
-              </div>
-            </div>
-          </md-card>
+                  <!-- Floating elements -->
+                  <div
+                    class="absolute -top-6 -right-6 w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    style="animation-delay: 0.5s;">
+                    <md-icon class="text-yellow-900 text-2xl">lightbulb</md-icon>
+                  </div>
 
-          <!-- Project 5: Microservices Architecture -->
-          <md-card class="project-card" data-connection="project-3" data-connection-type="secondary-connection"
-            data-connection-strength="high" data-connection-label="International Collaboration">
-            <div class="project-visual">
-              <div class="architecture-diagram">
-                <div class="service-node api">API</div>
-                <div class="service-node db">DB</div>
-                <div class="service-node auth">Auth</div>
-                <div class="service-connections"></div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h4 class="md-typescale-title-medium">Startup Platform Architecture</h4>
-              <p class="md-typescale-body-small project-type">Enterprise Development</p>
-              <p class="md-typescale-body-medium">
-                Designed and implemented scalable microservices architecture
-                for Berlin-based startup's core platform.
-              </p>
-              <div class="tech-stack-mini">
-                <span class="tech-tag">NestJS</span>
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Redis</span>
-              </div>
-              <div class="project-achievements">
-                <div class="achievement">
-                  <md-icon>speed</md-icon>
-                  <span>40% faster response times</span>
-                </div>
-                <div class="achievement">
-                  <md-icon>security</md-icon>
-                  <span>Enterprise-grade security</span>
-                </div>
-              </div>
-            </div>
-          </md-card>
-
-          <!-- Project 6: Enterprise Solutions -->
-          <md-card class="project-card" data-connection="project-4" data-connection-type="primary-connection"
-            data-connection-strength="very-high" data-connection-label="Enterprise Solutions">
-            <div class="project-visual">
-              <div class="enterprise-visual">
-                <div class="dashboard-preview">
-                  <div class="dashboard-header"></div>
-                  <div class="dashboard-widgets">
-                    <div class="widget"></div>
-                    <div class="widget"></div>
-                    <div class="widget large"></div>
+                  <div
+                    class="absolute -bottom-6 -left-6 w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    style="animation-delay: 1s;">
+                    <md-icon class="text-white text-3xl">code</md-icon>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="project-content">
-              <h4 class="md-typescale-title-medium">Enterprise Integration Suite</h4>
-              <p class="md-typescale-body-small project-type">Consulting Solutions</p>
-              <p class="md-typescale-body-medium">
-                Custom enterprise solutions including system integrations,
-                workflow automation, and digital transformation projects.
-              </p>
-              <div class="tech-stack-mini">
-                <span class="tech-tag">Workato</span>
-                <span class="tech-tag">Go</span>
-                <span class="tech-tag">Ruby</span>
-                <span class="tech-tag">APIs</span>
-              </div>
-              <div class="project-impact">
-                <div class="impact-item">
-                  <md-icon>trending_up</md-icon>
-                  <span>60% efficiency improvement</span>
-                </div>
-                <div class="impact-item">
-                  <md-icon>business</md-icon>
-                  <span>Multiple enterprise clients</span>
-                </div>
-              </div>
-              <div class="project-status">
-                <md-chip>
-                  <md-icon slot="icon">work</md-icon>
-                  <span>Ongoing</span>
-                </md-chip>
-              </div>
-            </div>
-          </md-card>
-        </div>
 
-        <!-- Connection Lines SVG -->
-        <svg class="connection-lines" viewBox="0 0 1200 2000">
-          <!-- Connections will be drawn dynamically -->
-        </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- Professional Experience - Full Screen -->
+        <section
+          class="experience-fullscreen min-h-screen flex items-center justify-center bg-secondary-container relative overflow-hidden">
+          <!-- Background decorative elements -->
+          <div class="absolute inset-0 bg-grid-green-500/[0.03] bg-[size:20px_20px]"></div>
+          <div class="absolute top-10 right-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-10 left-10 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl"></div>
+
+          <div class="experience-content max-w-7xl mx-auto px-8 lg:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
+
+              <!-- Visual Side (Left on this one) -->
+              <div class="flex justify-center lg:justify-start order-2 lg:order-1">
+                <div class="relative">
+                  <!-- Main icon container -->
+                  <div
+                    class="w-80 h-80 bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-500">
+                    <md-icon class="text-white text-9xl">work</md-icon>
+                  </div>
+
+                  <!-- Floating elements -->
+                  <div
+                    class="absolute -top-6 -left-6 w-16 h-16 bg-blue-400 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    style="animation-delay: 0.3s;">
+                    <md-icon class="text-blue-900 text-2xl">business</md-icon>
+                  </div>
+
+                  <div
+                    class="absolute -bottom-6 -right-6 w-20 h-20 bg-purple-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"
+                    style="animation-delay: 0.8s;">
+                    <md-icon class="text-white text-3xl">cloud</md-icon>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Side -->
+              <div class="space-y-10 lg:space-y-12 order-1 lg:order-2">
+                <!-- Timeline badge -->
+                <div class="inline-flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-full">
+                  <md-icon class="text-xl">work</md-icon>
+                  <span class="md-typescale-label-large font-semibold">2019</span>
+                  <span class="md-typescale-body-small opacity-75">5 Months</span>
+                </div>
+
+                <!-- Main content -->
+                <div class="space-y-8">
+                  <h3 class="md-typescale-display-small font-bold text-green-900 dark:text-green-100 leading-tight">
+                    WordPress Developer Intern
+                  </h3>
+                  <p class="md-typescale-headline-small text-green-700 dark:text-green-300 font-medium">
+                    PT. Total Teknologi Rekacipta
+                  </p>
+                  <p class="md-typescale-body-large text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl">
+                    My first professional dive into the real world of software development. Working directly with
+                    clients
+                    and production systems, I learned the critical importance of industry standards, deployment
+                    processes,
+                    and professional workflow that became the foundation of my career.
+                  </p>
+                </div>
+
+                <!-- Achievement highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+                  <div
+                    class="achievement-highlight bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                      <md-icon class="text-green-600 text-3xl">business</md-icon>
+                      <span class="md-typescale-title-medium font-semibold text-green-900 dark:text-green-100">Client
+                        Focus</span>
+                    </div>
+                    <p class="md-typescale-body-medium text-gray-600 dark:text-gray-300 leading-relaxed">Learned to
+                      translate business
+                      requirements into technical solutions</p>
+                  </div>
+
+                  <div
+                    class="achievement-highlight bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                      <md-icon class="text-green-600 text-3xl">cloud</md-icon>
+                      <span
+                        class="md-typescale-title-medium font-semibold text-green-900 dark:text-green-100">Production
+                        Ready</span>
+                    </div>
+                    <p class="md-typescale-body-medium text-gray-600 dark:text-gray-300 leading-relaxed">Mastered
+                      deployment processes
+                      and production environment best practices</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
       </div>
-
+      </div>
     </section>
     <!-- Journey Section - Full Screen Sectioned Layout -->
 
     <!-- Certifications Section -->
-    <section class="certifications-section">
-      <header class="section-header">
-        <h2 class="md-typescale-headline-large section-title">Certifications</h2>
-        <p class="md-typescale-body-large section-subtitle">
+    <section class="certifications-section py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
+      <header class="section-header text-center mb-16 lg:mb-20">
+        <h2 class="md-typescale-headline-large section-title mb-6 text-on-surface">Certifications</h2>
+        <p class="md-typescale-body-large section-subtitle max-w-2xl mx-auto text-on-surface-variant">
           Professional certifications that demonstrate my technical expertise
         </p>
       </header>
-      <div class="certifications-grid">
-        <md-card class="certification-card">
-          <div class="certification-content">
-            <md-icon class="certification-icon">code</md-icon>
-            <h4 class="md-typescale-title-medium">Go: The Complete Developer's Guide (Golang)</h4>
-            <p class="md-typescale-body-medium">Comprehensive certification in Golang programming language and best
+      <div class="certifications-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <md-card class="certification-card group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="certification-content p-10 lg:p-12 text-center space-y-6">
+            <md-icon
+              class="certification-icon text-6xl lg:text-7xl text-primary group-hover:scale-110 transition-transform duration-300">code</md-icon>
+            <h4 class="md-typescale-title-medium font-semibold text-on-surface">Go: The Complete Developer's Guide
+              (Golang)</h4>
+            <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Comprehensive certification in
+              Golang
+              programming language and best
               practices</p>
           </div>
         </md-card>
-        <md-card class="certification-card">
-          <div class="certification-content">
-            <md-icon class="certification-icon">network_check</md-icon>
-            <h4 class="md-typescale-title-medium">CCNA: Introduction to Networks</h4>
-            <p class="md-typescale-body-medium">Cisco Certified Network Associate fundamentals and networking concepts
+        <md-card class="certification-card group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="certification-content p-10 lg:p-12 text-center space-y-6">
+            <md-icon
+              class="certification-icon text-6xl lg:text-7xl text-secondary group-hover:scale-110 transition-transform duration-300">network_check</md-icon>
+            <h4 class="md-typescale-title-medium font-semibold text-on-surface">CCNA: Introduction to Networks</h4>
+            <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Cisco Certified Network
+              Associate
+              fundamentals and networking concepts
             </p>
           </div>
         </md-card>
-        <md-card class="certification-card">
-          <div class="certification-content">
-            <md-icon class="certification-icon">psychology</md-icon>
-            <h4 class="md-typescale-title-medium">Problem Solving (Basic)</h4>
-            <p class="md-typescale-body-medium">Fundamental problem-solving skills and analytical thinking
+        <md-card class="certification-card group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="certification-content p-10 lg:p-12 text-center space-y-6">
+            <md-icon
+              class="certification-icon text-6xl lg:text-7xl text-tertiary group-hover:scale-110 transition-transform duration-300">psychology</md-icon>
+            <h4 class="md-typescale-title-medium font-semibold text-on-surface">Problem Solving (Basic)</h4>
+            <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Fundamental problem-solving
+              skills and
+              analytical thinking
               certification
             </p>
           </div>
@@ -640,47 +416,59 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section">
-      <header class="section-header">
-        <h2 class="md-typescale-headline-large section-title">How to reach me</h2>
-        <p class="md-typescale-body-large section-subtitle">
+    <section class="contact-section py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
+      <header class="section-header text-center mb-16 lg:mb-20">
+        <h2 class="md-typescale-headline-large section-title mb-6 text-on-surface">How to reach me</h2>
+        <p class="md-typescale-body-large section-subtitle max-w-2xl mx-auto text-on-surface-variant">
           Let's connect and discuss opportunities or collaborations
         </p>
       </header>
-      <div class="contact-links">
-        <button class="contact-button">
-          <md-icon>code</md-icon>
-          <div class="contact-info">
-            <span class="md-typescale-label-large">GitHub</span>
-            <span class="md-typescale-body-small">blanc08</span>
+      <div class="contact-links grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <button
+          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl border-2 border-outline-variant hover:border-primary bg-surface hover:bg-primary-container transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <md-icon
+            class="text-on-surface-variant group-hover:text-primary transition-colors text-3xl lg:text-4xl">code</md-icon>
+          <div class="contact-info text-left">
+            <span class="md-typescale-label-large block font-semibold text-on-surface mb-1">GitHub</span>
+            <span class="md-typescale-body-small text-on-surface-variant">blanc08</span>
           </div>
         </button>
-        <button class="contact-button">
-          <md-icon>email</md-icon>
-          <div class="contact-info">
-            <span class="md-typescale-label-large">Email</span>
-            <span class="md-typescale-body-small">bagusoktaviadi1@gmail.com</span>
+        <button
+          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl border-2 border-outline-variant hover:border-secondary bg-surface hover:bg-secondary-container transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <md-icon
+            class="text-on-surface-variant group-hover:text-secondary transition-colors text-3xl lg:text-4xl">email</md-icon>
+          <div class="contact-info text-left">
+            <span class="md-typescale-label-large block font-semibold text-on-surface mb-1">Email</span>
+            <span class="md-typescale-body-small text-on-surface-variant">bagusoktaviadi1@gmail.com</span>
           </div>
         </button>
-        <button class="contact-button">
-          <md-icon>business</md-icon>
-          <div class="contact-info">
-            <span class="md-typescale-label-large">LinkedIn</span>
-            <span class="md-typescale-body-small">bagus-oktaviadi</span>
+        <button
+          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl border-2 border-outline-variant hover:border-primary bg-surface hover:bg-primary-container transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <md-icon
+            class="text-on-surface-variant group-hover:text-primary transition-colors text-3xl lg:text-4xl">business</md-icon>
+          <div class="contact-info text-left">
+            <span class="md-typescale-label-large block font-semibold text-on-surface mb-1">LinkedIn</span>
+            <span class="md-typescale-body-small text-on-surface-variant">bagus-oktaviadi</span>
           </div>
         </button>
-        <button class="contact-button">
-          <md-icon>phone</md-icon>
-          <div class="contact-info">
-            <span class="md-typescale-label-large">Mobile</span>
-            <span class="md-typescale-body-small">085158622062</span>
+        <button
+          class="contact-button group flex items-center gap-6 p-8 lg:p-10 rounded-xl border-2 border-outline-variant hover:border-tertiary bg-surface hover:bg-tertiary-container transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+          <md-icon
+            class="text-on-surface-variant group-hover:text-tertiary transition-colors text-3xl lg:text-4xl">phone</md-icon>
+          <div class="contact-info text-left">
+            <span class="md-typescale-label-large block font-semibold text-on-surface mb-1">Mobile</span>
+            <span class="md-typescale-body-small text-on-surface-variant">085158622062</span>
           </div>
         </button>
       </div>
     </section>
 
+    <!-- Bottom spacing for FAB -->
+    <div class="pb-24"></div>
+
     <!-- FAB for quick contact -->
-    <md-fab class="contact-fab" size="large" aria-label="Contact me">
+    <md-fab class="contact-fab fixed bottom-6 right-6 z-50 hover:scale-110 transition-transform duration-300 shadow-2xl"
+      size="large" aria-label="Contact me">
       <md-icon slot="icon">mail</md-icon>
     </md-fab>
 
