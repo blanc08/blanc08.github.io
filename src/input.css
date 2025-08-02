@@ -59,76 +59,150 @@
   --md-sys-typescale-body-small-line-height: 16px;
   --md-sys-typescale-body-small-weight: 400;
 
-  /* Material 3 Color System */
-  --md-sys-color-primary: #1565c0;
+  /* Material 3 Expressive Color System - Complete Implementation */
+  /* Primary Colors */
+  --md-sys-color-primary: #2563eb;
   --md-sys-color-on-primary: #ffffff;
-  --md-sys-color-primary-container: #bbdefb;
-  --md-sys-color-on-primary-container: #0d47a1;
+  --md-sys-color-primary-container: #dbeafe;
+  --md-sys-color-on-primary-container: #1e3a8a;
 
-  --md-sys-color-secondary: #2e7d32;
+  /* Secondary Colors */
+  --md-sys-color-secondary: #059669;
   --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-secondary-container: #c8e6c9;
-  --md-sys-color-on-secondary-container: #1b5e20;
+  --md-sys-color-secondary-container: #d1fae5;
+  --md-sys-color-on-secondary-container: #064e3b;
 
-  --md-sys-color-tertiary: #ef6c00;
+  /* Tertiary Colors */
+  --md-sys-color-tertiary: #7c2d12;
   --md-sys-color-on-tertiary: #ffffff;
-  --md-sys-color-tertiary-container: #ffe0b2;
-  --md-sys-color-on-tertiary-container: #e65100;
+  --md-sys-color-tertiary-container: #fed7aa;
+  --md-sys-color-on-tertiary-container: #431407;
 
-  --md-sys-color-surface: #fefefe;
-  --md-sys-color-on-surface: #1c1b1f;
-  --md-sys-color-surface-variant: #f5f5f5;
-  --md-sys-color-on-surface-variant: #49454f;
-  --md-sys-color-surface-container: #f3f3f3;
-  --md-sys-color-surface-container-low: #f7f7f7;
-  --md-sys-color-surface-container-high: #ececec;
-  --md-sys-color-surface-container-highest: #e6e6e6;
-  --md-sys-color-surface-dim: #ddd8e1;
-  --md-sys-color-surface-bright: #fef7ff;
+  /* Error Colors (Material 3 specification) */
+  --md-sys-color-error: #dc2626;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #fecaca;
+  --md-sys-color-on-error-container: #7f1d1d;
 
-  --md-sys-color-background: #fefefe;
-  --md-sys-color-on-background: #1c1b1f;
+  /* Tone-based Surface Colors (Material 3 specification) */
+  --md-sys-color-surface: #ffffff;
+  --md-sys-color-on-surface: #1a1c1e;
+  --md-sys-color-surface-variant: #e2e2e8;
+  --md-sys-color-on-surface-variant: #44474f;
 
-  --md-sys-color-outline: #79747e;
-  --md-sys-color-outline-variant: #cac4d0;
+  /* Surface Container Levels - Tone-based hierarchy */
+  --md-sys-color-surface-dim: #d3d3d3;
+  --md-sys-color-surface-bright: #ffffff;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f4f4f7;
+  --md-sys-color-surface-container: #e8e8ee;
+  --md-sys-color-surface-container-high: #e2e2e8;
+  --md-sys-color-surface-container-highest: #dcdce2;
 
-  --md-sys-color-inverse-surface: #313033;
-  --md-sys-color-inverse-on-surface: #f4eff4;
-  --md-sys-color-inverse-primary: #90caf9;
+  /* Background Colors */
+  --md-sys-color-background: #fefbff;
+  --md-sys-color-on-background: #1a1c1e;
+
+  /* Outline Colors */
+  --md-sys-color-outline: #74777f;
+  --md-sys-color-outline-variant: #c4c7cf;
+
+  /* Inverse Colors */
+  --md-sys-color-inverse-surface: #2f3033;
+  --md-sys-color-inverse-on-surface: #f1f0f4;
+  --md-sys-color-inverse-primary: #adc6ff;
+
+  /* Fixed Colors (Material 3 specification) */
+  --md-sys-color-primary-fixed: #dbeafe;
+  --md-sys-color-on-primary-fixed: #1e3a8a;
+  --md-sys-color-primary-fixed-dim: #93c5fd;
+  --md-sys-color-on-primary-fixed-variant: #2563eb;
+
+  --md-sys-color-secondary-fixed: #d1fae5;
+  --md-sys-color-on-secondary-fixed: #064e3b;
+  --md-sys-color-secondary-fixed-dim: #6ee7b7;
+  --md-sys-color-on-secondary-fixed-variant: #059669;
+
+  --md-sys-color-tertiary-fixed: #fed7aa;
+  --md-sys-color-on-tertiary-fixed: #431407;
+  --md-sys-color-tertiary-fixed-dim: #fb923c;
+  --md-sys-color-on-tertiary-fixed-variant: #7c2d12;
+
+  /* Utility Colors */
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-shadow: #000000;
 }
 
-/* === DARK MODE COLOR SYSTEM === */
+/* === DARK MODE COLOR SYSTEM (Material 3 Specification) === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --md-sys-color-primary: #90caf9;
-    --md-sys-color-on-primary: #0d47a1;
-    --md-sys-color-primary-container: #1565c0;
-    --md-sys-color-on-primary-container: #e3f2fd;
+    /* Primary Colors - Dark Mode */
+    --md-sys-color-primary: #93c5fd;
+    --md-sys-color-on-primary: #1e3a8a;
+    --md-sys-color-primary-container: #1e40af;
+    --md-sys-color-on-primary-container: #dbeafe;
 
-    --md-sys-color-secondary: #81c784;
-    --md-sys-color-on-secondary: #1b5e20;
-    --md-sys-color-secondary-container: #2e7d32;
-    --md-sys-color-on-secondary-container: #c8e6c9;
+    /* Secondary Colors - Dark Mode */
+    --md-sys-color-secondary: #6ee7b7;
+    --md-sys-color-on-secondary: #064e3b;
+    --md-sys-color-secondary-container: #047857;
+    --md-sys-color-on-secondary-container: #d1fae5;
 
-    --md-sys-color-tertiary: #ffb74d;
-    --md-sys-color-on-tertiary: #e65100;
-    --md-sys-color-tertiary-container: #ef6c00;
-    --md-sys-color-on-tertiary-container: #ffe0b2;
+    /* Tertiary Colors - Dark Mode */
+    --md-sys-color-tertiary: #fb923c;
+    --md-sys-color-on-tertiary: #431407;
+    --md-sys-color-tertiary-container: #9a3412;
+    --md-sys-color-on-tertiary-container: #fed7aa;
 
+    /* Error Colors - Dark Mode */
+    --md-sys-color-error: #f87171;
+    --md-sys-color-on-error: #7f1d1d;
+    --md-sys-color-error-container: #991b1b;
+    --md-sys-color-on-error-container: #fecaca;
+
+    /* Surface Colors - Dark Mode (Tone-based) */
     --md-sys-color-surface: #141218;
     --md-sys-color-on-surface: #e6e1e5;
     --md-sys-color-surface-variant: #49454f;
     --md-sys-color-on-surface-variant: #cac4d0;
-    --md-sys-color-surface-container: #1d1b20;
+
+    /* Surface Container Levels - Dark Mode */
+    --md-sys-color-surface-dim: #0f0d13;
+    --md-sys-color-surface-bright: #383541;
+    --md-sys-color-surface-container-lowest: #0c0a0f;
     --md-sys-color-surface-container-low: #1d1b20;
+    --md-sys-color-surface-container: #211f26;
     --md-sys-color-surface-container-high: #2b2930;
     --md-sys-color-surface-container-highest: #36343b;
 
-    --md-sys-color-background: #141218;
+    /* Background Colors - Dark Mode */
+    --md-sys-color-background: #100f14;
     --md-sys-color-on-background: #e6e1e5;
 
+    /* Outline Colors - Dark Mode */
     --md-sys-color-outline: #938f99;
     --md-sys-color-outline-variant: #49454f;
+
+    /* Inverse Colors - Dark Mode */
+    --md-sys-color-inverse-surface: #e6e1e5;
+    --md-sys-color-inverse-on-surface: #2f3033;
+    --md-sys-color-inverse-primary: #2563eb;
+
+    /* Fixed Colors - Dark Mode (same as light mode for consistency) */
+    --md-sys-color-primary-fixed: #dbeafe;
+    --md-sys-color-on-primary-fixed: #1e3a8a;
+    --md-sys-color-primary-fixed-dim: #93c5fd;
+    --md-sys-color-on-primary-fixed-variant: #2563eb;
+
+    --md-sys-color-secondary-fixed: #d1fae5;
+    --md-sys-color-on-secondary-fixed: #064e3b;
+    --md-sys-color-secondary-fixed-dim: #6ee7b7;
+    --md-sys-color-on-secondary-fixed-variant: #059669;
+
+    --md-sys-color-tertiary-fixed: #fed7aa;
+    --md-sys-color-on-tertiary-fixed: #431407;
+    --md-sys-color-tertiary-fixed-dim: #fb923c;
+    --md-sys-color-on-tertiary-fixed-variant: #7c2d12;
   }
 }
 
@@ -169,7 +243,10 @@ body {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -272,8 +349,13 @@ body {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== MATERIAL WEB COMPONENTS ENHANCED ===== */
@@ -419,7 +501,18 @@ md-fab:focus-visible {
 
 /* ===== PRINT STYLES ===== */
 @media print {
-  md-fab { display: none; }
-  .hero-section { min-height: auto; page-break-inside: avoid; }
-  md-card { page-break-inside: avoid; box-shadow: none; border: 1px solid var(--md-sys-color-outline-variant); }
+  md-fab {
+    display: none;
+  }
+
+  .hero-section {
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+
+  md-card {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--md-sys-color-outline-variant);
+  }
 }
