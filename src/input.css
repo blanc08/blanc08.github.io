@@ -3,12 +3,20 @@
 @tailwind utilities;
 
 /* Material 3 Expressive Design System Custom CSS */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+/* Font loading handled in HTML to avoid duplicates */
 
 /* ===== MATERIAL 3 EXPRESSIVE ENHANCEMENTS ===== */
+/* Standardized transition system */
+:root {
+  --transition-quick: 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-standard: 0.3s cubic-bezier(0.2, 0, 0, 1);
+  --transition-emphasized: 0.4s cubic-bezier(0.2, 0, 0, 1);
+  --transition-slow: 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
 * {
   scroll-behavior: smooth;
-  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  transition: all var(--transition-standard);
 }
 
 body {
@@ -18,7 +26,7 @@ body {
 /* Dynamic Background Patterns */
 .hero-section {
   position: relative;
-  background: 
+  background:
     radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
   overflow: hidden;
@@ -31,22 +39,27 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: 
-    conic-gradient(from 0deg at 50% 50%, 
-      transparent 0deg, 
-      rgba(37, 99, 235, 0.05) 60deg, 
-      transparent 120deg, 
-      rgba(5, 150, 105, 0.05) 180deg, 
-      transparent 240deg, 
-      rgba(234, 88, 12, 0.05) 300deg, 
+  background:
+    conic-gradient(from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(37, 99, 235, 0.05) 60deg,
+      transparent 120deg,
+      rgba(5, 150, 105, 0.05) 180deg,
+      transparent 240deg,
+      rgba(234, 88, 12, 0.05) 300deg,
       transparent 360deg);
   animation: spin 20s linear infinite;
   pointer-events: none;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== ACCESSIBILITY ===== */
@@ -163,7 +176,7 @@ body {
   --md-sys-color-on-background: #1f2937;
   --md-sys-color-outline: #9ca3af;
   --md-sys-color-outline-variant: #d1d5db;
-  
+
   /* Dark mode colors */
   --md-sys-color-primary-dark: #3b82f6;
   --md-sys-color-on-primary-dark: #1e3a8a;
@@ -1081,10 +1094,10 @@ md-card::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(37, 99, 235, 0.1), 
-    transparent);
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(37, 99, 235, 0.1),
+      transparent);
   transition: left 0.6s ease;
   pointer-events: none;
 }
@@ -1093,7 +1106,7 @@ md-card:hover {
   --md-card-container-elevation: 4;
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(37, 99, 235, 0.2);
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.1),
     0 10px 20px rgba(37, 99, 235, 0.1),
     0 0 0 1px rgba(37, 99, 235, 0.05);
@@ -1139,7 +1152,7 @@ md-fab {
   animation: bounceIn 0.8s ease-out;
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 6px 12px rgba(37, 99, 235, 0.3),
     0 2px 4px rgba(37, 99, 235, 0.2);
 }
@@ -1160,7 +1173,7 @@ md-fab::before {
 
 md-fab:hover {
   transform: scale(1.15) rotate(8deg);
-  box-shadow: 
+  box-shadow:
     0 12px 24px rgba(37, 99, 235, 0.4),
     0 6px 12px rgba(37, 99, 235, 0.3);
   animation: wiggle 0.6s ease-in-out;
@@ -1181,13 +1194,16 @@ md-fab:active {
     opacity: 0;
     transform: scale(0.3);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.1);
   }
+
   70% {
     transform: scale(0.95);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -1195,12 +1211,16 @@ md-fab:active {
 }
 
 @keyframes wiggle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1.15) rotate(8deg);
   }
+
   25% {
     transform: scale(1.15) rotate(12deg);
   }
+
   75% {
     transform: scale(1.15) rotate(4deg);
   }
@@ -1430,7 +1450,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(234, 88, 12, 0.04) 0%, transparent 50%);
@@ -1451,7 +1471,7 @@ html {
   background: var(--md-sys-color-surface);
   border-radius: 28px;
   padding: 3rem;
-  box-shadow: 
+  box-shadow:
     0 10px 20px 0 rgba(0, 0, 0, 0.1),
     0 6px 6px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid var(--md-sys-color-outline-variant);
@@ -1465,7 +1485,7 @@ html {
 
 .experience-fullscreen md-card:hover {
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 20px 40px 0 rgba(0, 0, 0, 0.15),
     0 10px 15px 0 rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(37, 99, 235, 0.1);
@@ -1493,7 +1513,7 @@ html {
   .experience-fullscreen {
     padding: 8rem 0;
   }
-  
+
   .experience-fullscreen md-card {
     padding: 4rem;
   }
@@ -1513,9 +1533,12 @@ html {
 }
 
 @keyframes grid-move {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0 0;
   }
+
   50% {
     background-position: 15px 15px;
   }
@@ -1557,7 +1580,7 @@ html {
 
 .achievement-highlight:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 12px 24px rgba(37, 99, 235, 0.3),
     0 0 20px rgba(37, 99, 235, 0.2);
   animation: pulse-slow 2s infinite;
@@ -1578,7 +1601,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: 
+  box-shadow:
     0 6px 12px rgba(37, 99, 235, 0.3),
     0 2px 4px rgba(37, 99, 235, 0.2);
   border: 2px solid rgba(37, 99, 235, 0.5);
@@ -1603,7 +1626,7 @@ html {
 
 .contact-button:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 16px 32px rgba(37, 99, 235, 0.4),
     0 8px 16px rgba(37, 99, 235, 0.3),
     0 0 0 3px rgba(37, 99, 235, 0.2);
@@ -1621,9 +1644,12 @@ html {
 
 /* Floating animations for decorative elements */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-15px);
   }
@@ -1634,6 +1660,7 @@ html {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -1645,6 +1672,7 @@ html {
     opacity: 0;
     transform: scale(0.8);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -1653,21 +1681,25 @@ html {
 
 @keyframes glow {
   0% {
-    box-shadow: 
+    box-shadow:
       0 10px 20px rgba(37, 99, 235, 0.2),
       0 0 10px rgba(37, 99, 235, 0.1);
   }
+
   100% {
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(37, 99, 235, 0.4),
       0 0 30px rgba(37, 99, 235, 0.3);
   }
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(-6px) scale(1.05);
   }
+
   50% {
     transform: translateY(-8px) scale(1.08);
   }
@@ -1679,10 +1711,13 @@ html {
 
 /* Custom bounce delays */
 @keyframes bounce-delayed {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
+
   50% {
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -1695,27 +1730,27 @@ html {
     min-height: 100vh;
     padding: 4rem 0;
   }
-  
+
   .experience-fullscreen .grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
+
   .experience-fullscreen .w-80 {
     width: 12rem;
     height: 12rem;
   }
-  
+
   .experience-fullscreen .text-9xl {
     font-size: 4rem;
   }
-  
+
   /* Reduce spacing on mobile */
-  .space-y-10 > * + * {
+  .space-y-10>*+* {
     margin-top: 2rem;
   }
-  
-  .space-y-12 > * + * {
+
+  .space-y-12>*+* {
     margin-top: 2.5rem;
   }
 }

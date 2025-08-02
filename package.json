@@ -1,5 +1,10 @@
 {
+  "name": "bagus-oktaviadi-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with Material 3 and Tailwind CSS",
   "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
     "start": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "devDependencies": {

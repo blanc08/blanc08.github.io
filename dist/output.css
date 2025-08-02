@@ -1127,13 +1127,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* Material 3 Expressive Design System Custom CSS */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+/* Font loading handled in HTML to avoid duplicates */
 
 /* ===== MATERIAL 3 EXPRESSIVE ENHANCEMENTS ===== */
 
+/* Standardized transition system */
+
+:root {
+  --transition-quick: 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-standard: 0.3s cubic-bezier(0.2, 0, 0, 1);
+  --transition-emphasized: 0.4s cubic-bezier(0.2, 0, 0, 1);
+  --transition-slow: 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
 * {
   scroll-behavior: smooth;
-  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  transition: all var(--transition-standard);
 }
 
 body {
@@ -1144,7 +1153,7 @@ body {
 
 .hero-section {
   position: relative;
-  background: 
+  background:
     radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
   overflow: hidden;
@@ -1157,14 +1166,14 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: 
-    conic-gradient(from 0deg at 50% 50%, 
-      transparent 0deg, 
-      rgba(37, 99, 235, 0.05) 60deg, 
-      transparent 120deg, 
-      rgba(5, 150, 105, 0.05) 180deg, 
-      transparent 240deg, 
-      rgba(234, 88, 12, 0.05) 300deg, 
+  background:
+    conic-gradient(from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(37, 99, 235, 0.05) 60deg,
+      transparent 120deg,
+      rgba(5, 150, 105, 0.05) 180deg,
+      transparent 240deg,
+      rgba(234, 88, 12, 0.05) 300deg,
       transparent 360deg);
   animation: spin 20s linear infinite;
   pointer-events: none;
@@ -2215,10 +2224,10 @@ md-card::before {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(37, 99, 235, 0.1), 
-    transparent);
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(37, 99, 235, 0.1),
+      transparent);
   transition: left 0.6s ease;
   pointer-events: none;
 }
@@ -2227,7 +2236,7 @@ md-card:hover {
   --md-card-container-elevation: 4;
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(37, 99, 235, 0.2);
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.1),
     0 10px 20px rgba(37, 99, 235, 0.1),
     0 0 0 1px rgba(37, 99, 235, 0.05);
@@ -2274,7 +2283,7 @@ md-fab {
   animation: bounceIn 0.8s ease-out;
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 6px 12px rgba(37, 99, 235, 0.3),
     0 2px 4px rgba(37, 99, 235, 0.2);
 }
@@ -2295,7 +2304,7 @@ md-fab::before {
 
 md-fab:hover {
   transform: scale(1.15) rotate(8deg);
-  box-shadow: 
+  box-shadow:
     0 12px 24px rgba(37, 99, 235, 0.4),
     0 6px 12px rgba(37, 99, 235, 0.3);
   animation: wiggle 0.6s ease-in-out;
@@ -2333,7 +2342,8 @@ md-fab:active {
 }
 
 @keyframes wiggle {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.15) rotate(8deg);
   }
 
@@ -2584,7 +2594,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(234, 88, 12, 0.04) 0%, transparent 50%);
@@ -2606,7 +2616,7 @@ html {
   background: var(--md-sys-color-surface);
   border-radius: 28px;
   padding: 3rem;
-  box-shadow: 
+  box-shadow:
     0 10px 20px 0 rgba(0, 0, 0, 0.1),
     0 6px 6px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid var(--md-sys-color-outline-variant);
@@ -2621,7 +2631,7 @@ html {
 
 .experience-fullscreen md-card:hover {
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 
+  box-shadow:
     0 20px 40px 0 rgba(0, 0, 0, 0.15),
     0 10px 15px 0 rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(37, 99, 235, 0.1);
@@ -2670,7 +2680,8 @@ html {
 }
 
 @keyframes grid-move {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0 0;
   }
 
@@ -2717,7 +2728,7 @@ html {
 
 .achievement-highlight:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 12px 24px rgba(37, 99, 235, 0.3),
     0 0 20px rgba(37, 99, 235, 0.2);
   animation: pulse-slow 2s infinite;
@@ -2739,7 +2750,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  box-shadow: 
+  box-shadow:
     0 6px 12px rgba(37, 99, 235, 0.3),
     0 2px 4px rgba(37, 99, 235, 0.2);
   border: 2px solid rgba(37, 99, 235, 0.5);
@@ -2764,7 +2775,7 @@ html {
 
 .contact-button:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 
+  box-shadow:
     0 16px 32px rgba(37, 99, 235, 0.4),
     0 8px 16px rgba(37, 99, 235, 0.3),
     0 0 0 3px rgba(37, 99, 235, 0.2);
@@ -2783,7 +2794,8 @@ html {
 /* Floating animations for decorative elements */
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
 
@@ -2818,20 +2830,21 @@ html {
 
 @keyframes glow {
   0% {
-    box-shadow: 
+    box-shadow:
       0 10px 20px rgba(37, 99, 235, 0.2),
       0 0 10px rgba(37, 99, 235, 0.1);
   }
 
   100% {
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(37, 99, 235, 0.4),
       0 0 30px rgba(37, 99, 235, 0.3);
   }
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-6px) scale(1.05);
   }
 
@@ -2847,7 +2860,8 @@ html {
 /* Custom bounce delays */
 
 @keyframes bounce-delayed {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-25%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }
@@ -2882,11 +2896,11 @@ html {
 
   /* Reduce spacing on mobile */
 
-  .space-y-10 > * + * {
+  .space-y-10>*+* {
     margin-top: 2rem;
   }
 
-  .space-y-12 > * + * {
+  .space-y-12>*+* {
     margin-top: 2.5rem;
   }
 }
