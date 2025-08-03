@@ -89,6 +89,20 @@
 
   <!-- Custom CSS -->
   <link href="/dist/output.css" rel="stylesheet" />
+
+  <!-- Material 3 Shape System -->
+  <style>
+    /* Material 3 FAB styling */
+    md-fab {
+      --md-fab-container-color: var(--md-sys-color-primary-container);
+      --md-fab-label-text-color: var(--md-sys-color-on-primary-container);
+      --md-fab-icon-color: var(--md-sys-color-on-primary-container);
+      --md-fab-hover-state-layer-color: var(--md-sys-color-primary);
+      --md-fab-hover-state-layer-opacity: 0.08;
+      --md-fab-pressed-state-layer-color: var(--md-sys-color-primary);
+      --md-fab-pressed-state-layer-opacity: 0.12;
+    }
+  </style>
 </head>
 
 <body class="m3-surface">
@@ -128,9 +142,9 @@
       </div>
       <div class="hero-image flex justify-center lg:justify-end">
         <div
-          class="profile-blob w-60 h-60 lg:w-72 lg:h-72 rounded-3xl overflow-hidden relative bg-gradient-to-45 from-primary to-tertiary p-0.5 transition-transform duration-300 hover:scale-105">
+          class="profile-container w-60 h-60 lg:w-72 lg:h-72 rounded-2xl overflow-hidden relative bg-surface-variant shadow-elevation-2">
           <img src="/src/images/background.jpg" alt="Professional headshot of Bagus Oktaviadi"
-            class="w-full h-full object-cover rounded-3xl" />
+            class="w-full h-full object-cover" />
         </div>
       </div>
     </div>
@@ -142,64 +156,119 @@
   <!-- Main Content -->
   <main>
 
-    <!-- Skills Section -->
-    <section class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8" aria-labelledby="skills-heading">
-      <header class="text-center mb-16 lg:mb-20 w-full flex flex-col items-center">
-        <h2 id="skills-heading" class="md-typescale-headline-large mb-6 text-on-surface font-normal">What I Bring to
-          Your Project</h2>
-        <p class="md-typescale-body-large max-w-2xl mx-auto text-on-surface-variant text-center leading-relaxed">
-          Technical expertise and proven solutions that deliver results for your business
-        </p>
-      </header>
-      <div class="flex flex-wrap gap-4 justify-center mb-12" role="list" aria-label="Technical skills">
-        <md-filter-chip label="PHP & Laravel" selected role="listitem"
-          class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">code</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="Node.js & Express.js" selected role="listitem"
-          class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">javascript</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="Ruby" selected role="listitem" class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">pets</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="Golang" selected role="listitem"
-          class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">speed</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="Workato Integration" selected role="listitem"
-          class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">settings</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="Team Leadership" selected role="listitem"
-          class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">group</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="System Integration" role="listitem"
-          class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">hub</md-icon>
-        </md-filter-chip>
-        <md-filter-chip label="Microservices" role="listitem" class="transition-transform duration-200 hover:scale-105">
-          <md-icon slot="icon" aria-hidden="true">architecture</md-icon>
-        </md-filter-chip>
+    <!-- Skills Section - Full Screen -->
+    <section class="min-h-screen flex items-center justify-center bg-tertiary-container relative overflow-hidden w-full"
+      aria-labelledby="skills-heading">
+      <!-- Background decorative elements -->
+      <div class="absolute inset-0 opacity-30"
+        style="background-image: radial-gradient(circle, rgb(251 146 60 / 0.03) 1px, transparent 1px); background-size: 20px 20px;">
       </div>
-      <md-divider class="my-8"></md-divider>
+      <div class="absolute top-10 left-10 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-10 right-10 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl animate-float"
+        style="animation-delay: -2s;"></div>
+
+      <div class="max-w-7xl mx-auto px-8 lg:px-12 relative z-10 w-full">
+        <div class="grid lg:grid-cols-2 gap-20 lg:gap-24 items-center">
+
+          <!-- Content Side -->
+          <div class="space-y-10 lg:space-y-12 animate-fade-in-up">
+            <!-- Section badge -->
+            <div
+              class="inline-flex items-center gap-3 bg-tertiary text-on-tertiary px-6 py-3 rounded-full shadow-elevation-2">
+              <md-icon class="text-xl">engineering</md-icon>
+              <span class="md-typescale-label-large font-semibold">Technical Stack</span>
+            </div>
+
+            <!-- Main content -->
+            <div class="space-y-8">
+              <h2 id="skills-heading"
+                class="md-typescale-display-small font-bold text-on-tertiary-container leading-tight">
+                What I Bring to Your Project
+              </h2>
+              <p class="md-typescale-body-large text-on-surface leading-relaxed max-w-2xl">
+                Technical expertise and proven solutions that deliver results for your business.
+                Each skill represents years of hands-on experience solving real-world challenges.
+              </p>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-2xl">
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">code</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">PHP & Laravel</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">javascript</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Node.js</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">pets</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Ruby</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">speed</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Golang</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">settings</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Workato</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">group</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Leadership</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">hub</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Integration</span>
+              </div>
+
+              <div
+                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                <md-icon class="text-primary text-3xl mb-3">architecture</md-icon>
+                <span class="md-typescale-label-large font-medium text-on-surface block">Microservices</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Side -->
+          <div class="flex justify-center lg:justify-end animate-fade-in-scale" style="animation-delay: 200ms;">
+            <div class="relative">
+              <!-- Main icon container -->
+              <div class="w-64 h-64 bg-primary rounded-2xl flex items-center justify-center shadow-elevation-3">
+                <md-icon class="text-on-primary text-8xl">engineering</md-icon>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Next Section Navigation -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <md-fab class="hover:scale-105 transition-all duration-300 shadow-elevation-3" size="large" variant="primary"
+            aria-label="Continue to journey section">
+            <md-icon slot="icon" class="text-3xl">expand_more</md-icon>
+          </md-fab>
+        </div>
+      </div>
     </section>
 
     <!-- Journey Section -->
-    <section class="py-16 lg:py-24 w-full" aria-labelledby="journey-heading">
-      <header class="max-w-7xl mx-auto py-16 text-center w-full flex flex-col items-center px-6 lg:px-8">
-        <h2 id="journey-heading" class="md-typescale-headline-large mb-6 text-on-surface font-normal">
-          How I Built My Expertise
-        </h2>
-        <p class="md-typescale-body-large max-w-3xl mx-auto text-on-surface-variant leading-relaxed">
-          From student to Technical Consultant—discover the experiences that shaped my ability to solve complex
-          technical challenges.
-        </p>
-      </header>
-
+    <section class="w-full" aria-labelledby="journey-heading" id="journey">
       <!-- Full-Screen Journey Experiences -->
-      <div class="w-full">
+      <div class="w-full" id="journey-experiences">
 
         <!-- Education Experience - Full Screen -->
         <section
@@ -243,11 +312,10 @@
                 <!-- Achievement highlights -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
                   <div
-                    class="bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
+                    class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
-                      <md-icon class="text-primary text-3xl">psychology</md-icon>
-                      <span
-                        class="md-typescale-title-medium font-semibold text-on-primary-container">Problem-solving</span>
+                      <md-icon class="text-primary text-2xl">psychology</md-icon>
+                      <span class="md-typescale-title-small font-medium text-on-surface">Problem-solving</span>
                     </div>
                     <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Developed analytical
                       thinking
@@ -255,11 +323,10 @@
                   </div>
 
                   <div
-                    class="bg-surface/60 backdrop-blur-sm border border-outline-variant rounded-xl p-8 hover:bg-surface/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
+                    class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
-                      <md-icon class="text-primary text-3xl">group</md-icon>
-                      <span
-                        class="md-typescale-title-medium font-semibold text-on-primary-container">Collaboration</span>
+                      <md-icon class="text-primary text-2xl">group</md-icon>
+                      <span class="md-typescale-title-small font-medium text-on-surface">Collaboration</span>
                     </div>
                     <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Built strong teamwork
                       skills
@@ -272,22 +339,8 @@
               <div class="flex justify-center lg:justify-end animate-fade-in-scale" style="animation-delay: 200ms;">
                 <div class="relative">
                   <!-- Main icon container -->
-                  <div
-                    class="w-80 h-80 bg-primary rounded-3xl flex items-center justify-center shadow-elevation-4 hover:scale-105 transition-transform duration-500">
-                    <md-icon class="text-on-primary text-9xl">school</md-icon>
-                  </div>
-
-                  <!-- Floating elements -->
-                  <div
-                    class="absolute -top-6 -right-6 w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
-                    style="animation-delay: 0.5s;">
-                    <md-icon class="text-yellow-900 text-2xl">lightbulb</md-icon>
-                  </div>
-
-                  <div
-                    class="absolute -bottom-6 -left-6 w-20 h-20 bg-green-500 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
-                    style="animation-delay: 1s;">
-                    <md-icon class="text-white text-3xl">code</md-icon>
+                  <div class="w-64 h-64 bg-primary rounded-2xl flex items-center justify-center shadow-elevation-3">
+                    <md-icon class="text-on-primary text-8xl">school</md-icon>
                   </div>
                 </div>
               </div>
@@ -315,22 +368,8 @@
                 style="animation-delay: 200ms;">
                 <div class="relative">
                   <!-- Main icon container -->
-                  <div
-                    class="w-80 h-80 bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl flex items-center justify-center shadow-elevation-4 hover:scale-105 transition-transform duration-500">
-                    <md-icon class="text-white text-9xl">work</md-icon>
-                  </div>
-
-                  <!-- Floating elements -->
-                  <div
-                    class="absolute -top-6 -left-6 w-16 h-16 bg-blue-400 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
-                    style="animation-delay: 0.3s;">
-                    <md-icon class="text-blue-900 text-2xl">business</md-icon>
-                  </div>
-
-                  <div
-                    class="absolute -bottom-6 -right-6 w-20 h-20 bg-purple-500 rounded-2xl flex items-center justify-center shadow-elevation-2 animate-bounce"
-                    style="animation-delay: 0.8s;">
-                    <md-icon class="text-white text-3xl">cloud</md-icon>
+                  <div class="w-64 h-64 bg-secondary rounded-2xl flex items-center justify-center shadow-elevation-3">
+                    <md-icon class="text-on-secondary text-8xl">work</md-icon>
                   </div>
                 </div>
               </div>
@@ -364,27 +403,24 @@
                 <!-- Achievement highlights -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
                   <div
-                    class="bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
+                    class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
-                      <md-icon class="text-green-600 text-3xl">business</md-icon>
-                      <span class="md-typescale-title-medium font-semibold text-green-900 dark:text-green-100">Client
-                        Focus</span>
+                      <md-icon class="text-secondary text-2xl">business</md-icon>
+                      <span class="md-typescale-title-small font-medium text-on-surface">Client Focus</span>
                     </div>
-                    <p class="md-typescale-body-medium text-gray-600 dark:text-gray-300 leading-relaxed">Learned to
-                      translate business
+                    <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Learned to translate
+                      business
                       requirements into technical solutions</p>
                   </div>
 
                   <div
-                    class="bg-white/60 dark:bg-green-900/30 backdrop-blur-sm border border-green-200 dark:border-green-700 rounded-xl p-8 hover:bg-white/80 dark:hover:bg-green-900/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-elevation-3">
+                    class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300">
                     <div class="flex items-center gap-4 mb-4">
-                      <md-icon class="text-green-600 text-3xl">cloud</md-icon>
-                      <span
-                        class="md-typescale-title-medium font-semibold text-green-900 dark:text-green-100">Production
-                        Ready</span>
+                      <md-icon class="text-secondary text-2xl">cloud</md-icon>
+                      <span class="md-typescale-title-small font-medium text-on-surface">Production Ready</span>
                     </div>
-                    <p class="md-typescale-body-medium text-gray-600 dark:text-gray-300 leading-relaxed">Mastered
-                      deployment processes
+                    <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Mastered deployment
+                      processes
                       and production environment best practices</p>
                   </div>
                 </div>
@@ -441,9 +477,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
-      <header class="text-center mb-16 lg:mb-20">
-        <h2 class="md-typescale-headline-large mb-6 text-on-surface font-normal">Ready to Start Your Project?</h2>
+    <section id="contact" class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
+      <header class="text-center flex flex-col items-center py-6">
+        <h2 class="md-typescale-headline-large mb-6 text-on-surface font-normal">Reach out to me?</h2>
         <p class="md-typescale-body-large max-w-2xl mx-auto text-on-surface-variant leading-relaxed">
           Let's discuss how I can help solve your technical challenges. Choose your preferred way to connect.
         </p>

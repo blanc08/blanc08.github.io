@@ -11,12 +11,25 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeConnectedMagazine();
 
   // Handle FAB click - scroll to contact section
-  const fab = document.querySelector('md-fab');
+  const fab = document.querySelector('md-fab[href]');
   const contactSection = document.querySelector('section:last-of-type');
 
   if (fab && contactSection) {
     fab.addEventListener('click', () => {
       contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+
+  // Handle Skills section next navigation FAB
+  const skillsNextFab = document.getElementById('skillsNextFab');
+  const journeySection = document.getElementById('journey');
+
+  if (skillsNextFab && journeySection) {
+    skillsNextFab.addEventListener('click', () => {
+      journeySection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
