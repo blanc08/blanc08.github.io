@@ -618,6 +618,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: -16px;
 }
 
+.top-20 {
+  top: 80px;
+}
+
+.left-20 {
+  left: 80px;
+}
+
+.bottom-20 {
+  bottom: 80px;
+}
+
+.right-20 {
+  right: 80px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -764,8 +780,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 256px;
 }
 
+.h-24 {
+  height: 96px;
+}
+
+.h-\[180px\] {
+  height: 180px;
+}
+
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-\[180px\] {
+  min-height: 180px;
 }
 
 .w-60 {
@@ -828,8 +856,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 256px;
 }
 
+.w-24 {
+  width: 96px;
+}
+
+.w-\[180px\] {
+  width: 180px;
+}
+
 .min-w-\[140px\] {
   min-width: 140px;
+}
+
+.min-w-\[150px\] {
+  min-width: 150px;
+}
+
+.min-w-\[180px\] {
+  min-width: 180px;
 }
 
 .max-w-7xl {
@@ -1107,6 +1151,89 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 24px;
 }
 
+.rounded-t-full {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+.rounded-b-2xl {
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+.rounded-b-3xl {
+  border-bottom-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+
+.rounded-l-full {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+}
+
+.rounded-r-3xl {
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+
+.rounded-r-full {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}
+
+.rounded-l-3xl {
+  border-top-left-radius: 28px;
+  border-bottom-left-radius: 28px;
+}
+
+.rounded-tl-none {
+  border-top-left-radius: 0;
+}
+
+.rounded-tr-full {
+  border-top-right-radius: 9999px;
+}
+
+.rounded-bl-full {
+  border-bottom-left-radius: 9999px;
+}
+
+.rounded-br-3xl {
+  border-bottom-right-radius: 28px;
+}
+
+.rounded-tl-full {
+  border-top-left-radius: 9999px;
+}
+
+.rounded-tr-none {
+  border-top-right-radius: 0;
+}
+
+.rounded-bl-3xl {
+  border-bottom-left-radius: 28px;
+}
+
+.rounded-br-full {
+  border-bottom-right-radius: 9999px;
+}
+
+.rounded-tl-3xl {
+  border-top-left-radius: 28px;
+}
+
+.rounded-bl-none {
+  border-bottom-left-radius: 0;
+}
+
+.rounded-tr-3xl {
+  border-top-right-radius: 28px;
+}
+
+.rounded-br-none {
+  border-bottom-right-radius: 0;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1213,6 +1340,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: var(--md-sys-color-surface);
 }
 
+.bg-error-container {
+  background-color: var(--md-sys-color-error-container);
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1237,6 +1368,53 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(234 88 12 / 0));
 }
 
+.from-secondary-container {
+  --tw-gradient-from: var(--md-sys-color-secondary-container);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+
+.from-tertiary-container {
+  --tw-gradient-from: var(--md-sys-color-tertiary-container);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+
+.from-error-container {
+  --tw-gradient-from: var(--md-sys-color-error-container);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+
+.from-purple-200 {
+  --tw-gradient-from: #e9d5ff;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(233 213 255 / 0));
+}
+
+.from-green-200 {
+  --tw-gradient-from: #bbf7d0;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(187 247 208 / 0));
+}
+
+.from-blue-200 {
+  --tw-gradient-from: #bfdbfe;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(191 219 254 / 0));
+}
+
+.from-orange-200 {
+  --tw-gradient-from: #fed7aa;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(254 215 170 / 0));
+}
+
+.via-secondary-container {
+  --tw-gradient-stops: var(--tw-gradient-from), var(--md-sys-color-secondary-container), var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+
+.via-tertiary-container {
+  --tw-gradient-stops: var(--tw-gradient-from), var(--md-sys-color-tertiary-container), var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+
+.via-primary-container {
+  --tw-gradient-stops: var(--tw-gradient-from), var(--md-sys-color-primary-container), var(--tw-gradient-to, rgb(255 255 255 / 0));
+}
+
 .to-surface {
   --tw-gradient-to: var(--md-sys-color-surface);
 }
@@ -1251,6 +1429,34 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .to-amber-700 {
   --tw-gradient-to: #b45309;
+}
+
+.to-primary {
+  --tw-gradient-to: var(--md-sys-color-primary);
+}
+
+.to-secondary {
+  --tw-gradient-to: var(--md-sys-color-secondary);
+}
+
+.to-error {
+  --tw-gradient-to: var(--md-sys-color-error);
+}
+
+.to-purple-500 {
+  --tw-gradient-to: #a855f7;
+}
+
+.to-green-500 {
+  --tw-gradient-to: #22c55e;
+}
+
+.to-blue-500 {
+  --tw-gradient-to: #3b82f6;
+}
+
+.to-orange-500 {
+  --tw-gradient-to: #f97316;
 }
 
 .object-cover {
@@ -1482,6 +1688,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: var(--md-sys-color-on-secondary);
 }
 
+.text-on-secondary-container {
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.text-on-error-container {
+  color: var(--md-sys-color-on-error-container);
+}
+
+.text-error {
+  color: var(--md-sys-color-error);
+}
+
+.text-on-error {
+  color: var(--md-sys-color-on-error);
+}
+
+.text-purple-900 {
+  --tw-text-opacity: 1;
+  color: rgb(88 28 135 / var(--tw-text-opacity));
+}
+
+.text-orange-900 {
+  --tw-text-opacity: 1;
+  color: rgb(124 45 18 / var(--tw-text-opacity));
+}
+
 .opacity-30 {
   opacity: 0.3;
 }
@@ -1504,6 +1736,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .opacity-70 {
   opacity: 0.7;
+}
+
+.opacity-10 {
+  opacity: 0.1;
 }
 
 .shadow-elevation-2 {
@@ -1530,6 +1766,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-elevation-1 {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .outline {
   outline-style: solid;
 }
@@ -1546,6 +1788,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .blur-xl {
   --tw-blur: blur(24px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.blur-2xl {
+  --tw-blur: blur(40px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
