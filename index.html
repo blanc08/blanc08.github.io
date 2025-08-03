@@ -102,6 +102,15 @@
       --md-fab-pressed-state-layer-color: var(--md-sys-color-primary);
       --md-fab-pressed-state-layer-opacity: 0.12;
     }
+
+    /* Material 3 Icon sizing for certification cards */
+    .certification-icon {
+      font-size: 48px !important;
+      display: block;
+      margin: 0 auto 1rem auto;
+      width: 48px;
+      height: 48px;
+    }
   </style>
 </head>
 
@@ -191,54 +200,55 @@
               </p>
             </div>
 
-            <!-- Skills Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-2xl">
+            <!-- Skills Flex Layout -->
+            <div class="flex flex-wrap gap-4 max-w-2xl">
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">code</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">PHP & Laravel</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">javascript</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">Node.js</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">pets</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">Ruby</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">speed</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">Golang</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">settings</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">Workato</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">group</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">Leadership</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">hub</md-icon>
                 <span class="md-typescale-label-large font-medium text-on-surface block">Integration</span>
               </div>
 
               <div
-                class="bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
+                class="flex-1 min-w-[140px] bg-surface border border-outline-variant rounded-xl p-6 hover:shadow-elevation-2 transition-all duration-300 text-center">
                 <md-icon class="text-primary text-3xl mb-3">architecture</md-icon>
-                <span class="md-typescale-label-large font-medium text-on-surface block">Microservices</span>
+                <span
+                  class="md-typescale-label-large font-medium text-on-surface block break-words">Microservices</span>
               </div>
             </div>
           </div>
@@ -253,14 +263,6 @@
             </div>
           </div>
 
-        </div>
-
-        <!-- Next Section Navigation -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <md-fab class="hover:scale-105 transition-all duration-300 shadow-elevation-3" size="large" variant="primary"
-            aria-label="Continue to journey section">
-            <md-icon slot="icon" class="text-3xl">expand_more</md-icon>
-          </md-fab>
         </div>
       </div>
     </section>
@@ -436,39 +438,36 @@
 
     <!-- Certifications Section -->
     <section class="py-24 lg:py-32 max-w-7xl mx-auto px-6 lg:px-8">
-      <header class="text-center mb-16 lg:mb-20">
-        <h2 class="md-typescale-headline-large mb-6 text-on-surface font-normal">Verified Expertise</h2>
+      <header class="text-center mb-16 lg:mb-20 flex flex-col items-center">
+        <h2 class="md-typescale-headline-large mb-6 text-on-surface font-normal">
+          Verified Expertise
+        </h2>
         <p class="md-typescale-body-large max-w-2xl mx-auto text-on-surface-variant leading-relaxed">
           Industry-recognized certifications that validate my technical skills and commitment to excellence
         </p>
       </header>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-        <md-card
-          class="group hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-3 overflow-hidden border border-outline-variant">
-          <div class="p-10 lg:p-12 text-center space-y-6">
-            <md-icon
-              class="text-6xl lg:text-7xl text-primary group-hover:scale-110 transition-transform duration-300">code</md-icon>
-            <h4 class="md-typescale-title-medium font-semibold text-on-surface">Go: The Complete Developer's Guide</h4>
+        <md-card class="hover:shadow-elevation-3 transition-all duration-300 border border-outline-variant">
+          <div class="p-8 text-center">
+            <md-icon class="certification-icon text-primary">code</md-icon>
+            <h4 class="md-typescale-title-medium font-semibold text-on-surface mb-3">Go: The Complete Developer's Guide
+            </h4>
             <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Mastered Golang for building
               high-performance, scalable backend systems and microservices</p>
           </div>
         </md-card>
-        <md-card
-          class="group hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-3 overflow-hidden border border-outline-variant">
-          <div class="p-10 lg:p-12 text-center space-y-6">
-            <md-icon
-              class="text-6xl lg:text-7xl text-secondary group-hover:scale-110 transition-transform duration-300">network_check</md-icon>
-            <h4 class="md-typescale-title-medium font-semibold text-on-surface">CCNA: Introduction to Networks</h4>
+        <md-card class="hover:shadow-elevation-3 transition-all duration-300 border border-outline-variant">
+          <div class="p-8 text-center">
+            <md-icon class="certification-icon text-secondary">network_check</md-icon>
+            <h4 class="md-typescale-title-medium font-semibold text-on-surface mb-3">CCNA: Introduction to Networks</h4>
             <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Certified in network
               infrastructure design and troubleshooting for enterprise environments</p>
           </div>
         </md-card>
-        <md-card
-          class="group hover:shadow-elevation-4 transition-all duration-300 hover:-translate-y-3 overflow-hidden border border-outline-variant">
-          <div class="p-10 lg:p-12 text-center space-y-6">
-            <md-icon
-              class="text-6xl lg:text-7xl text-tertiary group-hover:scale-110 transition-transform duration-300">psychology</md-icon>
-            <h4 class="md-typescale-title-medium font-semibold text-on-surface">Problem Solving (Basic)</h4>
+        <md-card class="hover:shadow-elevation-3 transition-all duration-300 border border-outline-variant">
+          <div class="p-8 text-center">
+            <md-icon class="certification-icon text-tertiary">psychology</md-icon>
+            <h4 class="md-typescale-title-medium font-semibold text-on-surface mb-3">Problem Solving (Basic)</h4>
             <p class="md-typescale-body-medium text-on-surface-variant leading-relaxed">Validated analytical thinking
               and systematic approach to complex technical challenges</p>
           </div>

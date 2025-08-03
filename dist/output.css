@@ -828,6 +828,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 256px;
 }
 
+.min-w-\[140px\] {
+  min-width: 140px;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -842,6 +846,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-6xl {
   max-width: 72rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .grow {
@@ -1079,6 +1087,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow: hidden;
 }
 
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded-3xl {
   border-radius: 28px;
 }
@@ -1266,6 +1278,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 24px;
 }
 
+.p-4 {
+  padding: 16px;
+}
+
 .px-6 {
   padding-left: 24px;
   padding-right: 24px;
@@ -1354,6 +1370,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-8xl {
   font-size: 6rem;
+  line-height: 1;
+}
+
+.text-5xl {
+  font-size: 3rem;
   line-height: 1;
 }
 
